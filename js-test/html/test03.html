@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .left {
+        width: 250px;
+        height: 100vh;
+        background-color: antiquewhite;
+      }
+      .center {
+        width: calc(100% - 500px);
+        height: 100vh;
+        background-color: #fff;
+      }
+      .headNav {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+      }
+      .dropBox {
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      .right {
+        width: 250px;
+        height: 100vh;
+        background-color: antiquewhite;
+      }
+      .left,
+      .center,
+      .right {
+        float: left;
+      }
+      a {
+        color: blue;
+        margin-right: 10px;
+      }
+      .flexBox {
+        display: flex;
+      }
+      .flexItem {
+        border: 1px solid #ddd;
+        min-height: 50px;
+        margin: 0 1px;
+      }
+      .drag-item {
+        max-width: 150px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        margin: 8px 0;
+      }
+      .drag-item:hover {
+        box-shadow: 0 0 3px 0 #CCC;
+      }
+      .flexItem.over {
+        border: 1px solid orangered;
+      }
+      .left-item {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="card">
+      <div class="left">
+        <ul>
+          <li class="left-item">信息文本</li>
+          <li class="left-item">栅格布局</li>
+        </ul>
+      </div>
+      <div class="center">
+        <div class="headNav">
+          <a onclick="addItem()">item</a>
+          <a>栅格</a>
+        </div>
+        <div class="dropBox" id="dropBox"></div>
+      </div>
+      <div class="right">
+        <div class="grid-right">
+          <div>
+            <div>
+              <label
+                ><input name="grid-item" type="radio" value="24" />24</label
+              >
+            </div>
+            <div>
+              <label
+                ><input name="grid-item" type="radio" value="6+18" />6 +
+                18</label
+              >
+            </div>
+            <div>
+              <label
+                ><input name="grid-item" type="radio" value="18+6" />18 +
+                6</label
+              >
+            </div>
+            <div>
+              <label
+                ><input name="grid-item" type="radio" value="6+6+12" />6 + 6 +
+                12</label
+              >
+            </div>
+            <div>
+              <label
+                ><input name="grid-item" type="radio" value="12+6+6" />12 + 6 +
+                6</label
+              >
+            </div>
+            <div>
+              <label
+                ><input name="grid-item" type="radio" value="6+12+6" />6 + 12 +
+                6</label
+              >
+            </div>
+            <div>
+              <label
+                ><input name="grid-item" type="radio" value="6+6+6+6" />6 + 6 +
+                6 + 6</label
+              >
+            </div>
+            <div>
+              <label
+                ><input name="grid-item" type="radio" value="8+16" />8 +
+                16</label
+              >
+            </div>
+            <div>
+              <label
+                ><input name="grid-item" type="radio" value="16+8" />16 +
+                8</label
+              >
+            </div>
+            <div>
+              <label
+                ><input name="grid-item" type="radio" value="8+8+8" />8 + 8 +
+                8</label
+              >
+            </div>
+          </div>
+          <div>
+            <button onclick="addGrid()">添加</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 16为随机数
+    const getId = function() {
+      var result = ''
+      for (var i = 0; i < 16; i++) {
+        result += Math.floor(Math.random() * 16).toString(16) //获取0-15并通过toString转16进制
+      }
+
+      //默认字母小写，手动转大写
+      return result.toUpperCase() //另toLowerCase()转小写
+    }
+    const addGrid = function() {
+      const radioNode = document.getElementsByName('grid-item')
+      var checked
+      for (var i = 0; i < radioNode.length; i++) {
+        if (radioNode[i].checked) {
+          checked = radioNode[i].value
+          break
+        }
+      }
+      const dropNode = document.getElementById('dropBox')
+      const flexList = checked
+        .split('+')
+        .map(item =>
+          `<div
+            class="flexItem"
+            style="flex: ${item};"
+            id=${getId()}
+          ></div>`
+        )
+        .join(' ')
+      console.log(flexList)
+      dropNode.insertAdjacentHTML(
+        'beforeend',
+        `
+          <div
+            class="flexBox"
+            draggable="true"
+            id=${getId()}
+            ondragover="itemDragOver(event,this)"
+            ondragenter="itemDragEnter(event,this)"
+            ondragleave="itemDragLeave(event,this)"
+            ondrop="itemDragDrop(event,this)"
+          >
+            ${flexList}
+          </div>
+        `
+      )
+    }
+    const addItem = function() {
+      const labelNameNode = `
+        <div
+          class="drag-item"
+          draggable="true"
+          ondragstart="itemDragstart(event, this)"
+          id=${getId()}
+        >
+          <label>本期已付：</label>
+        </div>`
+      const dropNode = document.getElementById('dropBox')
+      dropNode.insertAdjacentHTML('beforeend', labelNameNode)
+    }
+    const itemDragOver = function(e) {
+      e.preventDefault()
+    }
+    const itemDragEnter = function(e) {
+      e.preventDefault()
+      // e.target.classList.add('over')
+      const className = e.target.getAttribute('class')
+      if (className === 'drag-item') {
+        e.toElement.classList.add('over')
+      }
+    }
+    const itemDragLeave = function(e) {
+      e.preventDefault()
+      // e.target.classList.remove('over')
+      const className = e.target.getAttribute('class')
+      console.log(className)
+      if (className === 'drag-item') {
+        e.toElement.classList.remove('over')
+      }
+    }
+    const itemDragDrop = function(e, that) {
+      e.preventDefault()
+      const type = e.dataTransfer.getData('type')
+      console.log(3, type)
+      if (type === 'drag-item') {
+        e.toElement.classList.remove('over')
+        const itemId = e.dataTransfer.getData('id')
+        const elem = document.getElementById(itemId)
+        e.toElement.appendChild(elem)
+      }
+    }
+    // itemDragstart
+    const itemDragstart = function (e, that) {
+      e.dataTransfer.setData('id', that.id)
+      e.dataTransfer.setData('type', 'drag-item')
+    }
+    // 移出来
+    // document.getElementById('dropBox').ondragenter = function (e) {
+    //   e.preventDefault()
+    // }
+    // document.getElementById('dropBox').ondrag = function (e) {
+    //   e.preventDefault()
+    //   const itemId = e.dataTransfer.getData('id')
+    //   const elem = document.getElementById(itemId)
+    //   that.appendChild(elem)
+    // }
+  </script>
+</html>

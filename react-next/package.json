@@ -1,0 +1,21 @@
+{
+  "name": "react-next",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next -p 3007",
+    "build": "next build",
+    "start": "next start -p 3008",
+    "export": "npm run build && next export"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^9.1.3",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  }
+}

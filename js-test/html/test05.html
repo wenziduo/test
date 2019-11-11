@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const data = [
+        {
+          title: 'a',
+          id: 1,
+          parentId: 0
+        },
+        {
+          title: 'b',
+          id: 2,
+          parentId: 1
+        },
+        {
+          title: 'c',
+          id: 3,
+          parentId: 0
+        },
+        {
+          title: 'd',
+          id: 4,
+          parentId: 2
+        },
+        {
+          title: 'e',
+          id: 5,
+          parentId: 3
+        },
+        {
+          title: 'f',
+          id: 6,
+          parentId: 1
+        },
+        {
+          title: 'g',
+          id: 7,
+          parentId: 3
+        },
+        {
+          title: 'h',
+          id: 8,
+          parentId: 2
+        },
+        {
+          title: 'j',
+          id: 9,
+          parentId: 4
+        },
+        {
+          title: 'k',
+          id: 10,
+          parentId: 9
+        }
+      ]
+      function buildTree(list) {
+        let temp = {}
+        let tree = []
+        for (let i in list) {
+          temp[list[i].id] = list[i]
+        }
+        for (let i in temp) {
+          if (temp[i].parentId) {
+            if (!temp[temp[i].parentId].childrenList) {
+              temp[temp[i].parentId].childrenList = new Array()
+            }
+            // temp[temp[i].parentId].childrenList[temp[i].id] = temp[i];
+            temp[temp[i].parentId].childrenList.push(temp[i])
+          } else {
+            // tree[temp[i].id] =  temp[i];
+            tree.push(temp[i])
+          }
+        }
+        return tree
+      }
+      var a = 11
+      function test1() {
+        this.a = 22
+        let b = function() {
+          console.log(this.a)
+        }
+        b()
+      }
+      var x = new test1()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+  </body>
+  <script>
+    // 时钟对象模型
+    // 1、表盘外圆
+    // 2、时针、分针、秒针
+    // 3、圆心
+    const canvas = document.querySelector('canvas')
+    canvas.width = 500
+    canvas.height = 500
+    var ctx = canvas.getContext('2d')
+    function Clock(opt) {
+      for (var key in opt) {
+        this[key] = opt[key]
+      }
+      this.start()
+    }
+    Clock.prototype = {
+      // 开始
+      start: function() {
+        this.bigRound()
+      },
+      // 外面大圆以及刻度
+      bigRound: function() {
+        const { rl, rt, rr } = this
+        ctx.beginPath()
+        ctx.lineWidth = 0.5 //线条的粗细，默认是1,3就加粗了
+        ctx.arc(rl, rt, rr, 0, 2 * Math.PI)
+        ctx.closePath()
+        ctx.stroke()
+        // 计算每一个刻度的弧度值
+        var begScale = -Math.PI / 2 //从12的位置为起始
+        // 计算每一个的弧度线的弧度值
+        var singleRadian = (2 * Math.PI) / 60
+        for (var i = 0; i < 60; i++) {
+          var radian = begScale + singleRadian * i
+          var h1 = (this.rr - this.rw / 2) * Math.sin(radian)
+          var b1 = (this.rr - this.rw / 2) * Math.cos(radian)
+          // 刻度终点坐标
+          var y1 = this.rt + h1
+          var x1 = this.rl + b1
+          var h2 = (this.rr - this.rw / 2 - 5) * Math.sin(radian)
+          var b2 = (this.rr - this.rw / 2 - 5) * Math.cos(radian)
+          // 起点坐标
+          var x2 = this.rl + b2
+          var y2 = this.rt + h2
+          ctx.moveTo(x1, y1)
+          ctx.lineTo(x2, y2)
+          ctx.lineWidth = this.minW
+          ctx.strokeStyle = '#000'
+          ctx.closePath()
+          ctx.stroke()
+        }
+      },
+      // 圆心
+      centerRound: function() {}
+    }
+    new Clock({
+      rl: 250, // 圆心left
+      rt: 250, // 圆心top
+      rr: 100, // 圆半径
+      rw: 0.6, // 大圆周宽度
+      hourW: 5, // 时针宽度
+      hourL: 5, // 时针长度
+      minW: 5, // 分针宽度
+      minL: 5 // 分针长度
+    })
+  </script>
+</html>

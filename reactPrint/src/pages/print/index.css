@@ -1,0 +1,74 @@
+.page-print {
+  display: flex;
+  height: 100vh;
+}
+
+.leftBox {
+  width: 100%;
+  height: 100%;
+  background-color: ghostwhite;
+}
+
+.rightBox {
+  width: 250px;
+  min-width: 280px;
+  height: 100%;
+  background-color: beige;
+}
+
+.leftBox .headNav {
+  background-color: aquamarine;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.leftBox .headNav a {
+  color: blue;
+  cursor: pointer;
+  font-weight: 600;
+  margin-right: 15px;
+}
+
+.print-box {
+  margin: 10px;
+  min-height: 600px;
+}
+
+.print-box .grid-row {
+  width: 100%;
+  border: 1px solid #ddd;
+  /* min-height: 120px; */
+  /* height: 120px; */
+  display: flex;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.print-box .grid-row.choose-item {
+  border: 1px solid green;
+}
+
+.print-box .grid-col {
+  border: 1px solid #ddd;
+  margin: 10px 8px;
+  min-height: 100px;
+  /* display: flex; */
+}
+
+.print-box .item-box {
+  width: 200px;
+  height: 60px;
+  border: 1px solid #ccc;
+  margin: 10px 0;
+}
+
+.print-box .item-box.choose-item {
+  border: 1px solid green;
+}
+
+.print-box .grid-col.over {
+  border: 1px solid orange;
+}

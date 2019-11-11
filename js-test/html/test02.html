@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .dragItem {
+        width: 100px;
+        height: 35px;
+        background-color: green;
+        margin: 0 auto;
+        margin-top: 2px;
+        text-align: center;
+        line-height: 35px;
+        color: #fff;
+      }
+      .left,
+      .right {
+        width: 120px;
+        height: 400px;
+        background-color: bisque;
+        float: left;
+        margin: 15px;
+      }
+      .headNav {
+        width: 100%;
+        display: flex;
+        align-items: center;
+      }
+      a {
+        color: blue;
+        margin-right: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="card">
+      <div class="headNav">
+        <a onclick="addItem()">item</a>
+        <a onclick="addGrid()">栅格</a>
+      </div>
+      <div class="left">
+        <div class="dragItem" draggable="true">test01</div>
+        <div class="dragItem" draggable="true">test02</div>
+        <div class="dragItem" draggable="true">test03</div>
+        <div class="dragItem" draggable="true">test04</div>
+        <div class="dragItem" draggable="true">test05</div>
+      </div>
+      <div class="right"></div>
+    </div>
+  </body>
+  <script>
+    // var mousemove = function(e) {
+    //   console.log(e)
+    // }
+    var card = document.getElementById('card')
+    var moveItem = document.getElementsByClassName('dragItem')
+    var rightBox = document.getElementsByClassName('right')
+    for (var i = 0; i < moveItem.length; i++) {
+      moveItem[i].setAttribute('id', 'item' + i)
+      moveItem[i].ondragstart = function(e) {
+        //dataTransfer.setData() 方法设置被拖数据的数据类型和值
+        e.dataTransfer.setData('id', this.getAttribute('id'))
+      }
+    }
+    rightBox[0].ondragover = function(ev) {
+      ev.preventDefault() //阻止向上冒泡
+    }
+    rightBox[0].ondrop = function(e) {
+      e.preventDefault()
+      const dragid = e.dataTransfer.getData('id')
+      const newItem = document.getElementById(dragid)
+      var toElem = e.toElement.id //放置位置
+      // newItem.remove
+      if (toElem == 'right') {
+        //如果为container,元素放置在末尾
+        this.appendChild(newItem)
+      } else {
+        //如果为container里的元素，则插入该元素之前
+        this.insertBefore(newItem, document.getElementById(toElem))
+      }
+    }
+
+    // 增加栅格
+    const addGrid = () => {
+      card.append('<div>123456</div>')
+    }
+
+    const str = 'aaaabss'
+    const countStr = str => {
+      const strArr = str.split('')
+      const countStr = {}
+      strArr.forEach(item => {
+        countStr[item] = countStr[item] || 0
+        countStr[item]++
+      })
+      return { ...countStr }
+    }
+    console.log(countStr('bbbbdsdd'))
+  </script>
+</html>

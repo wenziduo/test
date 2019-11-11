@@ -1,0 +1,9 @@
+.grid-item {
+  border: 1px solid #ccc;
+  margin: 5px;
+  min-height: 80px;
+  display: flex;
+}
+.grid-item.item-choose {
+  border: 1px solid green;
+}

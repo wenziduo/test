@@ -1,0 +1,127 @@
+<!doctype html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<style>
+</style>
+</head>
+<body>
+<canvas id="my_clock" width="1200" height="900">不支持canvas</canvas>
+<script>
+    var myClock = document.getElementById('my_clock');
+    var ctx = myClock.getContext('2d');
+    var clockImg = new Image();
+    clockImg.src = 'clock.png';
+    ctx.translate(600, 400);
+
+    var startTime = new Date().getTime(),
+        count = 0;
+
+    function clock() {
+        ctx.clearRect(-600, -400, 1200, 900);
+
+        // 裁剪钟面图，只留下圆的钟面
+        ctx.beginPath();
+        ctx.arc(0, 0, 250, 0, 2 * Math.PI);
+        ctx.clip();
+
+        // 钟面图有点歪，需要差不多顺时针旋转1/3度
+        ctx.save()
+        ctx.rotate(1 / 3 * 2 * Math.PI / 60);
+        ctx.drawImage(clockImg, - 250, -250, 500, 500);
+        ctx.restore();
+
+        // 这里注释的部分的是绘制的一个简单的钟面，如果不用图片可以打开下面的注释
+        // ctx.beginPath();
+        // ctx.arc(0, 0, 200, 0, 2 * Math.PI, false);
+
+        // ctx.moveTo(195, 0);
+        // ctx.arc(0, 0, 195, 0, 2 * Math.PI, false);
+        // ctx.stroke();
+        // ctx.closePath();
+
+        // ctx.font = '16px Arial';
+        // ctx.textAlign = 'center';
+        // ctx.textBaseline = 'middle';
+
+        // ctx.fillText('12', 0, -180);
+        // ctx.fillText('3', 180, 0);
+        // ctx.fillText('6', 0, 180);
+        // ctx.fillText('9', -180, 0);
+
+
+        var nowTime = new Date(),
+            sec = nowTime.getSeconds(),
+            min  = nowTime.getMinutes() + sec / 60,
+            hour12 = nowTime.getHours() >= 12 ? nowTime.getHours() - 12 : nowTime.getHours(),
+            hour = hour12 + min / 60;
+
+        // 实时时间转换成角度，一圈是360度，也就是2PI，一圈有60小格，一小格就是（2 * Math.PI / 60）
+        var angle = 2 * Math.PI / 60,
+            secHandAngle = sec * angle,
+            minHandAngle = min * angle,
+            hourHandAngle = hour * 5 * angle;
+
+        // 秒针
+        ctx.save();
+        ctx.beginPath();
+        ctx.rotate(secHandAngle)
+        ctx.moveTo(-2, 10);
+        ctx.lineTo(0, -240);
+        ctx.lineTo(2, 10);
+        ctx.moveTo(-2, 10);
+        ctx.arcTo(0, -240, 2, 10, 2);
+        ctx.stroke();
+        ctx.restore();
+
+        // 分针
+        ctx.save();
+        ctx.beginPath();
+        ctx.rotate(minHandAngle)
+        ctx.moveTo(0, 0);
+        ctx.lineTo(0, -170);
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.restore();
+
+        // 时针
+        ctx.save();
+        ctx.beginPath();
+        ctx.rotate(hourHandAngle)
+        ctx.moveTo(-5, 0);
+        ctx.lineTo(0, -120);
+        ctx.lineTo(5, 0);
+        ctx.strokeStyle = '#fff'
+        ctx.fillStyle = 'rgba(0, 0, 0, .3)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        ctx.fill();
+        ctx.restore();
+
+        // 减少setTimeout误差
+        count++;
+        var diff = new Date().getTime() - (startTime + count * 1000);
+        var nextStart = (1000 - diff) < 0 ? 0 : 1000 - diff;
+        setTimeout(clock, nextStart);
+    }
+
+    // 占用线程
+    // setInterval(function(){
+    //      var j = 0;
+    //      while (j++ < 100000000);
+    // }, 0);
+    // setInterval(function(){
+    //      var j = 0;
+    //      while (j++ < 100000000);
+    // }, 0);
+    // setInterval(function(){
+    //      var j = 0;
+    //      while (j++ < 100000000);
+    // }, 0);
+
+    setTimeout(clock, 1000);
+    // setInterval(clock, 1000)
+
+
+</script>
+</body>
+</html>

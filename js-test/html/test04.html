@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    const obj = {
+      name: 'noOne',
+      age: 18,
+      other: {
+        name: 'wenzi',
+        age: 12,
+        myFun: function() {
+          console.log(this)
+          this.act = () => {
+            console.log(this)
+          }
+        },
+        other: {
+          name: 'caicaicai',
+          age: 16,
+          myFun: () => {
+            console.log(this)
+          }
+        }
+      }
+    }
+    obj.other.myFun()
+    const aaa = new obj.other.myFun()
+    aaa.act()
+    obj.other.other.myFun()
+  </script>
+</html>

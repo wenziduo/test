@@ -1,0 +1,6 @@
+.radio-item {
+  border: 1px solid #ccc;
+  margin: 5px;
+  max-width: 150px;
+  min-height: 80px;
+}

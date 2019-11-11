@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <a href="#/edit">edit</a>
+      <a href="#/detail">detail</a>
+      <a href="#/list">list</a>
+      <a href="#/open">open</a>
+    </div>
+    <script>
+      window.onhashchange = function(event) {
+        console.log(event)
+      }
+      window.history.pushState({ foo: 'bar' }, 'page 2', 'bar.html')
+    </script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Demo</title>
+    <style>
+      body {
+        overflow-x: hidden;
+      }
+      .console-wrapper {
+        margin: auto;
+        padding: 12px;
+        width: 80%;
+        background: #eee;
+      }
+    </style>
+  </head>
+  <body></body>
+  <script src="https://cdn.bootcss.com/socket.io/2.1.0/socket.io.js"></script>
+  <script src="https://cdn.bootcss.com/lodash.js/4.17.10/lodash.min.js"></script>
+  <script>
+    window.onload = function() {
+      const uuid = Math.random()
+      console.log('uuid', uuid)
+      // init
+      const socket = io('ws://127.0.0.1:8008/', {
+        // 实际使用中可以在这里传递参数
+        query: {
+          room: 'demo',
+          userId: `client_${Math.random()}`
+        },
+
+        transports: ['websocket']
+      })
+      socket.on('connect', () => {
+        const id = socket.id
+        console.log('id', id)
+
+        console.log('#connect,', id, socket)
+
+        // 监听自身 id 以实现 p2p 通讯
+        socket.on(id, msg => {
+          console.log('#receive,', msg)
+        })
+      })
+
+      // 接收在线用户信息
+      socket.on('online', msg => {
+        console.log('#online,', msg)
+      })
+
+      // 系统事件
+      socket.on('disconnect', msg => {
+        console.log('#disconnect', msg)
+      })
+
+      socket.on('disconnecting', () => {
+        console.log('#disconnecting')
+      })
+
+      socket.on('error', () => {
+        console.log('#error')
+      })
+      // 登录
+      socket.emit('login', {
+        userId: 123456,
+        userName: '蔡雯多'
+      })
+      // 登录
+      socket.on('result', function(res) {
+        console.log('result', res)
+      })
+      // chat
+      socket.emit('chat', {
+        userId: uuid,
+        userName: 'chat'
+      })
+      // 监听返回的login
+      socket.on('res', function(res) {
+        console.log('login-res', res)
+      })
+      window.socket = socket
+    }
+  </script>
+</html>

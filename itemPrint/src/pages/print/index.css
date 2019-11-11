@@ -1,0 +1,126 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.page-print {
+  display: flex;
+  height: 100vh;
+}
+
+.leftBox {
+  width: 100%;
+  height: 100%;
+  background-color: ghostwhite;
+}
+
+.rightBox {
+  width: 250px;
+  min-width: 280px;
+  height: 100%;
+  background-color: beige;
+  overflow: hidden;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.leftBox .headNav {
+  background-color: aquamarine;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.leftBox .headNav a {
+  color: blue;
+  cursor: pointer;
+  font-weight: 600;
+  margin-right: 15px;
+}
+
+.print-box {
+  box-shadow: 0 0 3px 0 #ccc;
+  min-height: 700px;
+  margin-top: 50px;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding: 5;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.print-box.activeLayout {
+  box-shadow: 0 0 3px 0 orangered;
+}
+
+.print-box .grid-row {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #ddd;
+  margin: 10px;
+}
+
+.print-box .grid-row:hover > .delBox > .del {
+  display: block;
+}
+
+.print-box .grid-col {
+  border: 1px solid #bbb;
+  min-height: 100px;
+  width: 100%;
+  margin: 10px;
+  /* position: relative; */
+}
+
+.print-box .grid-col.activeLayout {
+  box-shadow: 0 0 3px 0 orangered;
+}
+
+.print-box .item-box {
+  width: 200px;
+  height: 60px;
+  border: 1px solid #ccc;
+  margin: 10px 0;
+  overflow: hidden;
+}
+.print-box .grid-col.over {
+  border: 1px solid orange;
+}
+.item {
+  border: 1px solid olivedrab;
+  margin: 6px;
+  min-height: 40px;
+  max-width: 200px;
+  /* position: relative; */
+}
+.item:hover > .delBox > .del {
+  display: block;
+}
+.delBox {
+  width: 100%;
+  min-width: 100%;
+  height: 0;
+}
+.delBox > .del {
+  display: none;
+  color: red;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  cursor: pointer;
+  float: right;
+}
+.print-box .grid-row.activeTop {
+  border-top: 1px solid orangered;
+}
+.print-box .grid-row.activeBottom {
+  border-bottom: 1px solid orangered;
+}
+.item.activeTop {
+  border-top: 1px solid orangered;
+}
+.item.activeBottom {
+  border-bottom: 1px solid orangered;
+}

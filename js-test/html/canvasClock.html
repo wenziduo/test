@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+  </body>
+  <script>
+    var canvas = document.querySelector('canvas')
+    canvas.width = 800
+    canvas.height = 600
+    var ctx = canvas.getContext('2d')
+    function Clock(opt) {
+      for (var key in opt) {
+        this[key] = opt[key]
+      }
+      this.line()
+    }
+    Clock.prototype = {
+      line: function() {
+        // ctx.clearRect(0,0,canvas.width,canvas.height);
+        var self = this
+        var time = setInterval(function() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height)
+          self.bigCircle()
+          self.drawTicks()
+          self.drwPoints()
+          ctx.save()
+          ctx.font = '20px 微软雅黑'
+          ctx.restore()
+        }, 1000)
+      },
+      // 大圆
+      bigCircle: function() {
+        ctx.beginPath()
+        ctx.save()
+        ctx.lineWidth = this.bigLine
+        ctx.strokeStyle = this.bigColor
+        ctx.arc(this.bigX, this.bigY, this.bigR, 0, 2 * Math.PI)
+        ctx.stroke()
+        ctx.restore()
+      },
+      // 刻度
+      drawTicks: function() {
+        // 计算每一个刻度的弧度值
+        var begScale = -Math.PI / 2 //从12的位置为起始
+        // 计算每一个的弧度线的弧度值
+        var singleRadian = (2 * Math.PI) / 60
+        for (var i = 0; i < 60; i++) {
+          var length
+          var width
+          if (i % 5 == 0) {
+            length = this.tick.bigLeng
+            width = this.tick.bigWidth
+          } else {
+            length = this.tick.smallLeng
+            width = this.tick.smallWidth
+          }
+          var radian = begScale + singleRadian * i
+          var h1 = (this.bigR - this.bigLine / 2) * Math.sin(radian)
+          var b1 = (this.bigR - this.bigLine / 2) * Math.cos(radian)
+          // 刻度终点坐标
+          var y1 = this.bigY + h1
+          var x1 = this.bigX + b1
+          var h2 = (this.bigR - this.bigLine / 2 - length) * Math.sin(radian)
+          var b2 = (this.bigR - this.bigLine / 2 - length) * Math.cos(radian)
+          // 起点坐标
+          var x2 = this.bigX + b2
+          var y2 = this.bigY + h2
+          ctx.save()
+          ctx.beginPath()
+          ctx.moveTo(x1, y1)
+          ctx.lineTo(x2, y2)
+          ctx.lineWidth = width
+          ctx.stroke()
+          ctx.restore()
+        }
+      },
+      // 每一条指针
+      drwPoints: function() {
+        ctx.beginPath()
+
+        // 给定义个时间
+        var date = new Date()
+        // 计算出时分秒
+        var hous = date.getHours() % 12
+        var minutes = date.getMinutes()
+        var seconds = date.getSeconds()
+        // console.log(seconds)
+        // 计算指针的弧度值
+
+        var hourR = (hous * 2 * Math.PI) / 12 - Math.PI / 2
+        var minutesR = (minutes * 2 * Math.PI) / 60 - Math.PI / 2
+        var secondsR = (seconds * 2 * Math.PI) / 60 - Math.PI / 2
+        console.log('secondsR', secondsR)
+        // 每一条的指针的长度
+        // ctx.beginPath();
+        const {
+          hoursLength,
+          hoursWidth,
+          minLength,
+          minWidth,
+          secondLength,
+          secondWidth
+        } = this.point
+        this.drawPointer(hoursLength, hourR, hoursWidth)
+        this.drawPointer(minLength, minutesR, minWidth)
+        this.drawPointer(secondLength, secondsR, secondWidth)
+      },
+      //指针的长度
+      drawPointer: function(length, radian, lineWidth) {
+        var h = length * Math.sin(radian)
+        // console.log(h)
+        var b = length * Math.cos(radian)
+        var x = this.bigX + b
+        var y = this.bigY + h
+        ctx.save()
+        ctx.beginPath()
+        ctx.moveTo(this.bigX, this.bigY)
+        ctx.lineTo(x, y)
+        ctx.lineWidth = lineWidth
+        ctx.stroke()
+        ctx.restore()
+      }
+    }
+    new Clock({
+      bigX: 300, // 圆心坐标L
+      bigY: 300, // 圆心坐标Y
+      bigR: 150, // 半径
+      bigColor: '#000', // 大圆颜色
+      bigLine: 1, // 大圆宽度
+      tick: {
+        bigLeng: 5, // 时刻度长度
+        bigWidth: 2, // 时刻度宽度
+        smallLeng: 0, // 分刻度长度
+        smallWidth: 0 // 分刻度宽度
+      },
+      point: {
+        hoursLength: 50,
+        hoursWidth: 8,
+        minLength: 70,
+        minWidth: 5,
+        secondLength: 80,
+        secondWidth: 2
+      }
+    })
+  </script>
+</html>

@@ -1,0 +1,51 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.page-print {
+  display: flex;
+  height: 100vh;
+}
+
+.leftBox {
+  width: 200px;
+  min-width: 200px;
+  height: 100%;
+  background-color: ghostwhite;
+  box-sizing: border-box;
+  padding: 8px;
+  border-right: 1px solid #ccc;
+}
+.leftBox ul li {
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.centerBox {
+  width: 100%;
+  height: 100%;
+  background-color: ghostwhite;
+  box-sizing: border-box;
+  padding: 30px;
+}
+.rightBox {
+  width: 200px;
+  min-width: 200px;
+  height: 100%;
+  background-color: beige;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 30px;
+}
+.centerBox .item-grid {
+  /* width: 100%; */
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-top: 10px;
+}
+.centerBox .item-col {
+  min-height: 80px;
+  border: 1px solid #ddd;
+}
