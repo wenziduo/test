@@ -1,8 +1,14 @@
-import { withRouter } from "next/router";
-import React from "react";
+import { withRouter } from 'next/router'
+import React from 'react'
 class TaskComponent extends React.Component {
+  static async getInitialProps() {
+    console.log('----------服务器端渲染-------------')
+    await new Promise(resolve => {
+      setTimeout(resolve, 3000)
+    })
+    return { fzr: 'chatwei' }
+  }
   render() {
-    console.log(this);
     return (
       <div>
         <span>
@@ -10,14 +16,7 @@ class TaskComponent extends React.Component {
           {this.props && this.props.fzr}
         </span>
       </div>
-    );
+    )
   }
 }
-TaskComponent.getInitialProps = async () => {
-  console.log("----------服务器端渲染-------------");
-  await new Promise(resolve => {
-    setTimeout(resolve, 5000);
-  });
-  return { fzr: "chatwei" };
-};
-export default withRouter(TaskComponent);
+export default withRouter(TaskComponent)

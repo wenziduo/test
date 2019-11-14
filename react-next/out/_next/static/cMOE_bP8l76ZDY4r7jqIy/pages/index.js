@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{De7R:function(n,e,i){(window.__NEXT_P=window.__NEXT_P||[]).push(["/",function(){return i("RNiq")}])},RNiq:function(n,e,i){"use strict";i.r(e);var t=i("OkUi"),o=i.n(t).a.createElement;e.default=function(){return o("div",null,"Welcome to next.js!")}}},[["De7R",0,1]]]);

@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{"8Jz2":function(n,u,e){(window.__NEXT_P=window.__NEXT_P||[]).push(["/user",function(){return e("R2GR")}])},R2GR:function(n,u,e){"use strict";e.r(u);var i=e("OkUi"),t=e.n(i).a.createElement;u.default=function(){return t("div",null,"\u6211\u662fuser\u9875\u9762")}}},[["8Jz2",0,1]]]);

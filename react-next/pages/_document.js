@@ -11,13 +11,13 @@ export default class MyDocument extends Document {
   }
 
   render() {
+    console.log('document')
     return (
       <html>
         <Head>
           <style>{`body { margin: 0 } /* custom! */`}</style>
         </Head>
         <body className="custom_class">
-          888888
           <Main />
           <NextScript />
         </body>
