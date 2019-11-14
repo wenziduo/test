@@ -7,10 +7,6 @@
   "editor.formatOnSave": true,
   // 开启 vscode 文件路径导航
   "breadcrumbs.enabled": true,
-  // prettier 设置语句末尾不加分号
-  "prettier.semi": false,
-  // prettier 设置强制单引号
-  "prettier.singleQuote": true,
   // 选择 vue 文件中 template 的格式化工具
   "vetur.format.defaultFormatter.html": "prettyhtml",
   // 显示 markdown 中英文切换时产生的特殊字符
