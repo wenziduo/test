@@ -14,22 +14,22 @@ module.exports = appInfo => {
     mapping: {
       '.html': 'nunjucks',
     },
-  }
-  ;(config.cluster = {
+  };
+  config.cluster = {
     listen: {
       path: '',
       port: 3008,
       hostname: '0.0.0.0',
     },
-  }),
-  (config.redis = {
+  };
+  config.redis = {
     client: {
       port: 6379,
       host: '47.98.50.170',
       password: 'caiwenduo1993',
       db: 0,
     },
-  });
+  };
 
   config.io = {
     init: {

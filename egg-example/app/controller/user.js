@@ -3,15 +3,15 @@
 const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
-  async index() {
+  async login() {
     const { ctx } = this;
+    const { userKey } = ctx.request.body;
     const data = {
-      name: '首页',
+      name: '登录',
+      userKey,
     };
-    ctx.cookies.get('SESSION_IDs', '666666');
-    console.log('ctx.session', ctx.session);
-    console.log('ctx.cookie', ctx.cookies.get('SESSION_IDs'));
-    // console.log('ctx.cookies', ctx.cookies);
+    ctx.session.userKey = data.userKey;
+    console.log(ctx.session);
     await new Promise(resolve => {
       setTimeout(resolve, 500);
     });
