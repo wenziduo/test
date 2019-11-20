@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <button onclick="login()">测试登录</button>
+    <button onclick="index()">测试首页</button>
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+      const ajax = function({ url, type = 'get', data }) {
+        return $.ajax({
+          url,
+          type,
+          dataType: 'json',
+          data
+        })
+      }
+      function login() {
+        ajax({
+          url: '/user/login',
+          type: 'post'
+        })
+      }
+      function index() {
+        ajax({
+          url: '/home',
+          type: 'get'
+        })
+      }
+    </script>
+  </body>
+</html>

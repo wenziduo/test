@@ -11,7 +11,7 @@ class HomeController extends Controller {
     ctx.cookies.get('SESSION_IDs', '666666');
     console.log('ctx.session', ctx.session);
     console.log('ctx.cookie', ctx.cookies.get('SESSION_IDs'));
-    // console.log('ctx.cookies', ctx.cookies);
+    // console.log('ctx.cookies', ctx.request);
     await new Promise(resolve => {
       setTimeout(resolve, 500);
     });

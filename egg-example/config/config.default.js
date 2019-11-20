@@ -40,6 +40,13 @@ module.exports = appInfo => {
       db: 0,
     },
   };
+  // 设置session
+  config.session = {
+    key: 'SESSION_ID',
+    maxAge: 5000, // 1 天
+    httpOnly: true,
+    encrypt: true,
+  };
   // 设置sessionRedis
   config.sessionRedis = {
     key: 'SESSION_ID',
