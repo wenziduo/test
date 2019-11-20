@@ -25,8 +25,8 @@ module.exports = appInfo => {
   (config.redis = {
     client: {
       port: 6379,
-      host: '127.0.0.1',
-      password: '',
+      host: '47.98.50.170',
+      password: 'caiwenduo1993',
       db: 0,
     },
   });
@@ -36,10 +36,10 @@ module.exports = appInfo => {
       wsEngine: 'ws',
     }, // passed to engine.io
     namespace: {
-      '/': {
-        connectionMiddleware: [ 'auth' ],
-        packetMiddleware: [],
-      },
+      // '/': {
+      //   connectionMiddleware: [ 'auth' ],
+      //   packetMiddleware: [],
+      // },
       '/example': {
         connectionMiddleware: [ 'auth' ],
         packetMiddleware: [],
@@ -47,7 +47,8 @@ module.exports = appInfo => {
     },
 
     redis: {
-      host: '127.0.0.1',
+      host: '47.98.50.170',
+      password: 'caiwenduo1993',
       port: 6379,
     },
   };

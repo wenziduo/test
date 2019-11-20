@@ -7,7 +7,7 @@ class NspController extends Controller {
     console.log(99);
     const { ctx, app } = this;
     const nsp = app.io.of('/example');
-    console.log(nsp);
+    console.log('ctx.args[0]', ctx.args[0]);
     const message = ctx.args[0] || {};
     const socket = ctx.socket;
     const client = socket.id;

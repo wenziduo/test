@@ -19,7 +19,7 @@ module.exports = () => {
 
     const tick = (id, msg) => {
       logger.debug('#tick', id, msg);
-
+      console.log('踢掉该用户');
       // 踢出用户前发送消息
       socket.emit(id, helper.parseMsg('deny', msg));
 
@@ -51,6 +51,7 @@ module.exports = () => {
     // 在线列表
     nsp.adapter.clients(rooms, (err, clients) => {
       logger.debug('#online_join', clients);
+      console.log('#clients', clients);
       // 更新在线用户列表
       nsp.to(room).emit('online', {
         clients,
@@ -59,7 +60,8 @@ module.exports = () => {
         message: `User(${id}) joined.`,
       });
     });
-
+    // 将用户信息加入到redis
+    app.redis.set(`userKey-${id}`, JSON.stringify(query));
     await next();
 
     // 用户离开
@@ -85,5 +87,7 @@ module.exports = () => {
         message: `User(${id}) leaved.`,
       });
     });
+    // 将redis用户信息清除
+    app.redis.del(`userKey-${id}`);
   };
 };
