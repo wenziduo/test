@@ -4677,21 +4677,32 @@ for (var i = 0; i < DOMIterables.length; i++) {
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/build/polyfills/fetch.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/build/polyfills/fetch.js ***!
-  \*********************************************************************/
+/***/ "./node_modules/_next@9.1.4@next/dist/build/polyfills/fetch/index.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/_next@9.1.4@next/dist/build/polyfills/fetch/index.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-exports.__esModule=true;exports.default=void 0;var _default=window.fetch;exports.default=_default;
+/* globals self */var fetch=self.fetch.bind(self);module.exports=fetch;module.exports.default=module.exports;
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/client/dev/dev-build-watcher.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/build/polyfills/object-assign.js":
+/*!***********************************************************************************************************************************!*\
+  !*** delegated ./node_modules/_next@9.1.4@next/dist/build/polyfills/object-assign.js from dll-reference dll_9c4f2c2e70faff43cd76 ***!
+  \***********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(/*! dll-reference dll_9c4f2c2e70faff43cd76 */ "dll-reference dll_9c4f2c2e70faff43cd76"))("./node_modules/_next@9.1.4@next/dist/build/polyfills/object-assign.js");
+
+/***/ }),
+
+/***/ "./node_modules/_next@9.1.4@next/dist/client/dev/dev-build-watcher.js":
 /*!****************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/client/dev/dev-build-watcher.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/client/dev/dev-build-watcher.js ***!
   \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -4702,7 +4713,7 @@ exports.__esModule=true;exports.default=void 0;var _default=window.fetch;exports
 exports.__esModule = true;
 exports["default"] = initializeBuildWatcher;
 
-var _eventsource = __webpack_require__(/*! ./error-overlay/eventsource */ "./node_modules/_next@9.1.3@next/dist/client/dev/error-overlay/eventsource.js");
+var _eventsource = __webpack_require__(/*! ./error-overlay/eventsource */ "./node_modules/_next@9.1.4@next/dist/client/dev/error-overlay/eventsource.js");
 
 function initializeBuildWatcher() {
   var shadowHost = document.createElement('div');
@@ -4756,7 +4767,7 @@ function initializeBuildWatcher() {
   });
 
   function handleMessage(event) {
-    var obj = JSON.parse(event.data);
+    var obj = JSON.parse(event.data); // eslint-disable-next-line default-case
 
     switch (obj.action) {
       case 'building':
@@ -4808,9 +4819,9 @@ function createCss(prefix) {
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/client/dev/error-overlay/eventsource.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/client/dev/error-overlay/eventsource.js":
 /*!************************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/client/dev/error-overlay/eventsource.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/client/dev/error-overlay/eventsource.js ***!
   \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -4895,29 +4906,26 @@ function getEventSourceWrapper(options) {
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/client/dev/error-overlay/format-webpack-messages.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/client/dev/error-overlay/format-webpack-messages.js":
 /*!************************************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/client/dev/error-overlay/format-webpack-messages.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/client/dev/error-overlay/format-webpack-messages.js ***!
   \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
 /**
 MIT License
-
 Copyright (c) 2015-present, Facebook, Inc.
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
-
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
-
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -4928,7 +4936,6 @@ SOFTWARE.
 */
 // This file is based on https://github.com/facebook/create-react-app/blob/7b1a32be6ec9f99a6c9a3c66813f3ac09c4736b9/packages/react-dev-utils/formatWebpackMessages.js
 // It's been edited to remove chalk and CRA-specific logic
-
 
 var _slicedToArray = __webpack_require__(/*! @babel/runtime-corejs2/helpers/slicedToArray */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/helpers/slicedToArray.js");
 
@@ -5029,14 +5036,40 @@ module.exports = formatWebpackMessages;
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/client/dev/error-overlay/hot-dev-client.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/client/dev/error-overlay/hot-dev-client.js":
 /*!***************************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/client/dev/error-overlay/hot-dev-client.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/client/dev/error-overlay/hot-dev-client.js ***!
   \***************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+var _regeneratorRuntime = __webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/regenerator/index.js");
+
+var _slicedToArray = __webpack_require__(/*! @babel/runtime-corejs2/helpers/slicedToArray */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/helpers/slicedToArray.js");
+
+var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireWildcard */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/helpers/interopRequireWildcard.js");
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/helpers/interopRequireDefault.js");
+
+exports.__esModule = true;
+exports["default"] = connect;
+
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/asyncToGenerator */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/helpers/asyncToGenerator.js"));
+
+var _eventsource = __webpack_require__(/*! ./eventsource */ "./node_modules/_next@9.1.4@next/dist/client/dev/error-overlay/eventsource.js");
+
+var _formatWebpackMessages = _interopRequireDefault(__webpack_require__(/*! ./format-webpack-messages */ "./node_modules/_next@9.1.4@next/dist/client/dev/error-overlay/format-webpack-messages.js"));
+
+var ErrorOverlay = _interopRequireWildcard(__webpack_require__(/*! react-error-overlay */ "./node_modules/_react-error-overlay@5.1.6@react-error-overlay/lib/index.js"));
+
+var _stripAnsi = _interopRequireDefault(__webpack_require__(/*! strip-ansi */ "./node_modules/_strip-ansi@5.2.0@strip-ansi/index.js"));
+
+var _sourceMapSupport = __webpack_require__(/*! ./source-map-support */ "./node_modules/_next@9.1.4@next/dist/client/dev/error-overlay/source-map-support.js");
+
+var _unfetch = _interopRequireDefault(__webpack_require__(/*! unfetch */ "./node_modules/_next@9.1.4@next/dist/build/polyfills/fetch/index.js"));
 /* eslint-disable camelcase */
 
 /**
@@ -5060,32 +5093,7 @@ SOFTWARE.
 */
 // This file is based on https://github.com/facebook/create-react-app/blob/v1.1.4/packages/react-dev-utils/webpackHotDevClient.js
 // It's been edited to rely on webpack-hot-middleware and to be more compatible with SSR / Next.js
-
-
-var _regeneratorRuntime = __webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/regenerator/index.js");
-
-var _slicedToArray = __webpack_require__(/*! @babel/runtime-corejs2/helpers/slicedToArray */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/helpers/slicedToArray.js");
-
-var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireWildcard */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/helpers/interopRequireWildcard.js");
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/helpers/interopRequireDefault.js");
-
-exports.__esModule = true;
-exports["default"] = connect;
-
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/asyncToGenerator */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/helpers/asyncToGenerator.js"));
-
-var _eventsource = __webpack_require__(/*! ./eventsource */ "./node_modules/_next@9.1.3@next/dist/client/dev/error-overlay/eventsource.js");
-
-var _formatWebpackMessages = _interopRequireDefault(__webpack_require__(/*! ./format-webpack-messages */ "./node_modules/_next@9.1.3@next/dist/client/dev/error-overlay/format-webpack-messages.js"));
-
-var ErrorOverlay = _interopRequireWildcard(__webpack_require__(/*! react-error-overlay */ "./node_modules/_react-error-overlay@5.1.6@react-error-overlay/lib/index.js"));
-
-var _stripAnsi = _interopRequireDefault(__webpack_require__(/*! strip-ansi */ "./node_modules/_strip-ansi@5.2.0@strip-ansi/index.js"));
-
-var _sourceMapSupport = __webpack_require__(/*! ./source-map-support */ "./node_modules/_next@9.1.3@next/dist/client/dev/error-overlay/source-map-support.js");
-
-var _unfetch = _interopRequireDefault(__webpack_require__(/*! unfetch */ "./node_modules/_next@9.1.3@next/dist/build/polyfills/fetch.js")); // This alternative WebpackDevServer combines the functionality of:
+// This alternative WebpackDevServer combines the functionality of:
 // https://github.com/webpack/webpack-dev-server/blob/webpack-1/client/index.js
 // https://github.com/webpack/webpack/blob/webpack-1/hot/dev-server.js
 // It only supports their simplest configuration (hot updates on same server).
@@ -5432,9 +5440,9 @@ function _tryApplyUpdates() {
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/client/dev/error-overlay/source-map-support.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/client/dev/error-overlay/source-map-support.js":
 /*!*******************************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/client/dev/error-overlay/source-map-support.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/client/dev/error-overlay/source-map-support.js ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -5473,9 +5481,9 @@ function rewriteTraceLine(trace, distDir) {
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/client/dev/event-source-polyfill.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/client/dev/event-source-polyfill.js":
 /*!********************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/client/dev/event-source-polyfill.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/client/dev/event-source-polyfill.js ***!
   \********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -5496,7 +5504,7 @@ var _promise = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-cor
 
 var _create = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/object/create */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/core-js/object/create.js"));
 
-var _unfetch = _interopRequireDefault(__webpack_require__(/*! unfetch */ "./node_modules/_next@9.1.3@next/dist/build/polyfills/fetch.js"));
+var _unfetch = _interopRequireDefault(__webpack_require__(/*! unfetch */ "./node_modules/_next@9.1.4@next/dist/build/polyfills/fetch/index.js"));
 /* eslint-disable */
 // Improved version of https://github.com/Yaffle/EventSource/
 // Available under MIT License (MIT)
@@ -6430,9 +6438,9 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/client/dev/on-demand-entries-client.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/client/dev/on-demand-entries-client.js":
 /*!***********************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/client/dev/on-demand-entries-client.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/client/dev/on-demand-entries-client.js ***!
   \***********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -6449,9 +6457,9 @@ exports["default"] = void 0;
 
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/asyncToGenerator */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/helpers/asyncToGenerator.js"));
 
-var _router = _interopRequireDefault(__webpack_require__(/*! next/router */ "./node_modules/_next@9.1.3@next/dist/client/router.js"));
+var _router = _interopRequireDefault(__webpack_require__(/*! next/router */ "./node_modules/_next@9.1.4@next/dist/client/router.js"));
 
-var _onDemandEntriesUtils = __webpack_require__(/*! ./on-demand-entries-utils */ "./node_modules/_next@9.1.3@next/dist/client/dev/on-demand-entries-utils.js");
+var _onDemandEntriesUtils = __webpack_require__(/*! ./on-demand-entries-utils */ "./node_modules/_next@9.1.4@next/dist/client/dev/on-demand-entries-utils.js");
 
 var _this = void 0;
 
@@ -6509,9 +6517,9 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/client/dev/on-demand-entries-utils.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/client/dev/on-demand-entries-utils.js":
 /*!**********************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/client/dev/on-demand-entries-utils.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/client/dev/on-demand-entries-utils.js ***!
   \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -6526,10 +6534,10 @@ exports.closePing = closePing;
 exports.setupPing = setupPing;
 exports.currentPage = void 0;
 
-var _unfetch = _interopRequireDefault(__webpack_require__(/*! unfetch */ "./node_modules/_next@9.1.3@next/dist/build/polyfills/fetch.js"));
+var _unfetch = _interopRequireDefault(__webpack_require__(/*! unfetch */ "./node_modules/_next@9.1.4@next/dist/build/polyfills/fetch/index.js"));
 
-var _eventsource = __webpack_require__(/*! ./error-overlay/eventsource */ "./node_modules/_next@9.1.3@next/dist/client/dev/error-overlay/eventsource.js");
-/* global window, location */
+var _eventsource = __webpack_require__(/*! ./error-overlay/eventsource */ "./node_modules/_next@9.1.4@next/dist/client/dev/error-overlay/eventsource.js");
+/* global location */
 
 
 var evtSource;
@@ -6579,9 +6587,9 @@ function setupPing(assetPrefix, pathnameFn, retry) {
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/client/dev/prerender-indicator.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/client/dev/prerender-indicator.js":
 /*!******************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/client/dev/prerender-indicator.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/client/dev/prerender-indicator.js ***!
   \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -6596,7 +6604,7 @@ exports["default"] = initializeBuildWatcher;
 
 var _parseInt2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/parse-int */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/core-js/parse-int.js"));
 
-var _router = _interopRequireDefault(__webpack_require__(/*! ../router */ "./node_modules/_next@9.1.3@next/dist/client/router.js"));
+var _router = _interopRequireDefault(__webpack_require__(/*! ../router */ "./node_modules/_next@9.1.4@next/dist/client/router.js"));
 
 function initializeBuildWatcher() {
   var shadowHost = document.createElement('div');
@@ -6709,9 +6717,9 @@ function createCss(prefix) {
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/client/dev/webpack-hot-middleware-client.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/client/dev/webpack-hot-middleware-client.js":
 /*!****************************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/client/dev/webpack-hot-middleware-client.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/client/dev/webpack-hot-middleware-client.js ***!
   \****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -6726,7 +6734,7 @@ var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/help
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _hotDevClient = _interopRequireDefault(__webpack_require__(/*! ./error-overlay/hot-dev-client */ "./node_modules/_next@9.1.3@next/dist/client/dev/error-overlay/hot-dev-client.js"));
+var _hotDevClient = _interopRequireDefault(__webpack_require__(/*! ./error-overlay/hot-dev-client */ "./node_modules/_next@9.1.4@next/dist/client/dev/error-overlay/hot-dev-client.js"));
 
 var _default = function _default(_ref) {
   var assetPrefix = _ref.assetPrefix;
@@ -6770,9 +6778,9 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/client/head-manager.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/client/head-manager.js":
 /*!*******************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/client/head-manager.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/client/head-manager.js ***!
   \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -6922,9 +6930,9 @@ function reactElementToDOM(_ref) {
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/client/index.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/client/index.js":
 /*!************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/client/index.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/client/index.js ***!
   \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -6963,33 +6971,33 @@ var _interopRequireWildcard2 = _interopRequireDefault(__webpack_require__(/*! @b
 
 var _promise = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/promise */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/core-js/promise.js"));
 
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/_react@16.11.0@react/index.js"));
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var _reactDom = _interopRequireDefault(__webpack_require__(/*! react-dom */ "./node_modules/_react-dom@16.11.0@react-dom/index.js"));
+var _reactDom = _interopRequireDefault(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
 
-var _headManager = _interopRequireDefault(__webpack_require__(/*! ./head-manager */ "./node_modules/_next@9.1.3@next/dist/client/head-manager.js"));
+var _headManager = _interopRequireDefault(__webpack_require__(/*! ./head-manager */ "./node_modules/_next@9.1.4@next/dist/client/head-manager.js"));
 
-var _router = __webpack_require__(/*! next/router */ "./node_modules/_next@9.1.3@next/dist/client/router.js");
+var _router = __webpack_require__(/*! next/router */ "./node_modules/_next@9.1.4@next/dist/client/router.js");
 
-var _mitt = _interopRequireDefault(__webpack_require__(/*! ../next-server/lib/mitt */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/mitt.js"));
+var _mitt = _interopRequireDefault(__webpack_require__(/*! ../next-server/lib/mitt */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/mitt.js"));
 
-var _utils = __webpack_require__(/*! ../next-server/lib/utils */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/utils.js");
+var _utils = __webpack_require__(/*! ../next-server/lib/utils */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/utils.js");
 
-var _pageLoader = _interopRequireDefault(__webpack_require__(/*! ./page-loader */ "./node_modules/_next@9.1.3@next/dist/client/page-loader.js"));
+var _pageLoader = _interopRequireDefault(__webpack_require__(/*! ./page-loader */ "./node_modules/_next@9.1.4@next/dist/client/page-loader.js"));
 
-var envConfig = _interopRequireWildcard3(__webpack_require__(/*! ../next-server/lib/runtime-config */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/runtime-config.js"));
+var envConfig = _interopRequireWildcard3(__webpack_require__(/*! ../next-server/lib/runtime-config */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/runtime-config.js"));
 
-var _headManagerContext = __webpack_require__(/*! ../next-server/lib/head-manager-context */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/head-manager-context.js");
+var _headManagerContext = __webpack_require__(/*! ../next-server/lib/head-manager-context */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/head-manager-context.js");
 
-var _dataManagerContext = __webpack_require__(/*! ../next-server/lib/data-manager-context */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/data-manager-context.js");
+var _dataManagerContext = __webpack_require__(/*! ../next-server/lib/data-manager-context */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/data-manager-context.js");
 
-var _routerContext = __webpack_require__(/*! ../next-server/lib/router-context */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/router-context.js");
+var _routerContext = __webpack_require__(/*! ../next-server/lib/router-context */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/router-context.js");
 
-var _dataManager = __webpack_require__(/*! ../next-server/lib/data-manager */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/data-manager.js");
+var _dataManager = __webpack_require__(/*! ../next-server/lib/data-manager */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/data-manager.js");
 
 var _querystring = __webpack_require__(/*! querystring */ "./node_modules/_querystring-es3@0.2.1@querystring-es3/index.js");
 
-var _isDynamic = __webpack_require__(/*! ../next-server/lib/router/utils/is-dynamic */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/router/utils/is-dynamic.js");
+var _isDynamic = __webpack_require__(/*! ../next-server/lib/router/utils/is-dynamic */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/router/utils/is-dynamic.js");
 /* global location */
 
 
@@ -6999,7 +7007,7 @@ if (!window.Promise) {
 
 var data = JSON.parse(document.getElementById('__NEXT_DATA__').textContent);
 window.__NEXT_DATA__ = data;
-var version = "9.1.3";
+var version = "9.1.4";
 exports.version = version;
 var props = data.props,
     err = data.err,
@@ -7075,7 +7083,7 @@ function (_react$default$Compon) {
       // If it's a dynamic route or has a querystring
 
 
-      if (data.nextExport && ((0, _isDynamic.isDynamicRoute)(router.pathname) || location.search || data.skeleton)) {
+      if (data.nextExport && ((0, _isDynamic.isDynamicRoute)(router.pathname) || location.search)) {
         // update query on mount for exported pages
         router.replace(router.pathname + '?' + (0, _querystring.stringify)((0, _extends2["default"])({}, router.query, {}, (0, _querystring.parse)(location.search.substr(1)))), asPath, {
           // WARNING: `_h` is an internal option for handing Next.js
@@ -7561,9 +7569,9 @@ function _doRender() {
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/client/next-dev.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/client/next-dev.js":
 /*!***************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/client/next-dev.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/client/next-dev.js ***!
   \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -7575,23 +7583,23 @@ var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/help
 
 var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireWildcard */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/helpers/interopRequireWildcard.js");
 
-var next = _interopRequireWildcard(__webpack_require__(/*! ./ */ "./node_modules/_next@9.1.3@next/dist/client/index.js"));
+var next = _interopRequireWildcard(__webpack_require__(/*! ./ */ "./node_modules/_next@9.1.4@next/dist/client/index.js"));
 
-var _eventSourcePolyfill = _interopRequireDefault(__webpack_require__(/*! ./dev/event-source-polyfill */ "./node_modules/_next@9.1.3@next/dist/client/dev/event-source-polyfill.js"));
+var _eventSourcePolyfill = _interopRequireDefault(__webpack_require__(/*! ./dev/event-source-polyfill */ "./node_modules/_next@9.1.4@next/dist/client/dev/event-source-polyfill.js"));
 
-var _onDemandEntriesClient = _interopRequireDefault(__webpack_require__(/*! ./dev/on-demand-entries-client */ "./node_modules/_next@9.1.3@next/dist/client/dev/on-demand-entries-client.js"));
+var _onDemandEntriesClient = _interopRequireDefault(__webpack_require__(/*! ./dev/on-demand-entries-client */ "./node_modules/_next@9.1.4@next/dist/client/dev/on-demand-entries-client.js"));
 
-var _webpackHotMiddlewareClient = _interopRequireDefault(__webpack_require__(/*! ./dev/webpack-hot-middleware-client */ "./node_modules/_next@9.1.3@next/dist/client/dev/webpack-hot-middleware-client.js"));
+var _webpackHotMiddlewareClient = _interopRequireDefault(__webpack_require__(/*! ./dev/webpack-hot-middleware-client */ "./node_modules/_next@9.1.4@next/dist/client/dev/webpack-hot-middleware-client.js"));
 
-var _devBuildWatcher = _interopRequireDefault(__webpack_require__(/*! ./dev/dev-build-watcher */ "./node_modules/_next@9.1.3@next/dist/client/dev/dev-build-watcher.js"));
+var _devBuildWatcher = _interopRequireDefault(__webpack_require__(/*! ./dev/dev-build-watcher */ "./node_modules/_next@9.1.4@next/dist/client/dev/dev-build-watcher.js"));
 
-var _prerenderIndicator = _interopRequireDefault(__webpack_require__(/*! ./dev/prerender-indicator */ "./node_modules/_next@9.1.3@next/dist/client/dev/prerender-indicator.js")); // Temporary workaround for the issue described here:
+var _prerenderIndicator = _interopRequireDefault(__webpack_require__(/*! ./dev/prerender-indicator */ "./node_modules/_next@9.1.4@next/dist/client/dev/prerender-indicator.js")); // Temporary workaround for the issue described here:
 // https://github.com/zeit/next.js/issues/3775#issuecomment-407438123
 // The runtimeChunk doesn't have dynamic import handling code when there hasn't been a dynamic import
 // The runtimeChunk can't hot reload itself currently to correct it when adding pages using on-demand-entries
 
 
-__webpack_require__.e(/*! import() */ 0).then(__webpack_require__.t.bind(null, /*! ./dev/noop */ "./node_modules/_next@9.1.3@next/dist/client/dev/noop.js", 7)); // Support EventSource on Internet Explorer 11
+__webpack_require__.e(/*! import() */ 0).then(__webpack_require__.t.bind(null, /*! ./dev/noop */ "./node_modules/_next@9.1.4@next/dist/client/dev/noop.js", 7)); // Support EventSource on Internet Explorer 11
 
 if (!window.EventSource) {
   window.EventSource = _eventSourcePolyfill["default"];
@@ -7661,9 +7669,9 @@ window.next = next;
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/client/page-loader.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/client/page-loader.js":
 /*!******************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/client/page-loader.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/client/page-loader.js ***!
   \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -7686,7 +7694,7 @@ var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/r
 
 var _promise = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/promise */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/core-js/promise.js"));
 
-var _mitt = _interopRequireDefault(__webpack_require__(/*! ../next-server/lib/mitt */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/mitt.js"));
+var _mitt = _interopRequireDefault(__webpack_require__(/*! ../next-server/lib/mitt */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/mitt.js"));
 /* global document, window */
 
 
@@ -8018,9 +8026,9 @@ exports["default"] = PageLoader;
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/client/router.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/client/router.js":
 /*!*************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/client/router.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/client/router.js ***!
   \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -8045,18 +8053,16 @@ var _extends2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-co
 
 var _defineProperty = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/core-js/object/define-property.js"));
 
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/_react@16.11.0@react/index.js"));
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var _router2 = _interopRequireWildcard(__webpack_require__(/*! ../next-server/lib/router/router */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/router/router.js"));
+var _router2 = _interopRequireWildcard(__webpack_require__(/*! ../next-server/lib/router/router */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/router/router.js"));
 
 exports.Router = _router2["default"];
 exports.NextRouter = _router2.NextRouter;
 
-var _routerContext = __webpack_require__(/*! ../next-server/lib/router-context */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/router-context.js");
+var _routerContext = __webpack_require__(/*! ../next-server/lib/router-context */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/router-context.js");
 
-exports.RouterContext = _routerContext.RouterContext;
-
-var _withRouter = _interopRequireDefault(__webpack_require__(/*! ./with-router */ "./node_modules/_next@9.1.3@next/dist/client/with-router.js"));
+var _withRouter = _interopRequireDefault(__webpack_require__(/*! ./with-router */ "./node_modules/_next@9.1.4@next/dist/client/with-router.js"));
 
 exports.withRouter = _withRouter["default"];
 /* global window */
@@ -8210,25 +8216,15 @@ function makePublicRouterInstance(router) {
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/client/with-router.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/client/with-router.js":
 /*!******************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/client/with-router.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/client/with-router.js ***!
   \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-
-var _classCallCheck = __webpack_require__(/*! @babel/runtime-corejs2/helpers/classCallCheck */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/helpers/classCallCheck.js");
-
-var _createClass = __webpack_require__(/*! @babel/runtime-corejs2/helpers/createClass */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/helpers/createClass.js");
-
-var _possibleConstructorReturn = __webpack_require__(/*! @babel/runtime-corejs2/helpers/possibleConstructorReturn */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/helpers/possibleConstructorReturn.js");
-
-var _getPrototypeOf = __webpack_require__(/*! @babel/runtime-corejs2/helpers/getPrototypeOf */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/helpers/getPrototypeOf.js");
-
-var _inherits = __webpack_require__(/*! @babel/runtime-corejs2/helpers/inherits */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/helpers/inherits.js");
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/helpers/interopRequireDefault.js");
 
@@ -8237,58 +8233,34 @@ exports["default"] = withRouter;
 
 var _extends2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/extends */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/helpers/extends.js"));
 
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/_react@16.11.0@react/index.js"));
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var _router = __webpack_require__(/*! ./router */ "./node_modules/_next@9.1.3@next/dist/client/router.js");
+var _router = __webpack_require__(/*! ./router */ "./node_modules/_next@9.1.4@next/dist/client/router.js");
 
 function withRouter(ComposedComponent) {
-  var WithRouteWrapper =
-  /*#__PURE__*/
-  function (_react$default$Compon) {
-    _inherits(WithRouteWrapper, _react$default$Compon);
+  function WithRouterWrapper(props) {
+    return _react["default"].createElement(ComposedComponent, (0, _extends2["default"])({
+      router: (0, _router.useRouter)()
+    }, props));
+  }
 
-    function WithRouteWrapper() {
-      var _this;
-
-      _classCallCheck(this, WithRouteWrapper);
-
-      _this = _possibleConstructorReturn(this, _getPrototypeOf(WithRouteWrapper).apply(this, arguments));
-      _this.context = void 0;
-      return _this;
-    }
-
-    _createClass(WithRouteWrapper, [{
-      key: "render",
-      value: function render() {
-        return _react["default"].createElement(ComposedComponent, (0, _extends2["default"])({
-          router: this.context
-        }, this.props));
-      }
-    }]);
-
-    return WithRouteWrapper;
-  }(_react["default"].Component);
-
-  WithRouteWrapper.displayName = void 0;
-  WithRouteWrapper.getInitialProps = void 0;
-  WithRouteWrapper.contextType = _router.RouterContext;
-  WithRouteWrapper.getInitialProps = ComposedComponent.getInitialProps // This is needed to allow checking for custom getInitialProps in _app
+  WithRouterWrapper.getInitialProps = ComposedComponent.getInitialProps // This is needed to allow checking for custom getInitialProps in _app
   ;
-  WithRouteWrapper.origGetInitialProps = ComposedComponent.origGetInitialProps;
+  WithRouterWrapper.origGetInitialProps = ComposedComponent.origGetInitialProps;
 
   if (true) {
     var name = ComposedComponent.displayName || ComposedComponent.name || 'Unknown';
-    WithRouteWrapper.displayName = "withRouter(" + name + ")";
+    WithRouterWrapper.displayName = "withRouter(" + name + ")";
   }
 
-  return WithRouteWrapper;
+  return WithRouterWrapper;
 }
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/next-server/lib/data-manager-context.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/next-server/lib/data-manager-context.js":
 /*!************************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/next-server/lib/data-manager-context.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/next-server/lib/data-manager-context.js ***!
   \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -8312,15 +8284,15 @@ _Object$defineProperty(exports, "__esModule", {
   value: true
 });
 
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/_react@16.11.0@react/index.js"));
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 exports.DataManagerContext = React.createContext(null);
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/next-server/lib/data-manager.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/next-server/lib/data-manager.js":
 /*!****************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/next-server/lib/data-manager.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/next-server/lib/data-manager.js ***!
   \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -8378,9 +8350,9 @@ exports.DataManager = DataManager;
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/next-server/lib/head-manager-context.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/next-server/lib/head-manager-context.js":
 /*!************************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/next-server/lib/head-manager-context.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/next-server/lib/head-manager-context.js ***!
   \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -8404,15 +8376,15 @@ _Object$defineProperty(exports, "__esModule", {
   value: true
 });
 
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/_react@16.11.0@react/index.js"));
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 exports.HeadManagerContext = React.createContext(null);
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/next-server/lib/mitt.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/next-server/lib/mitt.js":
 /*!********************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/next-server/lib/mitt.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/next-server/lib/mitt.js ***!
   \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -8458,6 +8430,7 @@ function mitt() {
         evts[_key - 1] = arguments[_key];
       }
 
+      // eslint-disable-next-line array-callback-return
       ;
       (all[type] || []).slice().map(function (handler) {
         handler.apply(void 0, evts);
@@ -8470,9 +8443,9 @@ exports["default"] = mitt;
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/next-server/lib/router-context.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/next-server/lib/router-context.js":
 /*!******************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/next-server/lib/router-context.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/next-server/lib/router-context.js ***!
   \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -8496,15 +8469,15 @@ _Object$defineProperty(exports, "__esModule", {
   value: true
 });
 
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/_react@16.11.0@react/index.js"));
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 exports.RouterContext = React.createContext(null);
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/next-server/lib/router/rewrite-url-for-export.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/next-server/lib/router/rewrite-url-for-export.js":
 /*!*********************************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/next-server/lib/router/rewrite-url-for-export.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/next-server/lib/router/rewrite-url-for-export.js ***!
   \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -8544,9 +8517,9 @@ exports.rewriteUrlForNextExport = rewriteUrlForNextExport;
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/next-server/lib/router/router.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/next-server/lib/router/router.js":
 /*!*****************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/next-server/lib/router/router.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/next-server/lib/router/router.js ***!
   \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -8562,7 +8535,7 @@ var _slicedToArray = __webpack_require__(/*! @babel/runtime-corejs2/helpers/slic
 
 var _Promise = __webpack_require__(/*! @babel/runtime-corejs2/core-js/promise */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/core-js/promise.js");
 
-var _Object$assign = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/assign */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/core-js/object/assign.js");
+var _Object$assign = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/assign */ "./node_modules/_next@9.1.4@next/dist/build/polyfills/object-assign.js");
 
 var _classCallCheck = __webpack_require__(/*! @babel/runtime-corejs2/helpers/classCallCheck */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/helpers/classCallCheck.js");
 
@@ -8582,17 +8555,17 @@ _Object$defineProperty(exports, "__esModule", {
 
 var url_1 = __webpack_require__(/*! url */ "./node_modules/_url@0.11.0@url/url.js");
 
-var mitt_1 = __importDefault(__webpack_require__(/*! ../mitt */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/mitt.js"));
+var mitt_1 = __importDefault(__webpack_require__(/*! ../mitt */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/mitt.js"));
 
-var utils_1 = __webpack_require__(/*! ../utils */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/utils.js");
+var utils_1 = __webpack_require__(/*! ../utils */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/utils.js");
 
-var rewrite_url_for_export_1 = __webpack_require__(/*! ./rewrite-url-for-export */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/router/rewrite-url-for-export.js");
+var rewrite_url_for_export_1 = __webpack_require__(/*! ./rewrite-url-for-export */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/router/rewrite-url-for-export.js");
 
-var route_matcher_1 = __webpack_require__(/*! ./utils/route-matcher */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/router/utils/route-matcher.js");
+var is_dynamic_1 = __webpack_require__(/*! ./utils/is-dynamic */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/router/utils/is-dynamic.js");
 
-var route_regex_1 = __webpack_require__(/*! ./utils/route-regex */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/router/utils/route-regex.js");
+var route_matcher_1 = __webpack_require__(/*! ./utils/route-matcher */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/router/utils/route-matcher.js");
 
-var is_dynamic_1 = __webpack_require__(/*! ./utils/is-dynamic */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/router/utils/is-dynamic.js");
+var route_regex_1 = __webpack_require__(/*! ./utils/route-regex */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/router/utils/route-regex.js");
 
 function toRoute(path) {
   return path.replace(/\/$/, '') || '/';
@@ -8638,7 +8611,7 @@ function () {
       // can be caused by navigating back from an external site
 
 
-      if (e.state.options && e.state.options.historyId !== _this.historyId) {
+      if (e.state && _this.isSsr && e.state.url === _this.pathname && e.state.as === _this.asPath) {
         return;
       } // If the downstream application returns falsy, return.
       // They will then be responsible for handling the event.
@@ -8690,12 +8663,13 @@ function () {
     // until after mount to prevent hydration mismatch
 
     this.asPath = // @ts-ignore this is temporarily global (attached to window)
-    is_dynamic_1.isDynamicRoute(pathname) && __NEXT_DATA__.nextExport ? pathname : as;
+    is_dynamic_1.isDynamicRoute(pathname) && __NEXT_DATA__.autoExport ? pathname : as;
     this.sub = subscription;
     this.clc = null;
-    this._wrapApp = wrapApp; // we use a historyId to enable ignoring invalid popstates
+    this._wrapApp = wrapApp; // make sure to ignore extra popState in safari on navigating
+    // back from external site
 
-    this.historyId = Math.random();
+    this.isSsr = true;
 
     if (true) {
       // in order for `e.state` to work on the `onpopstate` event
@@ -8782,7 +8756,11 @@ function () {
       var _this2 = this;
 
       return new _Promise(function (resolve, reject) {
-        // marking route changes as a navigation start entry
+        if (!options._h) {
+          _this2.isSsr = false;
+        } // marking route changes as a navigation start entry
+
+
         if (utils_1.SUPPORTS_PERFORMANCE_USER_TIMING) {
           performance.mark('routeChange');
         } // If url and as provided as an object representation,
@@ -8921,9 +8899,7 @@ function () {
         window.history[method]({
           url: url,
           as: as,
-          options: _Object$assign({}, options, {
-            historyId: this.historyId
-          })
+          options: options
         }, null, as);
       }
     }
@@ -9318,9 +9294,9 @@ exports["default"] = Router;
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/next-server/lib/router/utils/is-dynamic.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/next-server/lib/router/utils/is-dynamic.js":
 /*!***************************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/next-server/lib/router/utils/is-dynamic.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/next-server/lib/router/utils/is-dynamic.js ***!
   \***************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9335,7 +9311,7 @@ _Object$defineProperty(exports, "__esModule", {
 }); // Identify /[param]/ in route string
 
 
-var TEST_ROUTE = /\/\[[^\/]+?\](?=\/|$)/;
+var TEST_ROUTE = /\/\[[^/]+?\](?=\/|$)/;
 
 function isDynamicRoute(route) {
   return TEST_ROUTE.test(route);
@@ -9345,9 +9321,9 @@ exports.isDynamicRoute = isDynamicRoute;
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/next-server/lib/router/utils/route-matcher.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/next-server/lib/router/utils/route-matcher.js":
 /*!******************************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/next-server/lib/router/utils/route-matcher.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/next-server/lib/router/utils/route-matcher.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9379,7 +9355,9 @@ function getRouteMatcher(routeRegex) {
       var m = routeMatch[groups[slugName]];
 
       if (m !== undefined) {
-        params[slugName] = decodeURIComponent(m);
+        params[slugName] = m.indexOf('/') !== -1 ? m.split('/').map(function (entry) {
+          return decodeURIComponent(entry);
+        }) : decodeURIComponent(m);
       }
     });
 
@@ -9391,9 +9369,9 @@ exports.getRouteMatcher = getRouteMatcher;
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/next-server/lib/router/utils/route-regex.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/next-server/lib/router/utils/route-regex.js":
 /*!****************************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/next-server/lib/router/utils/route-regex.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/next-server/lib/router/utils/route-regex.js ***!
   \****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9412,9 +9390,10 @@ function getRouteRegex(normalizedRoute) {
   var escapedRoute = (normalizedRoute.replace(/\/$/, '') || '/').replace(/[|\\{}()[\]^$+*?.-]/g, '\\$&');
   var groups = {};
   var groupIndex = 1;
-  var parameterizedRoute = escapedRoute.replace(/\/\\\[([^\/]+?)\\\](?=\/|$)/g, function (_, $1) {
+  var parameterizedRoute = escapedRoute.replace(/\/\\\[([^/]+?)\\\](?=\/|$)/g, function (_, $1) {
     return groups[$1 // Un-escape key
-    .replace(/\\([|\\{}()[\]^$+*?.-])/g, '$1')] = groupIndex++, '/([^/]+?)';
+    .replace(/\\([|\\{}()[\]^$+*?.-])/g, '$1').replace(/^\.{3}/, '') // eslint-disable-next-line no-sequences
+    ] = groupIndex++, $1.indexOf('\\.\\.\\.') === 0 ? '/(.+?)' : '/([^/]+?)';
   });
   return {
     re: new RegExp('^' + parameterizedRoute + '(?:/)?$', 'i'),
@@ -9426,9 +9405,9 @@ exports.getRouteRegex = getRouteRegex;
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/next-server/lib/runtime-config.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/next-server/lib/runtime-config.js":
 /*!******************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/next-server/lib/runtime-config.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/next-server/lib/runtime-config.js ***!
   \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9456,9 +9435,9 @@ exports.setConfig = setConfig;
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/next-server/lib/utils.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/next-server/lib/utils.js":
 /*!*********************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/next-server/lib/utils.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/next-server/lib/utils.js ***!
   \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9846,537 +9825,6 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ "./node_modules/_punycode@1.4.1@punycode/punycode.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/_punycode@1.4.1@punycode/punycode.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*! https://mths.be/punycode v1.4.1 by @mathias */
-;(function(root) {
-
-	/** Detect free variables */
-	var freeExports =  true && exports &&
-		!exports.nodeType && exports;
-	var freeModule =  true && module &&
-		!module.nodeType && module;
-	var freeGlobal = typeof global == 'object' && global;
-	if (
-		freeGlobal.global === freeGlobal ||
-		freeGlobal.window === freeGlobal ||
-		freeGlobal.self === freeGlobal
-	) {
-		root = freeGlobal;
-	}
-
-	/**
-	 * The `punycode` object.
-	 * @name punycode
-	 * @type Object
-	 */
-	var punycode,
-
-	/** Highest positive signed 32-bit float value */
-	maxInt = 2147483647, // aka. 0x7FFFFFFF or 2^31-1
-
-	/** Bootstring parameters */
-	base = 36,
-	tMin = 1,
-	tMax = 26,
-	skew = 38,
-	damp = 700,
-	initialBias = 72,
-	initialN = 128, // 0x80
-	delimiter = '-', // '\x2D'
-
-	/** Regular expressions */
-	regexPunycode = /^xn--/,
-	regexNonASCII = /[^\x20-\x7E]/, // unprintable ASCII chars + non-ASCII chars
-	regexSeparators = /[\x2E\u3002\uFF0E\uFF61]/g, // RFC 3490 separators
-
-	/** Error messages */
-	errors = {
-		'overflow': 'Overflow: input needs wider integers to process',
-		'not-basic': 'Illegal input >= 0x80 (not a basic code point)',
-		'invalid-input': 'Invalid input'
-	},
-
-	/** Convenience shortcuts */
-	baseMinusTMin = base - tMin,
-	floor = Math.floor,
-	stringFromCharCode = String.fromCharCode,
-
-	/** Temporary variable */
-	key;
-
-	/*--------------------------------------------------------------------------*/
-
-	/**
-	 * A generic error utility function.
-	 * @private
-	 * @param {String} type The error type.
-	 * @returns {Error} Throws a `RangeError` with the applicable error message.
-	 */
-	function error(type) {
-		throw new RangeError(errors[type]);
-	}
-
-	/**
-	 * A generic `Array#map` utility function.
-	 * @private
-	 * @param {Array} array The array to iterate over.
-	 * @param {Function} callback The function that gets called for every array
-	 * item.
-	 * @returns {Array} A new array of values returned by the callback function.
-	 */
-	function map(array, fn) {
-		var length = array.length;
-		var result = [];
-		while (length--) {
-			result[length] = fn(array[length]);
-		}
-		return result;
-	}
-
-	/**
-	 * A simple `Array#map`-like wrapper to work with domain name strings or email
-	 * addresses.
-	 * @private
-	 * @param {String} domain The domain name or email address.
-	 * @param {Function} callback The function that gets called for every
-	 * character.
-	 * @returns {Array} A new string of characters returned by the callback
-	 * function.
-	 */
-	function mapDomain(string, fn) {
-		var parts = string.split('@');
-		var result = '';
-		if (parts.length > 1) {
-			// In email addresses, only the domain name should be punycoded. Leave
-			// the local part (i.e. everything up to `@`) intact.
-			result = parts[0] + '@';
-			string = parts[1];
-		}
-		// Avoid `split(regex)` for IE8 compatibility. See #17.
-		string = string.replace(regexSeparators, '\x2E');
-		var labels = string.split('.');
-		var encoded = map(labels, fn).join('.');
-		return result + encoded;
-	}
-
-	/**
-	 * Creates an array containing the numeric code points of each Unicode
-	 * character in the string. While JavaScript uses UCS-2 internally,
-	 * this function will convert a pair of surrogate halves (each of which
-	 * UCS-2 exposes as separate characters) into a single code point,
-	 * matching UTF-16.
-	 * @see `punycode.ucs2.encode`
-	 * @see <https://mathiasbynens.be/notes/javascript-encoding>
-	 * @memberOf punycode.ucs2
-	 * @name decode
-	 * @param {String} string The Unicode input string (UCS-2).
-	 * @returns {Array} The new array of code points.
-	 */
-	function ucs2decode(string) {
-		var output = [],
-		    counter = 0,
-		    length = string.length,
-		    value,
-		    extra;
-		while (counter < length) {
-			value = string.charCodeAt(counter++);
-			if (value >= 0xD800 && value <= 0xDBFF && counter < length) {
-				// high surrogate, and there is a next character
-				extra = string.charCodeAt(counter++);
-				if ((extra & 0xFC00) == 0xDC00) { // low surrogate
-					output.push(((value & 0x3FF) << 10) + (extra & 0x3FF) + 0x10000);
-				} else {
-					// unmatched surrogate; only append this code unit, in case the next
-					// code unit is the high surrogate of a surrogate pair
-					output.push(value);
-					counter--;
-				}
-			} else {
-				output.push(value);
-			}
-		}
-		return output;
-	}
-
-	/**
-	 * Creates a string based on an array of numeric code points.
-	 * @see `punycode.ucs2.decode`
-	 * @memberOf punycode.ucs2
-	 * @name encode
-	 * @param {Array} codePoints The array of numeric code points.
-	 * @returns {String} The new Unicode string (UCS-2).
-	 */
-	function ucs2encode(array) {
-		return map(array, function(value) {
-			var output = '';
-			if (value > 0xFFFF) {
-				value -= 0x10000;
-				output += stringFromCharCode(value >>> 10 & 0x3FF | 0xD800);
-				value = 0xDC00 | value & 0x3FF;
-			}
-			output += stringFromCharCode(value);
-			return output;
-		}).join('');
-	}
-
-	/**
-	 * Converts a basic code point into a digit/integer.
-	 * @see `digitToBasic()`
-	 * @private
-	 * @param {Number} codePoint The basic numeric code point value.
-	 * @returns {Number} The numeric value of a basic code point (for use in
-	 * representing integers) in the range `0` to `base - 1`, or `base` if
-	 * the code point does not represent a value.
-	 */
-	function basicToDigit(codePoint) {
-		if (codePoint - 48 < 10) {
-			return codePoint - 22;
-		}
-		if (codePoint - 65 < 26) {
-			return codePoint - 65;
-		}
-		if (codePoint - 97 < 26) {
-			return codePoint - 97;
-		}
-		return base;
-	}
-
-	/**
-	 * Converts a digit/integer into a basic code point.
-	 * @see `basicToDigit()`
-	 * @private
-	 * @param {Number} digit The numeric value of a basic code point.
-	 * @returns {Number} The basic code point whose value (when used for
-	 * representing integers) is `digit`, which needs to be in the range
-	 * `0` to `base - 1`. If `flag` is non-zero, the uppercase form is
-	 * used; else, the lowercase form is used. The behavior is undefined
-	 * if `flag` is non-zero and `digit` has no uppercase form.
-	 */
-	function digitToBasic(digit, flag) {
-		//  0..25 map to ASCII a..z or A..Z
-		// 26..35 map to ASCII 0..9
-		return digit + 22 + 75 * (digit < 26) - ((flag != 0) << 5);
-	}
-
-	/**
-	 * Bias adaptation function as per section 3.4 of RFC 3492.
-	 * https://tools.ietf.org/html/rfc3492#section-3.4
-	 * @private
-	 */
-	function adapt(delta, numPoints, firstTime) {
-		var k = 0;
-		delta = firstTime ? floor(delta / damp) : delta >> 1;
-		delta += floor(delta / numPoints);
-		for (/* no initialization */; delta > baseMinusTMin * tMax >> 1; k += base) {
-			delta = floor(delta / baseMinusTMin);
-		}
-		return floor(k + (baseMinusTMin + 1) * delta / (delta + skew));
-	}
-
-	/**
-	 * Converts a Punycode string of ASCII-only symbols to a string of Unicode
-	 * symbols.
-	 * @memberOf punycode
-	 * @param {String} input The Punycode string of ASCII-only symbols.
-	 * @returns {String} The resulting string of Unicode symbols.
-	 */
-	function decode(input) {
-		// Don't use UCS-2
-		var output = [],
-		    inputLength = input.length,
-		    out,
-		    i = 0,
-		    n = initialN,
-		    bias = initialBias,
-		    basic,
-		    j,
-		    index,
-		    oldi,
-		    w,
-		    k,
-		    digit,
-		    t,
-		    /** Cached calculation results */
-		    baseMinusT;
-
-		// Handle the basic code points: let `basic` be the number of input code
-		// points before the last delimiter, or `0` if there is none, then copy
-		// the first basic code points to the output.
-
-		basic = input.lastIndexOf(delimiter);
-		if (basic < 0) {
-			basic = 0;
-		}
-
-		for (j = 0; j < basic; ++j) {
-			// if it's not a basic code point
-			if (input.charCodeAt(j) >= 0x80) {
-				error('not-basic');
-			}
-			output.push(input.charCodeAt(j));
-		}
-
-		// Main decoding loop: start just after the last delimiter if any basic code
-		// points were copied; start at the beginning otherwise.
-
-		for (index = basic > 0 ? basic + 1 : 0; index < inputLength; /* no final expression */) {
-
-			// `index` is the index of the next character to be consumed.
-			// Decode a generalized variable-length integer into `delta`,
-			// which gets added to `i`. The overflow checking is easier
-			// if we increase `i` as we go, then subtract off its starting
-			// value at the end to obtain `delta`.
-			for (oldi = i, w = 1, k = base; /* no condition */; k += base) {
-
-				if (index >= inputLength) {
-					error('invalid-input');
-				}
-
-				digit = basicToDigit(input.charCodeAt(index++));
-
-				if (digit >= base || digit > floor((maxInt - i) / w)) {
-					error('overflow');
-				}
-
-				i += digit * w;
-				t = k <= bias ? tMin : (k >= bias + tMax ? tMax : k - bias);
-
-				if (digit < t) {
-					break;
-				}
-
-				baseMinusT = base - t;
-				if (w > floor(maxInt / baseMinusT)) {
-					error('overflow');
-				}
-
-				w *= baseMinusT;
-
-			}
-
-			out = output.length + 1;
-			bias = adapt(i - oldi, out, oldi == 0);
-
-			// `i` was supposed to wrap around from `out` to `0`,
-			// incrementing `n` each time, so we'll fix that now:
-			if (floor(i / out) > maxInt - n) {
-				error('overflow');
-			}
-
-			n += floor(i / out);
-			i %= out;
-
-			// Insert `n` at position `i` of the output
-			output.splice(i++, 0, n);
-
-		}
-
-		return ucs2encode(output);
-	}
-
-	/**
-	 * Converts a string of Unicode symbols (e.g. a domain name label) to a
-	 * Punycode string of ASCII-only symbols.
-	 * @memberOf punycode
-	 * @param {String} input The string of Unicode symbols.
-	 * @returns {String} The resulting Punycode string of ASCII-only symbols.
-	 */
-	function encode(input) {
-		var n,
-		    delta,
-		    handledCPCount,
-		    basicLength,
-		    bias,
-		    j,
-		    m,
-		    q,
-		    k,
-		    t,
-		    currentValue,
-		    output = [],
-		    /** `inputLength` will hold the number of code points in `input`. */
-		    inputLength,
-		    /** Cached calculation results */
-		    handledCPCountPlusOne,
-		    baseMinusT,
-		    qMinusT;
-
-		// Convert the input in UCS-2 to Unicode
-		input = ucs2decode(input);
-
-		// Cache the length
-		inputLength = input.length;
-
-		// Initialize the state
-		n = initialN;
-		delta = 0;
-		bias = initialBias;
-
-		// Handle the basic code points
-		for (j = 0; j < inputLength; ++j) {
-			currentValue = input[j];
-			if (currentValue < 0x80) {
-				output.push(stringFromCharCode(currentValue));
-			}
-		}
-
-		handledCPCount = basicLength = output.length;
-
-		// `handledCPCount` is the number of code points that have been handled;
-		// `basicLength` is the number of basic code points.
-
-		// Finish the basic string - if it is not empty - with a delimiter
-		if (basicLength) {
-			output.push(delimiter);
-		}
-
-		// Main encoding loop:
-		while (handledCPCount < inputLength) {
-
-			// All non-basic code points < n have been handled already. Find the next
-			// larger one:
-			for (m = maxInt, j = 0; j < inputLength; ++j) {
-				currentValue = input[j];
-				if (currentValue >= n && currentValue < m) {
-					m = currentValue;
-				}
-			}
-
-			// Increase `delta` enough to advance the decoder's <n,i> state to <m,0>,
-			// but guard against overflow
-			handledCPCountPlusOne = handledCPCount + 1;
-			if (m - n > floor((maxInt - delta) / handledCPCountPlusOne)) {
-				error('overflow');
-			}
-
-			delta += (m - n) * handledCPCountPlusOne;
-			n = m;
-
-			for (j = 0; j < inputLength; ++j) {
-				currentValue = input[j];
-
-				if (currentValue < n && ++delta > maxInt) {
-					error('overflow');
-				}
-
-				if (currentValue == n) {
-					// Represent delta as a generalized variable-length integer
-					for (q = delta, k = base; /* no condition */; k += base) {
-						t = k <= bias ? tMin : (k >= bias + tMax ? tMax : k - bias);
-						if (q < t) {
-							break;
-						}
-						qMinusT = q - t;
-						baseMinusT = base - t;
-						output.push(
-							stringFromCharCode(digitToBasic(t + qMinusT % baseMinusT, 0))
-						);
-						q = floor(qMinusT / baseMinusT);
-					}
-
-					output.push(stringFromCharCode(digitToBasic(q, 0)));
-					bias = adapt(delta, handledCPCountPlusOne, handledCPCount == basicLength);
-					delta = 0;
-					++handledCPCount;
-				}
-			}
-
-			++delta;
-			++n;
-
-		}
-		return output.join('');
-	}
-
-	/**
-	 * Converts a Punycode string representing a domain name or an email address
-	 * to Unicode. Only the Punycoded parts of the input will be converted, i.e.
-	 * it doesn't matter if you call it on a string that has already been
-	 * converted to Unicode.
-	 * @memberOf punycode
-	 * @param {String} input The Punycoded domain name or email address to
-	 * convert to Unicode.
-	 * @returns {String} The Unicode representation of the given Punycode
-	 * string.
-	 */
-	function toUnicode(input) {
-		return mapDomain(input, function(string) {
-			return regexPunycode.test(string)
-				? decode(string.slice(4).toLowerCase())
-				: string;
-		});
-	}
-
-	/**
-	 * Converts a Unicode string representing a domain name or an email address to
-	 * Punycode. Only the non-ASCII parts of the domain name will be converted,
-	 * i.e. it doesn't matter if you call it with a domain that's already in
-	 * ASCII.
-	 * @memberOf punycode
-	 * @param {String} input The domain name or email address to convert, as a
-	 * Unicode string.
-	 * @returns {String} The Punycode representation of the given domain name or
-	 * email address.
-	 */
-	function toASCII(input) {
-		return mapDomain(input, function(string) {
-			return regexNonASCII.test(string)
-				? 'xn--' + encode(string)
-				: string;
-		});
-	}
-
-	/*--------------------------------------------------------------------------*/
-
-	/** Define the public API */
-	punycode = {
-		/**
-		 * A string representing the current Punycode.js version number.
-		 * @memberOf punycode
-		 * @type String
-		 */
-		'version': '1.4.1',
-		/**
-		 * An object of methods to convert from JavaScript's internal character
-		 * representation (UCS-2) to Unicode code points, and back.
-		 * @see <https://mathiasbynens.be/notes/javascript-encoding>
-		 * @memberOf punycode
-		 * @type Object
-		 */
-		'ucs2': {
-			'decode': ucs2decode,
-			'encode': ucs2encode
-		},
-		'decode': decode,
-		'encode': encode,
-		'toASCII': toASCII,
-		'toUnicode': toUnicode
-	};
-
-	/** Expose `punycode` */
-	// Some AMD build optimizers, like r.js, check for specific condition patterns
-	// like the following:
-	if (
-		true
-	) {
-		!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() {
-			return punycode;
-		}).call(exports, __webpack_require__, exports, module),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	} else {}
-
-}(this));
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../_webpack@4.39.0@webpack/buildin/module.js */ "./node_modules/_webpack@4.39.0@webpack/buildin/module.js")(module), __webpack_require__(/*! ./../_webpack@4.39.0@webpack/buildin/global.js */ "./node_modules/_webpack@4.39.0@webpack/buildin/global.js")))
-
-/***/ }),
-
 /***/ "./node_modules/_querystring-es3@0.2.1@querystring-es3/decode.js":
 /*!***********************************************************************!*\
   !*** ./node_modules/_querystring-es3@0.2.1@querystring-es3/decode.js ***!
@@ -10583,17 +10031,6 @@ var objectKeys = Object.keys || function (obj) {
 exports.decode = exports.parse = __webpack_require__(/*! ./decode */ "./node_modules/_querystring-es3@0.2.1@querystring-es3/decode.js");
 exports.encode = exports.stringify = __webpack_require__(/*! ./encode */ "./node_modules/_querystring-es3@0.2.1@querystring-es3/encode.js");
 
-
-/***/ }),
-
-/***/ "./node_modules/_react-dom@16.11.0@react-dom/index.js":
-/*!******************************************************************************************************************!*\
-  !*** delegated ./node_modules/_react-dom@16.11.0@react-dom/index.js from dll-reference dll_15f1202039f67fd0331f ***!
-  \******************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(/*! dll-reference dll_15f1202039f67fd0331f */ "dll-reference dll_15f1202039f67fd0331f"))("./node_modules/_react-dom@16.11.0@react-dom/index.js");
 
 /***/ }),
 
@@ -10862,17 +10299,6 @@ if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ "./node_modules/_react-is@16.8.6@react-is/cjs/react-is.development.js");
 }
 
-
-/***/ }),
-
-/***/ "./node_modules/_react@16.11.0@react/index.js":
-/*!**********************************************************************************************************!*\
-  !*** delegated ./node_modules/_react@16.11.0@react/index.js from dll-reference dll_15f1202039f67fd0331f ***!
-  \**********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(/*! dll-reference dll_15f1202039f67fd0331f */ "dll-reference dll_15f1202039f67fd0331f"))("./node_modules/_react@16.11.0@react/index.js");
 
 /***/ }),
 
@@ -11663,7 +11089,7 @@ module.exports.default = stripAnsi;
 
 
 
-var punycode = __webpack_require__(/*! punycode */ "./node_modules/_punycode@1.4.1@punycode/punycode.js");
+var punycode = __webpack_require__(/*! punycode */ "./node_modules/punycode/punycode.js");
 var util = __webpack_require__(/*! ./util */ "./node_modules/_url@0.11.0@url/util.js");
 
 exports.parse = urlParse;
@@ -12468,16 +11894,569 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "dll-reference dll_15f1202039f67fd0331f":
+/***/ "./node_modules/punycode/punycode.js":
 /*!*******************************************!*\
-  !*** external "dll_15f1202039f67fd0331f" ***!
+  !*** ./node_modules/punycode/punycode.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*! https://mths.be/punycode v1.3.2 by @mathias */
+;(function(root) {
+
+	/** Detect free variables */
+	var freeExports =  true && exports &&
+		!exports.nodeType && exports;
+	var freeModule =  true && module &&
+		!module.nodeType && module;
+	var freeGlobal = typeof global == 'object' && global;
+	if (
+		freeGlobal.global === freeGlobal ||
+		freeGlobal.window === freeGlobal ||
+		freeGlobal.self === freeGlobal
+	) {
+		root = freeGlobal;
+	}
+
+	/**
+	 * The `punycode` object.
+	 * @name punycode
+	 * @type Object
+	 */
+	var punycode,
+
+	/** Highest positive signed 32-bit float value */
+	maxInt = 2147483647, // aka. 0x7FFFFFFF or 2^31-1
+
+	/** Bootstring parameters */
+	base = 36,
+	tMin = 1,
+	tMax = 26,
+	skew = 38,
+	damp = 700,
+	initialBias = 72,
+	initialN = 128, // 0x80
+	delimiter = '-', // '\x2D'
+
+	/** Regular expressions */
+	regexPunycode = /^xn--/,
+	regexNonASCII = /[^\x20-\x7E]/, // unprintable ASCII chars + non-ASCII chars
+	regexSeparators = /[\x2E\u3002\uFF0E\uFF61]/g, // RFC 3490 separators
+
+	/** Error messages */
+	errors = {
+		'overflow': 'Overflow: input needs wider integers to process',
+		'not-basic': 'Illegal input >= 0x80 (not a basic code point)',
+		'invalid-input': 'Invalid input'
+	},
+
+	/** Convenience shortcuts */
+	baseMinusTMin = base - tMin,
+	floor = Math.floor,
+	stringFromCharCode = String.fromCharCode,
+
+	/** Temporary variable */
+	key;
+
+	/*--------------------------------------------------------------------------*/
+
+	/**
+	 * A generic error utility function.
+	 * @private
+	 * @param {String} type The error type.
+	 * @returns {Error} Throws a `RangeError` with the applicable error message.
+	 */
+	function error(type) {
+		throw RangeError(errors[type]);
+	}
+
+	/**
+	 * A generic `Array#map` utility function.
+	 * @private
+	 * @param {Array} array The array to iterate over.
+	 * @param {Function} callback The function that gets called for every array
+	 * item.
+	 * @returns {Array} A new array of values returned by the callback function.
+	 */
+	function map(array, fn) {
+		var length = array.length;
+		var result = [];
+		while (length--) {
+			result[length] = fn(array[length]);
+		}
+		return result;
+	}
+
+	/**
+	 * A simple `Array#map`-like wrapper to work with domain name strings or email
+	 * addresses.
+	 * @private
+	 * @param {String} domain The domain name or email address.
+	 * @param {Function} callback The function that gets called for every
+	 * character.
+	 * @returns {Array} A new string of characters returned by the callback
+	 * function.
+	 */
+	function mapDomain(string, fn) {
+		var parts = string.split('@');
+		var result = '';
+		if (parts.length > 1) {
+			// In email addresses, only the domain name should be punycoded. Leave
+			// the local part (i.e. everything up to `@`) intact.
+			result = parts[0] + '@';
+			string = parts[1];
+		}
+		// Avoid `split(regex)` for IE8 compatibility. See #17.
+		string = string.replace(regexSeparators, '\x2E');
+		var labels = string.split('.');
+		var encoded = map(labels, fn).join('.');
+		return result + encoded;
+	}
+
+	/**
+	 * Creates an array containing the numeric code points of each Unicode
+	 * character in the string. While JavaScript uses UCS-2 internally,
+	 * this function will convert a pair of surrogate halves (each of which
+	 * UCS-2 exposes as separate characters) into a single code point,
+	 * matching UTF-16.
+	 * @see `punycode.ucs2.encode`
+	 * @see <https://mathiasbynens.be/notes/javascript-encoding>
+	 * @memberOf punycode.ucs2
+	 * @name decode
+	 * @param {String} string The Unicode input string (UCS-2).
+	 * @returns {Array} The new array of code points.
+	 */
+	function ucs2decode(string) {
+		var output = [],
+		    counter = 0,
+		    length = string.length,
+		    value,
+		    extra;
+		while (counter < length) {
+			value = string.charCodeAt(counter++);
+			if (value >= 0xD800 && value <= 0xDBFF && counter < length) {
+				// high surrogate, and there is a next character
+				extra = string.charCodeAt(counter++);
+				if ((extra & 0xFC00) == 0xDC00) { // low surrogate
+					output.push(((value & 0x3FF) << 10) + (extra & 0x3FF) + 0x10000);
+				} else {
+					// unmatched surrogate; only append this code unit, in case the next
+					// code unit is the high surrogate of a surrogate pair
+					output.push(value);
+					counter--;
+				}
+			} else {
+				output.push(value);
+			}
+		}
+		return output;
+	}
+
+	/**
+	 * Creates a string based on an array of numeric code points.
+	 * @see `punycode.ucs2.decode`
+	 * @memberOf punycode.ucs2
+	 * @name encode
+	 * @param {Array} codePoints The array of numeric code points.
+	 * @returns {String} The new Unicode string (UCS-2).
+	 */
+	function ucs2encode(array) {
+		return map(array, function(value) {
+			var output = '';
+			if (value > 0xFFFF) {
+				value -= 0x10000;
+				output += stringFromCharCode(value >>> 10 & 0x3FF | 0xD800);
+				value = 0xDC00 | value & 0x3FF;
+			}
+			output += stringFromCharCode(value);
+			return output;
+		}).join('');
+	}
+
+	/**
+	 * Converts a basic code point into a digit/integer.
+	 * @see `digitToBasic()`
+	 * @private
+	 * @param {Number} codePoint The basic numeric code point value.
+	 * @returns {Number} The numeric value of a basic code point (for use in
+	 * representing integers) in the range `0` to `base - 1`, or `base` if
+	 * the code point does not represent a value.
+	 */
+	function basicToDigit(codePoint) {
+		if (codePoint - 48 < 10) {
+			return codePoint - 22;
+		}
+		if (codePoint - 65 < 26) {
+			return codePoint - 65;
+		}
+		if (codePoint - 97 < 26) {
+			return codePoint - 97;
+		}
+		return base;
+	}
+
+	/**
+	 * Converts a digit/integer into a basic code point.
+	 * @see `basicToDigit()`
+	 * @private
+	 * @param {Number} digit The numeric value of a basic code point.
+	 * @returns {Number} The basic code point whose value (when used for
+	 * representing integers) is `digit`, which needs to be in the range
+	 * `0` to `base - 1`. If `flag` is non-zero, the uppercase form is
+	 * used; else, the lowercase form is used. The behavior is undefined
+	 * if `flag` is non-zero and `digit` has no uppercase form.
+	 */
+	function digitToBasic(digit, flag) {
+		//  0..25 map to ASCII a..z or A..Z
+		// 26..35 map to ASCII 0..9
+		return digit + 22 + 75 * (digit < 26) - ((flag != 0) << 5);
+	}
+
+	/**
+	 * Bias adaptation function as per section 3.4 of RFC 3492.
+	 * http://tools.ietf.org/html/rfc3492#section-3.4
+	 * @private
+	 */
+	function adapt(delta, numPoints, firstTime) {
+		var k = 0;
+		delta = firstTime ? floor(delta / damp) : delta >> 1;
+		delta += floor(delta / numPoints);
+		for (/* no initialization */; delta > baseMinusTMin * tMax >> 1; k += base) {
+			delta = floor(delta / baseMinusTMin);
+		}
+		return floor(k + (baseMinusTMin + 1) * delta / (delta + skew));
+	}
+
+	/**
+	 * Converts a Punycode string of ASCII-only symbols to a string of Unicode
+	 * symbols.
+	 * @memberOf punycode
+	 * @param {String} input The Punycode string of ASCII-only symbols.
+	 * @returns {String} The resulting string of Unicode symbols.
+	 */
+	function decode(input) {
+		// Don't use UCS-2
+		var output = [],
+		    inputLength = input.length,
+		    out,
+		    i = 0,
+		    n = initialN,
+		    bias = initialBias,
+		    basic,
+		    j,
+		    index,
+		    oldi,
+		    w,
+		    k,
+		    digit,
+		    t,
+		    /** Cached calculation results */
+		    baseMinusT;
+
+		// Handle the basic code points: let `basic` be the number of input code
+		// points before the last delimiter, or `0` if there is none, then copy
+		// the first basic code points to the output.
+
+		basic = input.lastIndexOf(delimiter);
+		if (basic < 0) {
+			basic = 0;
+		}
+
+		for (j = 0; j < basic; ++j) {
+			// if it's not a basic code point
+			if (input.charCodeAt(j) >= 0x80) {
+				error('not-basic');
+			}
+			output.push(input.charCodeAt(j));
+		}
+
+		// Main decoding loop: start just after the last delimiter if any basic code
+		// points were copied; start at the beginning otherwise.
+
+		for (index = basic > 0 ? basic + 1 : 0; index < inputLength; /* no final expression */) {
+
+			// `index` is the index of the next character to be consumed.
+			// Decode a generalized variable-length integer into `delta`,
+			// which gets added to `i`. The overflow checking is easier
+			// if we increase `i` as we go, then subtract off its starting
+			// value at the end to obtain `delta`.
+			for (oldi = i, w = 1, k = base; /* no condition */; k += base) {
+
+				if (index >= inputLength) {
+					error('invalid-input');
+				}
+
+				digit = basicToDigit(input.charCodeAt(index++));
+
+				if (digit >= base || digit > floor((maxInt - i) / w)) {
+					error('overflow');
+				}
+
+				i += digit * w;
+				t = k <= bias ? tMin : (k >= bias + tMax ? tMax : k - bias);
+
+				if (digit < t) {
+					break;
+				}
+
+				baseMinusT = base - t;
+				if (w > floor(maxInt / baseMinusT)) {
+					error('overflow');
+				}
+
+				w *= baseMinusT;
+
+			}
+
+			out = output.length + 1;
+			bias = adapt(i - oldi, out, oldi == 0);
+
+			// `i` was supposed to wrap around from `out` to `0`,
+			// incrementing `n` each time, so we'll fix that now:
+			if (floor(i / out) > maxInt - n) {
+				error('overflow');
+			}
+
+			n += floor(i / out);
+			i %= out;
+
+			// Insert `n` at position `i` of the output
+			output.splice(i++, 0, n);
+
+		}
+
+		return ucs2encode(output);
+	}
+
+	/**
+	 * Converts a string of Unicode symbols (e.g. a domain name label) to a
+	 * Punycode string of ASCII-only symbols.
+	 * @memberOf punycode
+	 * @param {String} input The string of Unicode symbols.
+	 * @returns {String} The resulting Punycode string of ASCII-only symbols.
+	 */
+	function encode(input) {
+		var n,
+		    delta,
+		    handledCPCount,
+		    basicLength,
+		    bias,
+		    j,
+		    m,
+		    q,
+		    k,
+		    t,
+		    currentValue,
+		    output = [],
+		    /** `inputLength` will hold the number of code points in `input`. */
+		    inputLength,
+		    /** Cached calculation results */
+		    handledCPCountPlusOne,
+		    baseMinusT,
+		    qMinusT;
+
+		// Convert the input in UCS-2 to Unicode
+		input = ucs2decode(input);
+
+		// Cache the length
+		inputLength = input.length;
+
+		// Initialize the state
+		n = initialN;
+		delta = 0;
+		bias = initialBias;
+
+		// Handle the basic code points
+		for (j = 0; j < inputLength; ++j) {
+			currentValue = input[j];
+			if (currentValue < 0x80) {
+				output.push(stringFromCharCode(currentValue));
+			}
+		}
+
+		handledCPCount = basicLength = output.length;
+
+		// `handledCPCount` is the number of code points that have been handled;
+		// `basicLength` is the number of basic code points.
+
+		// Finish the basic string - if it is not empty - with a delimiter
+		if (basicLength) {
+			output.push(delimiter);
+		}
+
+		// Main encoding loop:
+		while (handledCPCount < inputLength) {
+
+			// All non-basic code points < n have been handled already. Find the next
+			// larger one:
+			for (m = maxInt, j = 0; j < inputLength; ++j) {
+				currentValue = input[j];
+				if (currentValue >= n && currentValue < m) {
+					m = currentValue;
+				}
+			}
+
+			// Increase `delta` enough to advance the decoder's <n,i> state to <m,0>,
+			// but guard against overflow
+			handledCPCountPlusOne = handledCPCount + 1;
+			if (m - n > floor((maxInt - delta) / handledCPCountPlusOne)) {
+				error('overflow');
+			}
+
+			delta += (m - n) * handledCPCountPlusOne;
+			n = m;
+
+			for (j = 0; j < inputLength; ++j) {
+				currentValue = input[j];
+
+				if (currentValue < n && ++delta > maxInt) {
+					error('overflow');
+				}
+
+				if (currentValue == n) {
+					// Represent delta as a generalized variable-length integer
+					for (q = delta, k = base; /* no condition */; k += base) {
+						t = k <= bias ? tMin : (k >= bias + tMax ? tMax : k - bias);
+						if (q < t) {
+							break;
+						}
+						qMinusT = q - t;
+						baseMinusT = base - t;
+						output.push(
+							stringFromCharCode(digitToBasic(t + qMinusT % baseMinusT, 0))
+						);
+						q = floor(qMinusT / baseMinusT);
+					}
+
+					output.push(stringFromCharCode(digitToBasic(q, 0)));
+					bias = adapt(delta, handledCPCountPlusOne, handledCPCount == basicLength);
+					delta = 0;
+					++handledCPCount;
+				}
+			}
+
+			++delta;
+			++n;
+
+		}
+		return output.join('');
+	}
+
+	/**
+	 * Converts a Punycode string representing a domain name or an email address
+	 * to Unicode. Only the Punycoded parts of the input will be converted, i.e.
+	 * it doesn't matter if you call it on a string that has already been
+	 * converted to Unicode.
+	 * @memberOf punycode
+	 * @param {String} input The Punycoded domain name or email address to
+	 * convert to Unicode.
+	 * @returns {String} The Unicode representation of the given Punycode
+	 * string.
+	 */
+	function toUnicode(input) {
+		return mapDomain(input, function(string) {
+			return regexPunycode.test(string)
+				? decode(string.slice(4).toLowerCase())
+				: string;
+		});
+	}
+
+	/**
+	 * Converts a Unicode string representing a domain name or an email address to
+	 * Punycode. Only the non-ASCII parts of the domain name will be converted,
+	 * i.e. it doesn't matter if you call it with a domain that's already in
+	 * ASCII.
+	 * @memberOf punycode
+	 * @param {String} input The domain name or email address to convert, as a
+	 * Unicode string.
+	 * @returns {String} The Punycode representation of the given domain name or
+	 * email address.
+	 */
+	function toASCII(input) {
+		return mapDomain(input, function(string) {
+			return regexNonASCII.test(string)
+				? 'xn--' + encode(string)
+				: string;
+		});
+	}
+
+	/*--------------------------------------------------------------------------*/
+
+	/** Define the public API */
+	punycode = {
+		/**
+		 * A string representing the current Punycode.js version number.
+		 * @memberOf punycode
+		 * @type String
+		 */
+		'version': '1.3.2',
+		/**
+		 * An object of methods to convert from JavaScript's internal character
+		 * representation (UCS-2) to Unicode code points, and back.
+		 * @see <https://mathiasbynens.be/notes/javascript-encoding>
+		 * @memberOf punycode
+		 * @type Object
+		 */
+		'ucs2': {
+			'decode': ucs2decode,
+			'encode': ucs2encode
+		},
+		'decode': decode,
+		'encode': encode,
+		'toASCII': toASCII,
+		'toUnicode': toUnicode
+	};
+
+	/** Expose `punycode` */
+	// Some AMD build optimizers, like r.js, check for specific condition patterns
+	// like the following:
+	if (
+		true
+	) {
+		!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() {
+			return punycode;
+		}).call(exports, __webpack_require__, exports, module),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {}
+
+}(this));
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../_webpack@4.39.0@webpack/buildin/module.js */ "./node_modules/_webpack@4.39.0@webpack/buildin/module.js")(module), __webpack_require__(/*! ./../_webpack@4.39.0@webpack/buildin/global.js */ "./node_modules/_webpack@4.39.0@webpack/buildin/global.js")))
+
+/***/ }),
+
+/***/ "./node_modules/react-dom/index.js":
+/*!***********************************************************************************************!*\
+  !*** delegated ./node_modules/react-dom/index.js from dll-reference dll_9c4f2c2e70faff43cd76 ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(/*! dll-reference dll_9c4f2c2e70faff43cd76 */ "dll-reference dll_9c4f2c2e70faff43cd76"))("./node_modules/react-dom/index.js");
+
+/***/ }),
+
+/***/ "./node_modules/react/index.js":
+/*!*******************************************************************************************!*\
+  !*** delegated ./node_modules/react/index.js from dll-reference dll_9c4f2c2e70faff43cd76 ***!
+  \*******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(/*! dll-reference dll_9c4f2c2e70faff43cd76 */ "dll-reference dll_9c4f2c2e70faff43cd76"))("./node_modules/react/index.js");
+
+/***/ }),
+
+/***/ "dll-reference dll_9c4f2c2e70faff43cd76":
+/*!*******************************************!*\
+  !*** external "dll_9c4f2c2e70faff43cd76" ***!
   \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = dll_15f1202039f67fd0331f;
+module.exports = dll_9c4f2c2e70faff43cd76;
 
 /***/ })
 
-},[["./node_modules/_next@9.1.3@next/dist/client/next-dev.js","static/runtime/webpack.js"]]]);
+},[["./node_modules/_next@9.1.4@next/dist/client/next-dev.js","static/runtime/webpack.js"]]]);
 //# sourceMappingURL=main.js.map

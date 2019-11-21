@@ -37,24 +37,19 @@ module.exports = appInfo => {
       host: '47.98.50.170', // Redis host
       port: 6379, // Redis port
       password: 'caiwenduo1993',
-      db: 0,
+      db: 1,
     },
   };
   // 设置session
   config.session = {
     key: 'SESSION_ID',
-    maxAge: 5000, // 1 天
-    httpOnly: true,
-    encrypt: true,
-  };
-  // 设置sessionRedis
-  config.sessionRedis = {
-    key: 'SESSION_ID',
-    maxAge: 5000, // 1 天
-    httpOnly: true,
-    encrypt: true,
+    maxAge: 60000, // 1 天
+    httpOnly: true, // 设置键值对是否可以被 js 访问，默认为 true，不允许被 js 访问。
+    encrypt: true, // 加密传输
     renew: true, // 延长会话有效期
   };
+  // 配置需要的中间件，数组顺序即为中间件的加载顺序
+  config.middleware = [ 'login' ];
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',

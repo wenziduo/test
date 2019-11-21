@@ -1,20 +1,22 @@
 import App, { Container } from 'next/app'
 import React from 'react'
 import Header from '../component/Header'
+import { parseCookies, setCookie, destroyCookie } from 'nookies'
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {}
-
+    // let cookies = {}
+    // if (ctx.isServer) {
+    //   cookies = parseCookies(ctx)
+    // }
     if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx)
+      pageProps = await Component.getInitialProps({ ctx })
     }
-
     return { pageProps }
   }
 
   render() {
-    console.log('app')
     const { Component, pageProps } = this.props
     return (
       <Container>

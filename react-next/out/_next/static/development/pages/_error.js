@@ -3121,20 +3121,20 @@ for (var i = 0; i < DOMIterables.length; i++) {
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F_error&absolutePagePath=next%2Fdist%2Fpages%2F_error!./":
+/***/ "./node_modules/_next@9.1.4@next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F_error&absolutePagePath=next%2Fdist%2Fpages%2F_error!./":
 /*!***********************************************************************************************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F_error&absolutePagePath=next%2Fdist%2Fpages%2F_error ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F_error&absolutePagePath=next%2Fdist%2Fpages%2F_error ***!
   \***********************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
     (window.__NEXT_P=window.__NEXT_P||[]).push(["/_error", function() {
-      var mod = __webpack_require__(/*! next/dist/pages/_error */ "./node_modules/_next@9.1.3@next/dist/pages/_error.js")
+      var mod = __webpack_require__(/*! next/dist/pages/_error */ "./node_modules/_next@9.1.4@next/dist/pages/_error.js")
       if(true) {
-        module.hot.accept(/*! next/dist/pages/_error */ "./node_modules/_next@9.1.3@next/dist/pages/_error.js", function() {
+        module.hot.accept(/*! next/dist/pages/_error */ "./node_modules/_next@9.1.4@next/dist/pages/_error.js", function() {
           if(!next.router.components["/_error"]) return
-          var updatedPage = __webpack_require__(/*! next/dist/pages/_error */ "./node_modules/_next@9.1.3@next/dist/pages/_error.js")
+          var updatedPage = __webpack_require__(/*! next/dist/pages/_error */ "./node_modules/_next@9.1.4@next/dist/pages/_error.js")
           next.router.update("/_error", updatedPage)
         })
       }
@@ -3144,9 +3144,9 @@ for (var i = 0; i < DOMIterables.length; i++) {
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/next-server/lib/amp-context.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/next-server/lib/amp-context.js":
 /*!***************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/next-server/lib/amp-context.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/next-server/lib/amp-context.js ***!
   \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -3170,15 +3170,15 @@ _Object$defineProperty(exports, "__esModule", {
   value: true
 });
 
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/_react@16.11.0@react/index.js"));
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 exports.AmpStateContext = React.createContext({});
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/next-server/lib/amp.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/next-server/lib/amp.js":
 /*!*******************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/next-server/lib/amp.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/next-server/lib/amp.js ***!
   \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -3198,9 +3198,9 @@ _Object$defineProperty(exports, "__esModule", {
   value: true
 });
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/_react@16.11.0@react/index.js"));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var amp_context_1 = __webpack_require__(/*! ./amp-context */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/amp-context.js");
+var amp_context_1 = __webpack_require__(/*! ./amp-context */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/amp-context.js");
 
 function isInAmpMode() {
   var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
@@ -3225,9 +3225,9 @@ exports.useAmp = useAmp;
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/next-server/lib/head-manager-context.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/next-server/lib/head-manager-context.js":
 /*!************************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/next-server/lib/head-manager-context.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/next-server/lib/head-manager-context.js ***!
   \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -3251,15 +3251,15 @@ _Object$defineProperty(exports, "__esModule", {
   value: true
 });
 
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/_react@16.11.0@react/index.js"));
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 exports.HeadManagerContext = React.createContext(null);
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/next-server/lib/head.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/next-server/lib/head.js":
 /*!********************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/next-server/lib/head.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/next-server/lib/head.js ***!
   \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -3281,15 +3281,15 @@ _Object$defineProperty(exports, "__esModule", {
   value: true
 });
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/_react@16.11.0@react/index.js"));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var side_effect_1 = __importDefault(__webpack_require__(/*! ./side-effect */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/side-effect.js"));
+var side_effect_1 = __importDefault(__webpack_require__(/*! ./side-effect */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/side-effect.js"));
 
-var amp_context_1 = __webpack_require__(/*! ./amp-context */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/amp-context.js");
+var amp_context_1 = __webpack_require__(/*! ./amp-context */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/amp-context.js");
 
-var head_manager_context_1 = __webpack_require__(/*! ./head-manager-context */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/head-manager-context.js");
+var head_manager_context_1 = __webpack_require__(/*! ./head-manager-context */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/head-manager-context.js");
 
-var amp_1 = __webpack_require__(/*! ./amp */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/amp.js");
+var amp_1 = __webpack_require__(/*! ./amp */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/amp.js");
 
 function defaultHead() {
   var inAmpMode = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
@@ -3353,7 +3353,7 @@ function unique() {
     // is not rendered as well
 
 
-    if (keys.has(".$".concat(h.key))) return false;
+    if (keys.has(".$".concat(h.key))) return false; // eslint-disable-next-line default-case
 
     switch (h.type) {
       case 'title':
@@ -3427,9 +3427,9 @@ exports["default"] = Head;
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/next-server/lib/side-effect.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/next-server/lib/side-effect.js":
 /*!***************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/next-server/lib/side-effect.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/next-server/lib/side-effect.js ***!
   \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -3459,7 +3459,7 @@ _Object$defineProperty(exports, "__esModule", {
   value: true
 });
 
-var react_1 = __webpack_require__(/*! react */ "./node_modules/_react@16.11.0@react/index.js");
+var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var isServer = false;
 
@@ -3537,9 +3537,9 @@ exports["default"] = function () {
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/pages/_error.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/pages/_error.js":
 /*!************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/pages/_error.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/pages/_error.js ***!
   \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -3562,9 +3562,9 @@ var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/help
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/_react@16.11.0@react/index.js"));
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
-var _head = _interopRequireDefault(__webpack_require__(/*! ../next-server/lib/head */ "./node_modules/_next@9.1.3@next/dist/next-server/lib/head.js"));
+var _head = _interopRequireDefault(__webpack_require__(/*! ../next-server/lib/head */ "./node_modules/_next@9.1.4@next/dist/next-server/lib/head.js"));
 
 var statusCodes = {
   400: 'Bad Request',
@@ -3663,27 +3663,27 @@ var styles = {
 
 /***/ }),
 
-/***/ "./node_modules/_react@16.11.0@react/index.js":
-/*!**********************************************************************************************************!*\
-  !*** delegated ./node_modules/_react@16.11.0@react/index.js from dll-reference dll_15f1202039f67fd0331f ***!
-  \**********************************************************************************************************/
+/***/ "./node_modules/react/index.js":
+/*!*******************************************************************************************!*\
+  !*** delegated ./node_modules/react/index.js from dll-reference dll_9c4f2c2e70faff43cd76 ***!
+  \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_15f1202039f67fd0331f */ "dll-reference dll_15f1202039f67fd0331f"))("./node_modules/_react@16.11.0@react/index.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_9c4f2c2e70faff43cd76 */ "dll-reference dll_9c4f2c2e70faff43cd76"))("./node_modules/react/index.js");
 
 /***/ }),
 
-/***/ "dll-reference dll_15f1202039f67fd0331f":
+/***/ "dll-reference dll_9c4f2c2e70faff43cd76":
 /*!*******************************************!*\
-  !*** external "dll_15f1202039f67fd0331f" ***!
+  !*** external "dll_9c4f2c2e70faff43cd76" ***!
   \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = dll_15f1202039f67fd0331f;
+module.exports = dll_9c4f2c2e70faff43cd76;
 
 /***/ })
 
-},[["./node_modules/_next@9.1.3@next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F_error&absolutePagePath=next%2Fdist%2Fpages%2F_error!./","static/runtime/webpack.js"]]]);
+},[["./node_modules/_next@9.1.4@next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F_error&absolutePagePath=next%2Fdist%2Fpages%2F_error!./","static/runtime/webpack.js"]]]);
 //# sourceMappingURL=_error.js.map

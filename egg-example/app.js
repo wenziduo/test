@@ -11,7 +11,7 @@ module.exports = app => {
     },
 
     async set(key, value, maxAge) {
-      console.log('key, value, maxAge', key, value, maxAge);
+      this.redisKey = key;
       maxAge = typeof maxAge === 'number' ? maxAge : ONE_DAY;
       value = JSON.stringify(value);
       await redis.set(key, value, 'PX', maxAge);

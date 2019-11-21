@@ -2335,21 +2335,21 @@ for (var i = 0; i < DOMIterables.length; i++) {
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/build/polyfills/fetch.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/build/polyfills/fetch.js ***!
-  \*********************************************************************/
+/***/ "./node_modules/_next@9.1.4@next/dist/build/polyfills/fetch/index.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/_next@9.1.4@next/dist/build/polyfills/fetch/index.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-exports.__esModule=true;exports.default=void 0;var _default=window.fetch;exports.default=_default;
+/* globals self */var fetch=self.fetch.bind(self);module.exports=fetch;module.exports.default=module.exports;
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/client/dev/amp-dev.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/client/dev/amp-dev.js":
 /*!******************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/client/dev/amp-dev.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/client/dev/amp-dev.js ***!
   \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -2365,13 +2365,13 @@ var _keys = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs
 
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/asyncToGenerator */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/helpers/asyncToGenerator.js"));
 
-var _unfetch = _interopRequireDefault(__webpack_require__(/*! unfetch */ "./node_modules/_next@9.1.3@next/dist/build/polyfills/fetch.js"));
+var _unfetch = _interopRequireDefault(__webpack_require__(/*! unfetch */ "./node_modules/_next@9.1.4@next/dist/build/polyfills/fetch/index.js"));
 
-var _eventSourcePolyfill = _interopRequireDefault(__webpack_require__(/*! ./event-source-polyfill */ "./node_modules/_next@9.1.3@next/dist/client/dev/event-source-polyfill.js"));
+var _eventSourcePolyfill = _interopRequireDefault(__webpack_require__(/*! ./event-source-polyfill */ "./node_modules/_next@9.1.4@next/dist/client/dev/event-source-polyfill.js"));
 
-var _eventsource = __webpack_require__(/*! ./error-overlay/eventsource */ "./node_modules/_next@9.1.3@next/dist/client/dev/error-overlay/eventsource.js");
+var _eventsource = __webpack_require__(/*! ./error-overlay/eventsource */ "./node_modules/_next@9.1.4@next/dist/client/dev/error-overlay/eventsource.js");
 
-var _onDemandEntriesUtils = __webpack_require__(/*! ./on-demand-entries-utils */ "./node_modules/_next@9.1.3@next/dist/client/dev/on-demand-entries-utils.js");
+var _onDemandEntriesUtils = __webpack_require__(/*! ./on-demand-entries-utils */ "./node_modules/_next@9.1.4@next/dist/client/dev/on-demand-entries-utils.js");
 /* globals __webpack_hash__ */
 
 
@@ -2497,9 +2497,9 @@ function _tryApplyUpdates() {
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/client/dev/error-overlay/eventsource.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/client/dev/error-overlay/eventsource.js":
 /*!************************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/client/dev/error-overlay/eventsource.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/client/dev/error-overlay/eventsource.js ***!
   \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -2584,9 +2584,9 @@ function getEventSourceWrapper(options) {
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/client/dev/event-source-polyfill.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/client/dev/event-source-polyfill.js":
 /*!********************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/client/dev/event-source-polyfill.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/client/dev/event-source-polyfill.js ***!
   \********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -2607,7 +2607,7 @@ var _promise = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-cor
 
 var _create = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/object/create */ "./node_modules/_@babel_runtime-corejs2@7.6.3@@babel/runtime-corejs2/core-js/object/create.js"));
 
-var _unfetch = _interopRequireDefault(__webpack_require__(/*! unfetch */ "./node_modules/_next@9.1.3@next/dist/build/polyfills/fetch.js"));
+var _unfetch = _interopRequireDefault(__webpack_require__(/*! unfetch */ "./node_modules/_next@9.1.4@next/dist/build/polyfills/fetch/index.js"));
 /* eslint-disable */
 // Improved version of https://github.com/Yaffle/EventSource/
 // Available under MIT License (MIT)
@@ -3541,9 +3541,9 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ "./node_modules/_next@9.1.3@next/dist/client/dev/on-demand-entries-utils.js":
+/***/ "./node_modules/_next@9.1.4@next/dist/client/dev/on-demand-entries-utils.js":
 /*!**********************************************************************************!*\
-  !*** ./node_modules/_next@9.1.3@next/dist/client/dev/on-demand-entries-utils.js ***!
+  !*** ./node_modules/_next@9.1.4@next/dist/client/dev/on-demand-entries-utils.js ***!
   \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -3558,10 +3558,10 @@ exports.closePing = closePing;
 exports.setupPing = setupPing;
 exports.currentPage = void 0;
 
-var _unfetch = _interopRequireDefault(__webpack_require__(/*! unfetch */ "./node_modules/_next@9.1.3@next/dist/build/polyfills/fetch.js"));
+var _unfetch = _interopRequireDefault(__webpack_require__(/*! unfetch */ "./node_modules/_next@9.1.4@next/dist/build/polyfills/fetch/index.js"));
 
-var _eventsource = __webpack_require__(/*! ./error-overlay/eventsource */ "./node_modules/_next@9.1.3@next/dist/client/dev/error-overlay/eventsource.js");
-/* global window, location */
+var _eventsource = __webpack_require__(/*! ./error-overlay/eventsource */ "./node_modules/_next@9.1.4@next/dist/client/dev/error-overlay/eventsource.js");
+/* global location */
 
 
 var evtSource;
@@ -4348,5 +4348,5 @@ try {
 
 /***/ })
 
-},[["./node_modules/_next@9.1.3@next/dist/client/dev/amp-dev.js","static/runtime/webpack.js"]]]);
+},[["./node_modules/_next@9.1.4@next/dist/client/dev/amp-dev.js","static/runtime/webpack.js"]]]);
 //# sourceMappingURL=amp.js.map
