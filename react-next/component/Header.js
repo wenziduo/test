@@ -16,10 +16,10 @@ const headerNav = [
   }
 ]
 class Header extends React.Component {
-  componentDidMount() {
-    const { router } = this.props
-    router.prefetch('/about')
-  }
+  // componentDidMount() {
+  //   const { router } = this.props
+  //   router.prefetch('/about')
+  // }
   handleGo = record => {
     this.props.router.push(record.path)
   }

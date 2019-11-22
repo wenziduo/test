@@ -6,7 +6,7 @@ const devProxy = {
   '/api': {
     target: 'http://127.0.0.1:8008', // 目标服务器 host
     pathRewrite: { '^/api': '/' }, // 重写请求，比如我们源访问的是api/login，那么请求会被解析为/www/login
-    changeOrigin: false // 默认false，是否需要改变原始主机头为目标URL
+    changeOrigin: true // 默认false，是否需要改变原始主机头为目标URL
   }
 }
 

@@ -6,7 +6,7 @@ class HomeController extends Controller {
   async index() {
     const { ctx, app } = this;
     const data = {
-      name: '首页',
+      name: '首页66',
     };
     await new Promise(resolve => {
       setTimeout(resolve, 500);
