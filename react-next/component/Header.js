@@ -28,9 +28,6 @@ class Header extends React.Component {
     console.log('pathname', pathname)
     return (
       <div>
-        <div style={pathname === '/about' ? { color: 'orangered' } : null}>
-          你好
-        </div>
         <div
           style={{
             display: 'flex',
