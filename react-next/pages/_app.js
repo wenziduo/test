@@ -7,6 +7,7 @@ export default class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {}
     let cookies = {}
+    console.log('ctx.isServer', ctx.isServer)
     if (ctx.isServer) {
       cookies = parseCookies(ctx)
     }
