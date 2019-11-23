@@ -7,6 +7,7 @@
 // }
 import React from 'react'
 import Link from 'next/link'
+import Main from '../component/Main'
 
 class Index extends React.Component {
   render() {
@@ -21,4 +22,4 @@ class Index extends React.Component {
   }
 }
 
-export default Index
+export default Main(Index)
