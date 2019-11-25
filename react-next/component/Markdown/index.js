@@ -14,11 +14,6 @@ class Post extends React.Component {
       markdown: ''
     }
   }
-  static async getInitialProps({ req }) {
-    await new Promise(resolve => {
-      setTimeout(resolve, 2000)
-    })
-  }
   handleMarkDownChange = e => {
     console.log(e)
     this.setState({
