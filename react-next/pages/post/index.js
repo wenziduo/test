@@ -1,43 +1,69 @@
 import React from 'react'
-import Link from 'next/link'
-import { Form } from 'react-bootstrap'
 import Main from '../../component/Main'
-// import ReactMarkdown from 'react-markdown/with-html'
-// import CodeBlock from '../../component/CodeBlock/index'
-// import HeadingBlock from '../../component/HeadingBlock/index'
-import MarkdownEditor from '@uiw/react-markdown-editor'
-const FormControl = Form.Control
+import { Table, Input, Button } from 'antd'
+// import zhCN from 'antd/es/locale/zh_CN';
+// import moment from 'moment';
+// import 'moment/locale/zh-cn'
+import 'antd/dist/antd.css'
+// import MarkDown from '../../component/Markdown'
 
 class Post extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      markdown: ''
+      data: Array.apply(null, { length: 1000 }).map((item, index) => ({
+        key: index,
+        aaa: '',
+        bbb: '',
+        ccc: '',
+        ddd: ''
+      }))
     }
+    this.columns = [
+      {
+        title: '测试1',
+        dataIndex: 'aaa',
+        render: (text, record) => <Input />
+      },
+      {
+        title: '测试2',
+        dataIndex: 'bbb',
+        render: (text, record) => <Input />
+      },
+      {
+        title: '测试3',
+        dataIndex: 'ccc',
+        render: (text, record) => <Input />
+      },
+      {
+        title: '测试4',
+        dataIndex: 'ddd',
+        render: (text, record) => <Input />
+      }
+    ]
   }
-  handleMarkDownChange = e => {
-    console.log(e)
-    this.setState({
-      markdown: e.target.value
+  static async getInitialProps({ req }) {
+    await new Promise(resolve => {
+      setTimeout(resolve, 200)
     })
   }
-  updateMarkdown = (editor, data, value) => {
-    this.setState({ markdown: value })
+  handleSave = () => {
+    console.log(this.tableNode)
   }
   render() {
-    const { markdown } = this.state
+    const { data } = this.state
     return (
       <div>
-        {/* <FormControl
-          as="textarea"
-          style={{ width: 800 }}
-          rows={8}
-          value={markdown}
-          onChange={this.handleMarkDownChange}
-        /> */}
-        <MarkdownEditor
-          value={this.state.markdown}
-          onChange={this.updateMarkdown}
+        {/* <MarkDown /> */}
+        <Button onClick={this.handleSave}>提交</Button>
+        <Table
+          dataSource={data}
+          columns={this.columns}
+          rowKey="key"
+          pagination={false}
+          ref={node => {
+            this.tableNode = node
+          }}
         />
       </div>
     )

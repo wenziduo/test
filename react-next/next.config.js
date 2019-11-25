@@ -17,3 +17,12 @@ const withCss = require('@zeit/next-css')
 //   }
 // }
 module.exports = withLess(withCss())
+// const withLess = require('@zeit/next-less')
+// const withCss = require('@zeit/next-css')
+
+// module.exports = {
+//   webpack(config, ...args) {
+//     config = withCss().webpack(config, ...args)
+//     config = withLess().webpack(config, ...args)
+//   }
+// }
