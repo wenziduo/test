@@ -1,0 +1,21 @@
+{
+  "name": "with-ant-design",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@uiw/react-markdown-editor": "^1.3.0",
+    "@zeit/next-css": "^1.0.1",
+    "antd": "^3.9.2",
+    "aws-amplify": "^2.1.0",
+    "babel-plugin-import": "^1.9.1",
+    "next": "latest",
+    "null-loader": "2.0.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "license": "ISC"
+}

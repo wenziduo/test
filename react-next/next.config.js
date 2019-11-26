@@ -1,28 +1,31 @@
-const withLess = require('@zeit/next-less')
+/* eslint-disable */
 const withCss = require('@zeit/next-css')
-// module.exports = (phase, { defaultConfig }) => {
-//   return {
-//     distDir: 'build',
-//     // useFileSystemPublicRoutes: false // 禁止服务端文件路由
-//     webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
-//       // Perform customizations to webpack config
-//       // Important: return the modified config
-//       return config
-//     },
-//     webpackDevMiddleware: config => {
-//       // Perform customizations to webpack dev middleware config
-//       // Important: return the modified config
-//       return config
-//     }
-//   }
-// }
-module.exports = withLess(withCss())
-// const withLess = require('@zeit/next-less')
-// const withCss = require('@zeit/next-css')
+const withLess = require('@zeit/next-less')
 
-// module.exports = {
-//   webpack(config, ...args) {
-//     config = withCss().webpack(config, ...args)
-//     config = withLess().webpack(config, ...args)
-//   }
-// }
+module.exports = withCss(
+  withLess({
+    webpack: (config, { isServer }) => {
+      if (isServer) {
+        const antStyles = /antd\/.*?\/style\/css.*?/
+        const origExternals = [...config.externals]
+        config.externals = [
+          (context, request, callback) => {
+            if (request.match(antStyles)) return callback()
+            if (typeof origExternals[0] === 'function') {
+              origExternals[0](context, request, callback)
+            } else {
+              callback()
+            }
+          },
+          ...(typeof origExternals[0] === 'function' ? [] : origExternals)
+        ]
+
+        config.module.rules.unshift({
+          test: antStyles,
+          use: 'null-loader'
+        })
+      }
+      return config
+    }
+  })
+)

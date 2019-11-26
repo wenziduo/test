@@ -1,9 +1,6 @@
 import React from 'react'
 // import MarkdownEditor from '@uiw/react-markdown-editor'
-const MarkdownEditor = dynamic(import('@uiw/react-markdown-editor'), {
-  ssr: false
-})
-// const MarkdownEditor = require('@uiw/react-markdown-editor')
+const MarkdownEditor = require('@uiw/react-markdown-editor')
 
 class MarkDownComponent extends React.Component {
   constructor(props) {
@@ -11,9 +8,6 @@ class MarkDownComponent extends React.Component {
     this.state = {
       markdown: ''
     }
-  }
-  componentDidMount() {
-    this.MarkdownEditor = require('@uiw/react-markdown-editor')
   }
   handleMarkDownChange = e => {
     console.log(e)
@@ -25,16 +19,12 @@ class MarkDownComponent extends React.Component {
     this.setState({ markdown: value })
   }
   render() {
-    const isServer = typeof window === 'undefined'
-    const MarkdownEditor = this.MarkdownEditor
     return (
       <div>
-        {!isServer && (
-          <MarkdownEditor
-            value={this.state.markdown}
-            onChange={this.updateMarkdown}
-          />
-        )}
+        <MarkdownEditor
+          value={this.state.markdown}
+          onChange={this.updateMarkdown}
+        />
       </div>
     )
   }
