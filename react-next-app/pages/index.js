@@ -5,12 +5,12 @@ import {
   DatePicker,
   Switch,
   Slider,
-  Button,
+  Button
 } from 'antd'
+import Link from 'next/link'
 
 const FormItem = Form.Item
 const Option = Select.Option
-
 export default () => (
   <div style={{ marginTop: 100 }}>
     <Form layout="horizontal">
@@ -68,6 +68,7 @@ export default () => (
         <Button size="large" style={{ marginLeft: 8 }}>
           Cancel
         </Button>
+        <Link href="/markdown">前往</Link>
       </FormItem>
     </Form>
   </div>
