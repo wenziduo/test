@@ -15,14 +15,32 @@ module.exports = withCss({
             callback()
           }
         },
-        ...(typeof origExternals[0] === 'function' ? [] : origExternals),
+        ...(typeof origExternals[0] === 'function' ? [] : origExternals)
       ]
 
       config.module.rules.unshift({
         test: antStyles,
-        use: 'null-loader',
+        use: 'null-loader'
       })
     }
+    // config.module.rules.push({
+    //   test: /.mdx/,
+    //   use: [
+    //     options.defaultLoaders.babel,
+    //     {
+    //       loader: '@mdx-js/loader',
+    //       options: pluginOptions.options
+    //     }
+    //   ]
+    // })
+    config.module.rules.push({
+      test: /\.md$/,
+      loader: 'rh-markdown-react-loader',
+      options: {
+        className: 'doc',
+        mdRule: 'default'
+      }
+    })
     return config
-  },
+  }
 })

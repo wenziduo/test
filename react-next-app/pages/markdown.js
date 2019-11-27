@@ -1,4 +1,5 @@
 import React from 'react'
+import Demo from '../component/demo'
 // import MarkdownEditor from '@uiw/react-markdown-editor'
 // const MarkdownEditor = require('@uiw/react-markdown-editor')
 
@@ -10,16 +11,14 @@ class MarkDownComponent extends React.Component {
       isWindow: false
     }
   }
-  componentDidMount() {
-    import('@uiw/react-markdown-editor').then(res => {
-      this.MarkdownEditor = res
-      this.setState({
-        isWindow: true
-      })
+  async componentDidMount() {
+    const res = await import('@uiw/react-markdown-editor')
+    this.MarkdownEditor = res.default
+    this.setState({
+      isWindow: true
     })
   }
   handleMarkDownChange = e => {
-    console.log(e)
     this.setState({
       markdown: e.target.value
     })
@@ -29,15 +28,16 @@ class MarkDownComponent extends React.Component {
   }
   render() {
     const MarkdownEditor = this.MarkdownEditor
-    console.log('MarkdownEditor', MarkdownEditor)
+    console.log(MarkdownEditor)
     return (
       <div>
-        {this.isWindow && (
+        {this.state.isWindow && (
           <MarkdownEditor
             value={this.state.markdown}
             onChange={this.updateMarkdown}
           />
         )}
+        <Demo />
       </div>
     )
   }
