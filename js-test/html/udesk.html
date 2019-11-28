@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <script>
+      ;(function(a, h, c, b, f, g) {
+        a['UdeskApiObject'] = f
+        a[f] =
+          a[f] ||
+          function() {
+            ;(a[f].d = a[f].d || []).push(arguments)
+          }
+        g = h.createElement(c)
+        g.async = 1
+        g.src = b
+        c = h.getElementsByTagName(c)[0]
+        c.parentNode.insertBefore(g, c)
+      })(
+        window,
+        document,
+        'script',
+        'https://1764017.s2.udesk.cn/im_client/js/udeskApi.js?1487931175918',
+        'ud'
+      )
+      ud({
+        code: 'xxxx',
+        link: 'https://1764017.s2.udesk.cn/im_client/?web_plugin_id=1',
+        isInvite: true,
+        mode: 'inner',
+        color: '#307AE8',
+        pos_flag: 'srb',
+        language: 'en-us', //语言-英文
+        onlineText: '联系客服，在线咨询',
+        offlineText: '客服下班，请留言',
+        mobile: {
+          //为响应式布局，提供pc、mobile自定制
+          mode: 'blank',
+          color: '#307AE8',
+          pos_flag: 'crb',
+          onlineText: '联系客服，在线咨询',
+          offlineText: '客服下班，请留言'
+        }
+      })
+    </script> -->
+    <script src="https://1764017.s2.udesk.cn/im_client/js/udesk_feedback.js"></script>
+    <script type="text/javascript">
+      if ('undefined' !== typeof UdeskFeedback) {
+        UdeskFeedback.init({
+          url: 'https://1764017.s2.udesk.cn',
+          mode: 'title_suggestion_and_knowledge_search',
+          color: 'black',
+          title: '支持',
+          position: 'left'
+        })
+      }
+    </script>
+  </body>
+</html>
