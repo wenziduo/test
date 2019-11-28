@@ -97,19 +97,19 @@ npm run doc
 
 ## API
 
-### PreviewLayout
+#### PreviewLayout
 
 | 参数     | 说明                       | 类型 | 默认值 | 版本  |
 | :------- | :------------------------- | :--: | :----: | :---: |
 | children | 传递的组件，可以是任意组件 | jsx  |  null  | 0.1.0 |
 
-### MdPreviewer
+#### MdPreviewer
 
 | 参数 | 说明          |  类型  | 默认值 | 版本  |
 | :--- | :------------ | :----: | :----: | :---: |
 | md   | markdown 文档 | string |  null  | 0.1.0 |
 
-### CodePreviewer
+#### CodePreviewer
 
 | 参数     | 说明           |  类型  | 默认值 | 版本  |
 | :------- | :------------- | :----: | :----: | :---: |

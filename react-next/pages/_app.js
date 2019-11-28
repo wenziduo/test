@@ -2,6 +2,7 @@ import App, { Container } from 'next/app'
 import React from 'react'
 import Header from '../component/Header'
 import { parseCookies, setCookie, destroyCookie } from 'nookies'
+import '../public/app.css'
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
