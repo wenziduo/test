@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 // import ReactMarkdown from 'react-markdown/with-html'
-// import AppMarkdown from '../public/test.md'
+import AppMarkdown from '../public/test.md'
 // import CodeBlock from '../component/CodeBlock'
+// const ReactMarkdown = require('react-markdown')
+// const htmlParser = require('react-markdown/plugins/html-parser')
 class Home extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      markdown: '### 蔡雯多',
+      markdown: AppMarkdown,
       isWindow: false
     }
   }
@@ -17,6 +19,9 @@ class Home extends React.Component {
     this.MarkdownEditor = res.default
     this.ReactMarkdown = res1.default
     this.CodeBlock = res2.default
+    // fetch(AppMarkdown)
+    //   .then(res => res.text())
+    //   .then(text => this.setState({ markdown: text }))
     this.setState({
       isWindow: true
     })
@@ -32,8 +37,6 @@ class Home extends React.Component {
   }
   render() {
     const MarkdownEditor = this.MarkdownEditor
-    const ReactMarkdown = this.ReactMarkdown
-    const CodeBlock = this.CodeBlock
     const { markdown } = this.state
     console.log('markdown', markdown)
     return (
@@ -43,21 +46,7 @@ class Home extends React.Component {
             <MarkdownEditor
               value={this.state.markdown}
               onChange={this.updateMarkdown}
-            />
-          )}
-        </div>
-        <div>
-          -------------------------------------------------------------------------------
-        </div>
-        <div>
-          {this.state.isWindow && (
-            <ReactMarkdown
-              className="markdown-body"
-              source={this.state.markdown}
-              escapeHtml={false}
-              renderers={{
-                code: CodeBlock
-              }}
+              visble={false}
             />
           )}
         </div>

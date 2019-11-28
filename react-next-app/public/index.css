@@ -1,0 +1,15 @@
+table,
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 6px 15px;
+}
+table {
+  padding: 25px;
+}
+th {
+  font-size: 13px;
+}
+td {
+  font-size: 12px;
+}

@@ -35,11 +35,7 @@ module.exports = withCss({
     // })
     config.module.rules.push({
       test: /\.md$/,
-      loader: 'rh-markdown-react-loader',
-      options: {
-        className: 'doc',
-        mdRule: 'default'
-      }
+      use: 'raw-loader'
     })
     return config
   }

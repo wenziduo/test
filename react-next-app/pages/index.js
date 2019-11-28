@@ -68,8 +68,15 @@ export default () => (
         <Button size="large" style={{ marginLeft: 8 }}>
           Cancel
         </Button>
-        <Link href="/markdown">markdown</Link>
-        <Link href="/home">home</Link>
+        <div>
+          <Link href="/markdown">markdown</Link>
+        </div>
+        <div>
+          <Link href="/home">home</Link>
+        </div>
+        <div>
+          <Link href="/show">show</Link>
+        </div>
       </FormItem>
     </Form>
   </div>
