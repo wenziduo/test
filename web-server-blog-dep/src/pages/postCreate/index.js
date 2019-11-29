@@ -1,7 +1,7 @@
 import React from 'react'
 import MarkdownEditor from '@uiw/react-markdown-editor'
 import { Button, message, Modal } from 'antd'
-import ModalComponent from './modal'
+import ModalForm from './modal'
 import './index.less'
 
 class PostCreate extends React.Component {
@@ -27,7 +27,7 @@ class PostCreate extends React.Component {
           visble={false}
           height={700}
         />
-        <ModalComponent stateProps={this.state} />
+        <ModalForm stateProps={this.state} />
       </div>
     )
   }

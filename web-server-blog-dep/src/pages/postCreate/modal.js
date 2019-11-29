@@ -1,11 +1,14 @@
 import React from 'react'
 import { Modal, Form, Select, Button, message } from 'antd'
-const { Option } = Select.Option
+const Option = Select.Option
 
 class ModalComponent extends React.Component {
+  constructor(props) {
+    super(props)
+  }
   handleNext = () => {
-    if (!this.props.sateProps.markdown) {
-      message.info('This is a normal message')
+    if (!this.props.stateProps.markdown) {
+      message.warn('文章不能空')
       return
     }
   }
@@ -21,13 +24,13 @@ class ModalComponent extends React.Component {
         sm: { span: 16 }
       }
     }
-    console.log('sateProps', this.props.sateProps)
+    console.log('stateProps', this.props.stateProps)
     return (
       <div style={{ textAlign: 'right', marginTop: 15 }}>
         <Button type="primary" onClick={this.handleNext}>
           下一步
         </Button>
-        <Modal>
+        <Modal visible={false} title="选择分类">
           <Form onSubmit={this.handleSubmit}>
             <Form.Item {...formItemLayout}>
               {getFieldDecorator('classifyId', {
@@ -48,4 +51,4 @@ class ModalComponent extends React.Component {
   }
 }
 
-export default Form.create(ModalComponent)
+export default Form.create()(ModalComponent)
