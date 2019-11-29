@@ -1,14 +1,22 @@
 import React from 'react'
 import MarkdownEditor from '@uiw/react-markdown-editor'
+import { Button, message, Modal } from 'antd'
+import ModalComponent from './modal'
 import './index.less'
 
 class PostCreate extends React.Component {
-  state = {
-    markdown: ''
+  constructor() {
+    super()
+    this.state = {
+      markdown: null
+    }
+    this.updateMarkdown = this.updateMarkdown.bind(this)
   }
-  updateMarkdown = (editor, data, value) => {
-    console.log('editor, data, value', editor, data, value)
-    // this.setState({ markdown: value })
+
+  updateMarkdown(editor, data, value) {
+    const { text } = data
+    const textStr = text.join('\n')
+    this.setState({ markdown: textStr })
   }
   render() {
     return (
@@ -17,7 +25,9 @@ class PostCreate extends React.Component {
           value={this.state.markdown}
           onChange={this.updateMarkdown}
           visble={false}
+          height={700}
         />
+        <ModalComponent stateProps={this.state} />
       </div>
     )
   }
