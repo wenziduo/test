@@ -7,6 +7,10 @@
   "editor.formatOnSave": true,
   // 开启 vscode 文件路径导航
   "breadcrumbs.enabled": true,
+  // prettier 设置语句末尾不加分号
+  "prettier.semi": false,
+  // prettier 设置强制单引号
+  "prettier.singleQuote": true,
   // 选择 vue 文件中 template 的格式化工具
   "vetur.format.defaultFormatter.html": "prettyhtml",
   // 显示 markdown 中英文切换时产生的特殊字符
@@ -34,8 +38,23 @@
     }
   },
   "workbench.settings.enableNaturalLanguageSearch": false,
+  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+  "git.confirmSync": false,
+  "git.autofetch": true,
   "emmet.includeLanguages": {
-    "javascript": "javascriptreact"
+    "javascript": "javascriptreact",
+    "wxml": "html"
   },
-  "git.ignoreLimitWarning": true
+  "arduino.additionalUrls": [
+    "http://arduino.esp8266.com/stable/package_esp8266com_index.json"
+  ],
+  "files.associations": {
+    "*.cjson": "jsonc",
+    "*.wxss": "css",
+    "*.wxs": "javascript"
+  },
+  "minapp-vscode.disableAutoConfig": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "window.zoomLevel": 1,
+  "git.enableSmartCommit": true
 }
