@@ -87,8 +87,6 @@ ReactDOM.render(<App />, document.getElementById('app'))
 
 ### Development
 
-# Development
-
 ```bash
 npm run dev
 npm run type-check:watch

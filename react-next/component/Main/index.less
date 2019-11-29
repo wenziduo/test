@@ -3,14 +3,85 @@
   width: 100%;
   margin: 0 auto;
   display: flex;
-  .ayout-container-left {
+  .layout-container-left {
     width: 100%;
     display: flex;
-    // background-color: hotpink;
   }
-  .ayout-container-right {
+  .layout-container-right {
     width: 380px;
-    display: flex;
-    // background-color: yellowgreen;
+    box-sizing: border-box;
+    padding: 10px;
+    h4.layout-container-right-title {
+      border-bottom: 1px solid #ccc;
+      padding: 8px 0;
+      font-size: 13px;
+      color: #09b597;
+      font-weight: 600;
+      margin-top: 20px;
+    }
+    ul.layout-container-right-ul {
+      flex: 1;
+      margin: 0 15px;
+      li {
+        border-bottom: 1px dashed #ccc;
+        padding: 10px 0 5px 0;
+        display: flex;
+        a {
+          text-decoration: none;
+          color: #666;
+        }
+        a:hover {
+          color: #09b597;
+        }
+        .layout-container-right-ul-li-content {
+          h4 {
+            color: #444;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+          }
+          h4:hover {
+            color: #09b597;
+          }
+          p {
+            color: #888;
+            font-size: 10px;
+            padding: 3px 0;
+          }
+        }
+        .layout-container-right-ul-li-round {
+          width: 70px;
+          height: 70px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid #ddd;
+          border-radius: 50%;
+          .layout-container-right-ul-li-round-img {
+            display: block;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: url(http://img.taopic.com/uploads/allimg/130622/240373-13062210230694.jpg)
+              no-repeat center center;
+            background-size: 65px 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            span {
+              width: 100%;
+              height: 25px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: #777;
+              background-color: rgba(255, 255, 255, 0.5);
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
   }
 }

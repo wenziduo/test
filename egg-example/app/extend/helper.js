@@ -2,13 +2,13 @@
 
 module.exports = {
   success(data) {
-    return {
+    this.ctx.body = {
       data,
       success: true,
     };
   },
   error(message) {
-    return {
+    this.ctx.body = {
       message,
       success: false,
     };

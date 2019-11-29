@@ -18,4 +18,8 @@ module.exports = {
     enable: true,
     package: 'egg-session-redis',
   },
+  mongoose: {
+    enable: true,
+    package: 'egg-mongoose',
+  },
 };

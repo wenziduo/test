@@ -25,6 +25,15 @@ module.exports = appInfo => {
       hostname: '0.0.0.0',
     },
   };
+  // mongodb 数据库设置
+  config.mongoose = {
+    client: {
+      url: 'mongodb://47.98.50.170/web-blog-dep',
+      options: {
+        mongos: true,
+      },
+    },
+  };
   config.view = {
     mapping: {
       '.html': 'nunjucks',
