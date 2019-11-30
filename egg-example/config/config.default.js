@@ -58,7 +58,7 @@ module.exports = appInfo => {
     renew: true, // 延长会话有效期
   };
   // 配置需要的中间件，数组顺序即为中间件的加载顺序
-  config.middleware = [ 'login' ];
+  config.middleware = [ 'login', 'errorHandler' ];
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',

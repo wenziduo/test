@@ -18,7 +18,7 @@ axios.interceptors.response.use(
   response => {
     // console.log('-------axiosResponse---------')
     if (process.broswer) NProgress.done()
-    return response
+    return response.data
   },
   error => {
     // console.log('-------axiosError---------:');

@@ -1,5 +1,6 @@
 import axios from 'axios'
-import { Message } from 'antd'
+import { notification } from 'antd'
+
 var service = axios.create({
   timeout: 5000
 })
@@ -17,22 +18,20 @@ service.interceptors.response.use(
   function(response) {
     const res = response.data
     if (!res.success) {
-      Message({
-        Message: res.message,
-        type: 'error',
-        duration: 5 * 1000
+      notification.error({
+        message: '错误提示',
+        description: res.message
       })
     }
-    return response
+    console.log('response', response)
+    return res
   },
   function(error) {
-    console.log('err' + error)
-    Message({
-      Message: error.message,
-      type: 'error',
-      duration: 5 * 1000
+    notification.error({
+      message: '错误提示',
+      description: '服务错误！'
     })
     return Promise.reject(error)
   }
 )
-export default axios
+export default service

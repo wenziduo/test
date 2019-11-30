@@ -25,9 +25,31 @@ class PostService extends Service {
       content: body.content,
       createTime: new Date(),
     });
+    const resCount = await ctx.model.Post.find({
+      classifyId: body.classifyId,
+    }).count();
+    await ctx.service.classify.updateCount(
+      { classifyId: body.classifyId },
+      resCount
+    );
     if (resCreateTitle) {
-      ctx.helper.error('创建成功');
+      ctx.helper.success('创建成功');
     }
+  }
+  async find(params) {
+    const { ctx } = this;
+    const resFind = await ctx.model.Post.find({ ...params });
+    return resFind;
+  }
+  async detail(params) {
+    const { ctx } = this;
+    const resFindOne = await ctx.model.Post.findOne({ ...params });
+    console.log('resFindOne', resFindOne);
+    if (!resFindOne) {
+      ctx.header.error('文章id不正确');
+      return;
+    }
+    return resFindOne;
   }
 }
 module.exports = PostService;

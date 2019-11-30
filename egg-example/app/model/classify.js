@@ -7,6 +7,7 @@ module.exports = app => {
   const ClassifySchema = new Schema(
     {
       title: { type: String, unique: true, required: true, index: true },
+      count: { type: Number, default: 0 },
     },
     {
       versionKey: false,

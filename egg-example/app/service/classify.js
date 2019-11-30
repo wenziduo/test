@@ -30,5 +30,13 @@ class ClassifyService extends Service {
       ctx.helper.success(resFind);
     }
   }
+  async updateCount(params, count) {
+    const { ctx } = this;
+    const resFind = await ctx.model.Classify.updateOne(
+      { ...params },
+      { $set: { count } }
+    );
+    return resFind;
+  }
 }
 module.exports = ClassifyService;

@@ -22,9 +22,9 @@ class PostCreate extends React.Component {
     return (
       <div className="page page-postCreate">
         <MarkdownEditor
-          value={this.state.markdown}
+          // value={this.state.markdown}
           onChange={this.updateMarkdown}
-          visble={false}
+          visble={true}
           height={700}
         />
         <ModalForm stateProps={this.state} />
