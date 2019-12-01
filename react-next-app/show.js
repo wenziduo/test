@@ -2,8 +2,8 @@ import React from 'react'
 const ReactMarkdown = require('react-markdown')
 const htmlParser = require('react-markdown/plugins/html-parser')
 import AppMarkdown from '../public/test.md'
-import CodeBlock from '../component/CodeBlock'
-import HeadingBlock from '../component/HeadingBlock'
+import CodeBlock from './component/CodeBlock'
+import HeadingBlock from './component/HeadingBlock'
 
 // See https://github.com/aknuds1/html-to-react#with-custom-processing-instructions
 // for more info on the processing instructions

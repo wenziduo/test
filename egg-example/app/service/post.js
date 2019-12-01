@@ -43,6 +43,7 @@ class PostService extends Service {
   }
   async detail(params) {
     const { ctx } = this;
+    console.log('params', params);
     const resFindOne = await ctx.model.Post.findOne({ ...params });
     console.log('resFindOne', resFindOne);
     if (!resFindOne) {

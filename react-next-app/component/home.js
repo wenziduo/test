@@ -15,7 +15,7 @@ class Home extends React.Component {
   async componentDidMount() {
     const res = await import('@uiw/react-markdown-editor')
     const res1 = await import('react-markdown/with-html')
-    const res2 = await import('../component/CodeBlock')
+    const res2 = await import('./CodeBlock')
     this.MarkdownEditor = res.default
     this.ReactMarkdown = res1.default
     this.CodeBlock = res2.default

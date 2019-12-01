@@ -1,5 +1,5 @@
 import React from 'react'
-import Demo from '../component/demo'
+import Demo from './demo'
 // import MarkdownEditor from '@uiw/react-markdown-editor'
 // const MarkdownEditor = require('@uiw/react-markdown-editor')
 

@@ -13,7 +13,6 @@ class Post extends React.Component {
     }
   }
   render() {
-    console.log('this.props.data', this.props.data)
     return (
       <Main>
         <MarkDown dataSouce={this.props.data} />

@@ -1,7 +1,7 @@
 import request from './utils/request'
-export const fetchPostDetail = (data = {}) => {
+export const fetchPostDetail = async function(data = {}) {
   // 请求数据
-  return request({
+  return await request({
     method: 'get',
     url: '/post/detail',
     data
