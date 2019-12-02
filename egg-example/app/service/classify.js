@@ -25,7 +25,7 @@ class ClassifyService extends Service {
     const {
       request: { query },
     } = ctx;
-    const resFind = await ctx.model.Classify.find();
+    const resFind = await ctx.model.Classify.find().sort({ _id: -1 });
     if (resFind) {
       ctx.helper.success(resFind);
     }

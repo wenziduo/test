@@ -38,18 +38,27 @@ class PostService extends Service {
   }
   async find(params) {
     const { ctx } = this;
-    const resFind = await ctx.model.Post.find({ ...params });
+    const resFind = await ctx.model.Post.find({
+      ...params,
+    }).sort({
+      createTime: -1,
+    });
     return resFind;
   }
   async detail(params) {
     const { ctx } = this;
     console.log('params', params);
-    const resFindOne = await ctx.model.Post.findOne({ ...params });
-    console.log('resFindOne', resFindOne);
+    const resFindOne = await ctx.model.Post.findOne(params);
+    console.log('resFindOne.classifyId', resFindOne);
+    const classifyFindOne = await ctx.model.Classify.findOne({
+      _id: resFindOne.classifyId,
+    });
+    console.log('classifyFindOne', classifyFindOne);
     if (!resFindOne) {
       ctx.header.error('文章id不正确');
       return;
     }
+    resFindOne.classifyData = classifyFindOne;
     return resFindOne;
   }
 }

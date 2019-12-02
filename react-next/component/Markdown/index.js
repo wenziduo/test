@@ -38,7 +38,7 @@ class MarkdownComponent extends React.Component {
         {isWindow && (
           <ReactMarkdown
             className="md-editor-markdown"
-            source={this.props.dataSouce.content || null}
+            source={this.props.dataSouce || null}
             // source={AppMarkdown}
             escapeHtml={false}
             renderers={{

@@ -1,21 +1,29 @@
 import Main from '../../component/Main'
 import MarkDown from '../../component/Markdown'
-import { fetchPostDetail } from '../../api'
+import { fetchPostDetail, fetchClassifyList, fetchPostList } from '../../api'
+import { arrGroup } from '../../utils/utils'
 
 class Post extends React.Component {
   static async getInitialProps({ ctx: { pathname, query } }) {
     const _id = query.id
-    console.log('query.id', query.id)
-    const res = await fetchPostDetail({ _id })
-    console.log('res', res)
+    const resDetail = await fetchPostDetail({
+      _id
+    })
+    const resPosList = await fetchPostList()
+    const resClassifyData = await fetchClassifyList()
     return {
-      data: res.data
+      postDetail: resDetail.data,
+      postList: resPosList.data,
+      classifyList: arrGroup(resClassifyData.data, 3)
     }
   }
   render() {
+    const { classifyList, postList, postDetail } = this.props
+    console.log('postDetail', postDetail)
     return (
-      <Main>
-        <MarkDown dataSouce={this.props.data} />
+      <Main classifyData={classifyList} newPosList={postList}>
+        <h3>{postDetail.classifyData.title}</h3>
+        <MarkDown dataSouce={postDetail.content} />
       </Main>
     )
   }

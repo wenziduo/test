@@ -8,6 +8,11 @@ module.exports = app => {
     {
       title: { type: String, unique: true, required: true, index: true },
       count: { type: Number, default: 0 },
+      imgUrl: {
+        type: String,
+        default:
+          'http://img.taopic.com/uploads/allimg/130622/240373-13062210230694.jpg',
+      },
     },
     {
       versionKey: false,
