@@ -12,6 +12,7 @@ module.exports = app => {
       author: { type: String, default: '蚊子' },
       createTime: { type: Date },
       classifyId: { type: String },
+      classifyData: { type: Object },
     },
     {
       versionKey: false,

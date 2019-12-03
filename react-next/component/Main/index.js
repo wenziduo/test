@@ -2,24 +2,27 @@ import React from 'react'
 import Link from 'next/link'
 import { OverlayTrigger, Image, Tooltip, Row, Col } from 'react-bootstrap'
 import moment from 'moment'
-import { fetchClassifyList } from '../../api'
+import { fetchClassifyList, fetchPostList } from '../../api'
+import { arrGroup } from '../../utils/utils'
 import './index.less'
 class MyContainer extends React.Component {
   state = {
-    classifyData: []
+    classifyData: [],
+    newPosList: []
   }
-  // componentDidMount() {
-  //   alert()
-  //   this.handleLoadClassify()
-  // }
-  // handleLoadClassify = async () => {
-  //   const res = await fetchClassifyList()
-  //   console.log('resClassify', res)
-  //   this.setState({ classifyData: arrGroup(res.data, 3) })
-  // }
+  componentDidMount() {
+    this.handleLoadClassify()
+  }
+  handleLoadClassify = async () => {
+    const resClassifyList = await fetchClassifyList()
+    const resPostList = await fetchPostList()
+    this.setState({
+      classifyData: arrGroup(resClassifyList.data || [], 3),
+      newPosList: resPostList.data || []
+    })
+  }
   render() {
-    // const { classifyData } = this.state
-    const { classifyData = [], newPosList = [] } = this.props
+    const { classifyData, newPosList } = this.state
     return (
       <div className="layout-container">
         <div className="layout-container-left">{this.props.children}</div>
@@ -29,10 +32,10 @@ class MyContainer extends React.Component {
             <ul className="layout-container-right-ul">
               {newPosList.map(item => (
                 <li key={item._id}>
-                  <div style={{ minWidth: 80 }}>
+                  <div style={{ minWidth: 125 }}>
                     <Image
-                      width={70}
-                      height={70}
+                      width={110}
+                      height={110}
                       rounded
                       // roundedCircle
                       thumbnail
@@ -44,7 +47,10 @@ class MyContainer extends React.Component {
                   <div className="layout-container-right-ul-li-content">
                     <Link
                       passHref
-                      href={{ pathname: '/post', query: { id: item._id } }}
+                      href={{
+                        pathname: '/post/detail',
+                        query: { id: item._id }
+                      }}
                     >
                       <h4>{item.title}</h4>
                     </Link>
@@ -62,40 +68,42 @@ class MyContainer extends React.Component {
             <h4 className="layout-container-right-title">分类</h4>
             <ul className="layout-container-right-ul">
               {classifyData.map((item, index) => (
-                <li
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center'
-                    // justifyContent: 'space-between'
-                  }}
-                  key={index}
-                >
-                  {item.map(item2 => (
-                    <div key={item2._id} style={{ margin: '0px 5px' }}>
-                      <Link
-                        href={{ pathname: '/about', query: { name: 'Zeit' } }}
-                      >
-                        <a>
-                          <OverlayTrigger
-                            placement={'top'}
-                            overlay={<Tooltip>{item2.title}</Tooltip>}
+                <li key={index}>
+                  <Row style={{ width: '100%', marginBottom: 5 }}>
+                    {item.map((item2, index2) => (
+                      <Col key={item2._id} sm={4}>
+                        <div
+                        // style={index2 === 1 ? { margin: '0px 25px' } : null}
+                        >
+                          <Link
+                            href={{
+                              pathname: '/post/list',
+                              query: { classifyId: item2._id }
+                            }}
                           >
-                            <div className="layout-container-right-ul-li-round">
-                              <div
-                                className="layout-container-right-ul-li-round-img"
-                                style={{
-                                  background: `url(${item2.imgUrl}) no-repeat center center`,
-                                  backgroundSize: '65px 65px'
-                                }}
+                            <a>
+                              <OverlayTrigger
+                                placement={'top'}
+                                overlay={<Tooltip>{item2.title}</Tooltip>}
                               >
-                                <span>{item2.title}</span>
-                              </div>
-                            </div>
-                          </OverlayTrigger>
-                        </a>
-                      </Link>
-                    </div>
-                  ))}
+                                <div className="layout-container-right-ul-li-round">
+                                  <div
+                                    className="layout-container-right-ul-li-round-img"
+                                    style={{
+                                      background: `url(${item2.imgUrl}) no-repeat center center`,
+                                      backgroundSize: '80px 80px'
+                                    }}
+                                  >
+                                    <span>{item2.title}</span>
+                                  </div>
+                                </div>
+                              </OverlayTrigger>
+                            </a>
+                          </Link>
+                        </div>
+                      </Col>
+                    ))}
+                  </Row>
                 </li>
               ))}
             </ul>

@@ -2,6 +2,7 @@ import Main from '../../component/Main'
 import MarkDown from '../../component/Markdown'
 import { fetchPostDetail, fetchClassifyList, fetchPostList } from '../../api'
 import { arrGroup } from '../../utils/utils'
+import moment from 'moment'
 
 class Post extends React.Component {
   static async getInitialProps({ ctx: { pathname, query } }) {
@@ -9,20 +10,23 @@ class Post extends React.Component {
     const resDetail = await fetchPostDetail({
       _id
     })
-    const resPosList = await fetchPostList()
-    const resClassifyData = await fetchClassifyList()
     return {
-      postDetail: resDetail.data,
-      postList: resPosList.data,
-      classifyList: arrGroup(resClassifyData.data, 3)
+      postDetail: resDetail.data
     }
   }
   render() {
-    const { classifyList, postList, postDetail } = this.props
-    console.log('postDetail', postDetail)
+    const { postDetail } = this.props
     return (
-      <Main classifyData={classifyList} newPosList={postList}>
-        <h3>{postDetail.classifyData.title}</h3>
+      <Main>
+        <div style={{ paddingTop: 20 }}>
+          <h3 style={{ textAlign: 'center', fontSize: 16, fontWeight: 700 }}>
+            {postDetail.title}
+          </h3>
+          <h4 style={{ textAlign: 'center', fontSize: 12, color: '#666' }}>
+            from：{postDetail.author}&nbsp;&nbsp;&nbsp; time：
+            {moment(postDetail.createTime).format('YYYY-MM-DD HH:mm')}
+          </h4>
+        </div>
         <MarkDown dataSouce={postDetail.content} />
       </Main>
     )

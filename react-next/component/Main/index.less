@@ -5,10 +5,11 @@
   display: flex;
   .layout-container-left {
     width: 100%;
-    display: flex;
+    // display: flex;
   }
   .layout-container-right {
     width: 380px;
+    min-width: 380px;
     box-sizing: border-box;
     padding: 10px;
     h4.layout-container-right-title {
@@ -34,6 +35,7 @@
           color: #09b597;
         }
         .layout-container-right-ul-li-content {
+          flex: 1;
           h4 {
             color: #444;
             font-size: 11px;
@@ -50,8 +52,8 @@
           }
         }
         .layout-container-right-ul-li-round {
-          width: 70px;
-          height: 70px;
+          width: 90px;
+          height: 90px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -59,8 +61,8 @@
           border-radius: 50%;
           .layout-container-right-ul-li-round-img {
             display: block;
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             display: flex;
             align-items: center;

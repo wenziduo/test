@@ -49,7 +49,7 @@ class PostService extends Service {
     const { ctx } = this;
     console.log('params', params);
     const resFindOne = await ctx.model.Post.findOne(params);
-    console.log('resFindOne.classifyId', resFindOne);
+    console.log('resFindOne.title', resFindOne.title);
     const classifyFindOne = await ctx.model.Classify.findOne({
       _id: resFindOne.classifyId,
     });
