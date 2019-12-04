@@ -24,7 +24,6 @@ class ModalComponent extends React.Component {
       visible: true
     })
     const res = await fetchClassify()
-    console.log(res)
     this.setState({ data: res.data })
   }
   handleCancel = () => {
@@ -43,7 +42,8 @@ class ModalComponent extends React.Component {
         this.setState({ confirmLoading: true })
         const res = await fetchPostAdd({
           ...values,
-          content: this.props.stateProps.markdown
+          content: this.props.stateProps.markdown,
+          text: this.props.stateProps.text
         })
         this.setState({ confirmLoading: false })
         if (res.success) {
@@ -69,7 +69,6 @@ class ModalComponent extends React.Component {
         sm: { span: 16 }
       }
     }
-    console.log('stateProps', this.props.stateProps)
     return (
       <div style={{ textAlign: 'right', marginTop: 15 }}>
         <Button type="primary" onClick={this.handleNext}>

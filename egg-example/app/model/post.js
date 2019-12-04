@@ -8,6 +8,7 @@ module.exports = app => {
     {
       title: { type: String, unique: true, required: true, index: true },
       content: { type: String },
+      text: { type: String },
       watch: { type: Number, default: 0 },
       author: { type: String, default: '蚊子' },
       createTime: { type: Date },

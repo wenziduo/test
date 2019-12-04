@@ -22,9 +22,30 @@ class Post extends React.Component {
           <h3 style={{ textAlign: 'center', fontSize: 16, fontWeight: 700 }}>
             {postDetail.title}
           </h3>
-          <h4 style={{ textAlign: 'center', fontSize: 12, color: '#666' }}>
-            from：{postDetail.author}&nbsp;&nbsp;&nbsp; time：
-            {moment(postDetail.createTime).format('YYYY-MM-DD HH:mm')}
+          <h4
+            style={{
+              fontSize: 12,
+              color: '#666',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <span>
+              <i className="iconfont icon-user" />
+              &nbsp;
+              {postDetail.author}
+            </span>
+            <span style={{ marginLeft: 15 }}>
+              <i className="iconfont icon-riqi2" />
+              &nbsp;
+              {moment(postDetail.createTime).format('YYYY-MM-DD HH:mm:ss')}
+            </span>
+            <span style={{ marginLeft: 15 }}>
+              <i className="iconfont icon-eye" />
+              &nbsp;
+              {postDetail.watch}
+            </span>
           </h4>
         </div>
         <MarkDown dataSouce={postDetail.content} />

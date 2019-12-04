@@ -11,6 +11,10 @@ class PostController extends Controller {
     const { ctx } = this;
     const params = ctx.request.query;
     const res = await ctx.service.post.find(params);
+    res.forEach(item => ({
+      ...item,
+      text: (item.text || '').slice(0, 40),
+    }));
     ctx.helper.success(res);
   }
   async detail() {

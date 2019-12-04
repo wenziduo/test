@@ -1,5 +1,6 @@
 import React from 'react'
 import moment from 'moment'
+import Link from 'next/link'
 import Main from '../../component/Main'
 import { ListGroup, Image, Row, Col } from 'react-bootstrap'
 import { fetchPostList } from '../../api'
@@ -21,21 +22,45 @@ class PostList extends React.Component {
               <ListGroup.Item key={item._id}>
                 <Row gutter={24}>
                   <Col xs={3}>
-                    <Image
-                      src={item.imgUrl}
-                      thumbnail
-                      width={200}
-                      height={200}
-                    />
+                    <Link href="/post/detail" query={{ id: item._id }}>
+                      <Image
+                        src={item.imgUrl}
+                        thumbnail
+                        width={200}
+                        height={200}
+                        style={{ cursor: 'pointer' }}
+                      />
+                    </Link>
                   </Col>
                   <Col xs={7}>
-                    <h3>{item.title}</h3>
-                    {/* <p>{item.content.slice(20)}</p> */}
-                    <p>
+                    <h3>
+                      <Link href="/post/detail" query={{ id: item._id }}>
+                        <span
+                          style={{
+                            color: '#09b597',
+                            fontSize: 16,
+                            fontWeight: 700,
+                            cursor: 'pointer'
+                          }}
+                        >
+                          {item.title}
+                        </span>
+                      </Link>
+                    </h3>
+                    <p style={{ minHeight: 40, fontSize: 13 }}>
+                      <Link href="/post/detail" query={{ id: item._id }}>
+                        <span style={{ cursor: 'pointer' }}>{item.text}</span>
+                      </Link>
+                    </p>
+                    <p style={{ textAlign: 'right', color: '#777' }}>
                       <span>
                         {moment(item.createTime).format('YYYY-MM-DD HH:mm')}
                       </span>
-                      <span>{item.watch}</span>
+                      <span style={{ marginLeft: 15 }}>
+                        <i className="iconfont icon-eye" />
+                        &nbsp;
+                        {item.watch}
+                      </span>
                     </p>
                   </Col>
                 </Row>

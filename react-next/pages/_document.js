@@ -21,6 +21,10 @@ export default class MyDocument extends Document {
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
             crossorigin="anonymous"
           />
+          <link
+            rel="stylesheet"
+            href="//at.alicdn.com/t/font_1544495_ntihtn8y06a.css"
+          />
           <style>{`body { margin: 0 } /* custom! */`}</style>
         </Head>
         <body className="custom_class">

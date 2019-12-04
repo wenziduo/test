@@ -21,8 +21,7 @@ class PostService extends Service {
       return;
     }
     const resCreateTitle = await ctx.model.Post.create({
-      title: body.title,
-      content: body.content,
+      ...body,
       createTime: new Date(),
     });
     const resCount = await ctx.model.Post.find({
@@ -48,7 +47,15 @@ class PostService extends Service {
   async detail(params) {
     const { ctx } = this;
     console.log('params', params);
-    const resFindOne = await ctx.model.Post.findOne(params);
+    const resFindOne = await ctx.model.Post.findOneAndUpdate(
+      params,
+      {
+        $inc: { watch: 1 },
+      },
+      {
+        new: true,
+      }
+    );
     console.log('resFindOne.title', resFindOne.title);
     const classifyFindOne = await ctx.model.Classify.findOne({
       _id: resFindOne.classifyId,
