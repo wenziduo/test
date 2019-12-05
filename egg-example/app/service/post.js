@@ -79,11 +79,13 @@ class PostService extends Service {
       },
       {
         _id: 1,
-        title: 1
+        title: 1,
+        text: 1,
+        imgUrl: 1
       }
     )
       .sort({ _id: -1 })
-      .limit(1)
+      .limit(5)
     const nextData = await ctx.model.Post.find(
       {
         upNum: { $lt: resFindOne.upNum },
@@ -91,13 +93,13 @@ class PostService extends Service {
       },
       {
         _id: 1,
-        title: 1
+        title: 1,
+        text: 1,
+        imgUrl: 1
       }
     )
       .sort({ _id: 1 })
-      .limit(1)
-    console.log('nextData', nextData)
-    resFindOne.prevData = prevData
+      .limit(10 - prevData.length)
     resFindOne.prevData = prevData
     resFindOne.nextData = nextData
     return resFindOne

@@ -1,6 +1,7 @@
 import Main from '../../component/Main'
 import Link from 'next/link'
 import MarkDown from '../../component/Markdown'
+import { Row, Col, Image } from 'react-bootstrap'
 import { fetchPostDetail, fetchClassifyList, fetchPostList } from '../../api'
 import { arrGroup } from '../../utils/utils'
 import moment from 'moment'
@@ -17,6 +18,9 @@ class Post extends React.Component {
   }
   render() {
     const { postDetail } = this.props
+    const guessData = postDetail.prevData
+      .filter((item, index) => index > 0)
+      .concat(postDetail.nextData.filter((item, index) => index > 0))
     return (
       <Main>
         <div style={{ paddingTop: 20 }}>
@@ -80,6 +84,30 @@ class Post extends React.Component {
             </div>
           )}
         </div>
+        {guessData.length > 0 && (
+          <div>
+            <h3>猜你喜欢</h3>
+            <Row>
+              {guessData.map(item => (
+                <Col xs={3} key={item._id}>
+                  <div style={{ flex: 1, display: 'flex' }}>
+                    <Image
+                      src={item.imgUrl}
+                      thumbnail
+                      width={80}
+                      height={80}
+                      style={{ cursor: 'pointer', flexShrink: 0 }}
+                    />
+                    <div style={{ flexShrink: 1 }}>
+                      <h3>{item.title}</h3>
+                      <p>{(item.text || '').slice(0, 40)}</p>
+                    </div>
+                  </div>
+                </Col>
+              ))}
+            </Row>
+          </div>
+        )}
       </Main>
     )
   }

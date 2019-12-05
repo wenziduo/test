@@ -20,7 +20,7 @@ class PostList extends React.Component {
           <ListGroup variant="flush">
             {dataList.map(item => (
               <ListGroup.Item key={item._id}>
-                <Row gutter={24}>
+                <Row>
                   <Col xs={3}>
                     <Link
                       href={{
