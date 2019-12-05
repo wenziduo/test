@@ -1,4 +1,5 @@
 import Main from '../../component/Main'
+import Link from 'next/link'
 import MarkDown from '../../component/Markdown'
 import { fetchPostDetail, fetchClassifyList, fetchPostList } from '../../api'
 import { arrGroup } from '../../utils/utils'
@@ -49,6 +50,36 @@ class Post extends React.Component {
           </h4>
         </div>
         <MarkDown dataSouce={postDetail.content} />
+        <div>
+          {postDetail.prevData.length > 0 && (
+            <div>
+              <span>上一篇：</span>
+              <Link
+                href={{
+                  pathname: '/post/detail',
+                  query: { id: postDetail.prevData[0]._id }
+                }}
+              >
+                {postDetail.prevData[0].title}
+              </Link>
+            </div>
+          )}
+        </div>
+        <div>
+          {postDetail.nextData.length > 0 && (
+            <div>
+              <span>下一篇：</span>
+              <Link
+                href={{
+                  pathname: '/post/detail',
+                  query: { id: postDetail.nextData[0]._id }
+                }}
+              >
+                {postDetail.nextData[0].title}
+              </Link>
+            </div>
+          )}
+        </div>
       </Main>
     )
   }

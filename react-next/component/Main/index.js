@@ -54,10 +54,17 @@ class MyContainer extends React.Component {
                     >
                       <h4>{item.title}</h4>
                     </Link>
-                    <p style={{ color: '#888', fontSize: 10 }}>
+                    <p
+                      style={{
+                        color: '#888',
+                        fontSize: 10,
+                        margin: 0,
+                        minHeight: 30
+                      }}
+                    >
                       <span>{(item.text || '').slice(0, 40)}</span>
                     </p>
-                    <p style={{ textAlign: 'right' }}>
+                    <p style={{ textAlign: 'right', margin: 0 }}>
                       <span>
                         {moment(item.createTime).format('YYYY-MM-DD HH:mm')}
                       </span>

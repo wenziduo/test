@@ -22,7 +22,12 @@ class PostList extends React.Component {
               <ListGroup.Item key={item._id}>
                 <Row gutter={24}>
                   <Col xs={3}>
-                    <Link href="/post/detail" query={{ id: item._id }}>
+                    <Link
+                      href={{
+                        pathname: '/post/detail',
+                        query: { id: item._id }
+                      }}
+                    >
                       <Image
                         src={item.imgUrl}
                         thumbnail
@@ -34,7 +39,12 @@ class PostList extends React.Component {
                   </Col>
                   <Col xs={7}>
                     <h3>
-                      <Link href="/post/detail" query={{ id: item._id }}>
+                      <Link
+                        href={{
+                          pathname: '/post/detail',
+                          query: { id: item._id }
+                        }}
+                      >
                         <span
                           style={{
                             color: '#09b597',
@@ -48,7 +58,12 @@ class PostList extends React.Component {
                       </Link>
                     </h3>
                     <p style={{ minHeight: 40, fontSize: 13 }}>
-                      <Link href="/post/detail" query={{ id: item._id }}>
+                      <Link
+                        href={{
+                          pathname: '/post/detail',
+                          query: { id: item._id }
+                        }}
+                      >
                         <span style={{ cursor: 'pointer' }}>{item.text}</span>
                       </Link>
                     </p>
