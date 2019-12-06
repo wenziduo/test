@@ -23,7 +23,11 @@ class PostService extends Service {
     const resCreateTitle = await ctx.model.Post.create({
       ...body,
       createTime: new Date(),
-      upNum: { $inc: 1 }
+      upNum: ctx.model.Post.findByIdAndUpdate({
+        query: { _id: 'userid' },
+        update: { $inc: { upNum: 1 } },
+        new: true
+      })
     })
     const resCount = await ctx.model.Post.find({
       classifyId: body.classifyId

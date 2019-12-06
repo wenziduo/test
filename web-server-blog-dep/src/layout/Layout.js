@@ -25,7 +25,7 @@ class LayoutComponent extends React.Component {
   render() {
     const { pathname } = this.props.history.location
     return (
-      <div>
+      <div style={{ height: '100%', width: '100%' }}>
         <Preview
           ref={node => {
             this.previewNode = node

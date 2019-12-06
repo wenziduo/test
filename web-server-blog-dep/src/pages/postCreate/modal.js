@@ -48,8 +48,10 @@ class ModalComponent extends React.Component {
       ['title', 'classifyId', 'imgFile'],
       async (error, values) => {
         if (error) return
+        console.log('values', values)
         const resToken = await fetchGetQiniuToken()
-        const resQiniu = await qiniuUpload(values.imgFile.file, resToken.data)
+        const resQiniu = await qiniuUpload(values.imgFile[0], resToken.data)
+        console.log('resQiniu', resQiniu)
         this.setState({ confirmLoading: true })
         const res = await fetchPostAdd({
           ...values,

@@ -8,6 +8,7 @@ module.exports = app => {
     {
       upNum: { type: Number, unique: true },
       title: { type: String, unique: true, required: true, index: true },
+      imgUrl: { type: String },
       content: { type: String },
       text: { type: String },
       watch: { type: Number, default: 0 },
