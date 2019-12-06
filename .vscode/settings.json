@@ -55,6 +55,6 @@
   },
   "minapp-vscode.disableAutoConfig": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 0,
   "git.enableSmartCommit": true
 }

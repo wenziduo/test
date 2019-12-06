@@ -14,3 +14,10 @@ export const fetchPostAdd = async function(data) {
     data
   })
 }
+export const fetchGetQiniuToken = async function(data) {
+  return await request({
+    method: 'get',
+    url: '/api/qiniu/getQiniuToken',
+    data
+  })
+}

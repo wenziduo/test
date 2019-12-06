@@ -59,9 +59,9 @@ module.exports = appInfo => {
   }
   // 七牛云的配置
   config.qiniuyun = {
-    accessKey: '',
-    secretKey: '',
-    bucket: '' // 空间名称
+    accessKey: 'y2suiyW_lcVyb-E1RkJiL-g4WiBMN3f69QjrbtKd',
+    secretKey: '4AgJMyTfmQggOsa2jnCPXvlJInJGNXS1Irm2pfHY',
+    bucket: 'caiwenduo' // 空间名称
   }
   // 配置需要的中间件，数组顺序即为中间件的加载顺序
   config.middleware = ['login', 'errorHandler']
