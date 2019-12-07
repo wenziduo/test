@@ -22,12 +22,7 @@ class PostService extends Service {
     }
     const resCreateTitle = await ctx.model.Post.create({
       ...body,
-      createTime: new Date(),
-      upNum: ctx.model.Post.findByIdAndUpdate({
-        query: { _id: 'userid' },
-        update: { $inc: { upNum: 1 } },
-        new: true
-      })
+      createTime: new Date()
     })
     const resCount = await ctx.model.Post.find({
       classifyId: body.classifyId
@@ -78,7 +73,7 @@ class PostService extends Service {
     // 上一篇和下一篇
     const prevData = await ctx.model.Post.find(
       {
-        upNum: { $gt: resFindOne.upNum },
+        createTime: { $gt: resFindOne.createTime },
         classifyId: resFindOne.classifyId
       },
       {
@@ -92,7 +87,7 @@ class PostService extends Service {
       .limit(5)
     const nextData = await ctx.model.Post.find(
       {
-        upNum: { $lt: resFindOne.upNum },
+        createTime: { $lt: resFindOne.createTime },
         classifyId: resFindOne.classifyId
       },
       {
