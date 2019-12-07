@@ -18,9 +18,6 @@ class Post extends React.Component {
   }
   render() {
     const { postDetail } = this.props
-    const guessData = postDetail.prevData
-      .filter((item, index) => index > 0)
-      .concat(postDetail.nextData.filter((item, index) => index > 0))
     return (
       <Main>
         <div style={{ paddingTop: 20 }}>
@@ -84,23 +81,50 @@ class Post extends React.Component {
             </div>
           )}
         </div>
-        {guessData.length > 0 && (
+        {postDetail.guessData.length > 0 && (
           <div>
             <h3>猜你喜欢</h3>
             <Row>
-              {guessData.map(item => (
+              {postDetail.guessData.map(item => (
                 <Col xs={3} key={item._id}>
                   <div style={{ flex: 1, display: 'flex' }}>
-                    <Image
-                      src={item.imgUrl}
-                      thumbnail
-                      width={80}
-                      height={80}
-                      style={{ cursor: 'pointer', flexShrink: 0 }}
-                    />
-                    <div style={{ flexShrink: 1 }}>
-                      <h3>{item.title}</h3>
-                      <p>{(item.text || '').slice(0, 40)}</p>
+                    <Link href="/post/detail" query={{ id: item._id }}>
+                      <Image
+                        src={item.imgUrl}
+                        thumbnail
+                        width={80}
+                        height={80}
+                        style={{ cursor: 'pointer', flexShrink: 0 }}
+                      />
+                    </Link>
+                    <div style={{ flexShrink: 1, paddingLeft: 8 }}>
+                      <div>
+                        <Link href="/post/detail" query={{ id: item._id }}>
+                          <span
+                            style={{
+                              fontSize: 13,
+                              color: '#09b597',
+                              cursor: 'pointer',
+                              lineHeight: '15px !import',
+                              display: 'inline'
+                            }}
+                          >
+                            {item.title}
+                          </span>
+                        </Link>
+                      </div>
+                      <div>
+                        <span
+                          style={{
+                            fontSize: 10,
+                            color: '#999',
+                            // lineHeight: '15px',
+                            display: 'inline'
+                          }}
+                        >
+                          {(item.text || '').slice(0, 20)}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </Col>

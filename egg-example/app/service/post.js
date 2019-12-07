@@ -60,11 +60,11 @@ class PostService extends Service {
         new: true
       }
     )
-    console.log('resFindOne.title', resFindOne.title)
+    // console.log('resFindOne.title', resFindOne.title)
     const classifyFindOne = await ctx.model.Classify.findOne({
       _id: resFindOne.classifyId
     })
-    console.log('classifyFindOne', classifyFindOne)
+    // console.log('classifyFindOne', classifyFindOne)
     if (!resFindOne) {
       ctx.header.error('文章id不正确')
       return
@@ -73,7 +73,7 @@ class PostService extends Service {
     // 上一篇和下一篇
     const prevData = await ctx.model.Post.find(
       {
-        createTime: { $gt: resFindOne.createTime },
+        createTime: { $gte: resFindOne.createTime },
         classifyId: resFindOne.classifyId
       },
       {
@@ -83,11 +83,12 @@ class PostService extends Service {
         imgUrl: 1
       }
     )
-      .sort({ _id: -1 })
-      .limit(5)
+      .sort({ createTime: 1 })
+      .limit(2)
+    console.log('prevData', prevData)
     const nextData = await ctx.model.Post.find(
       {
-        createTime: { $lt: resFindOne.createTime },
+        createTime: { $lte: resFindOne.createTime },
         classifyId: resFindOne.classifyId
       },
       {
@@ -97,10 +98,32 @@ class PostService extends Service {
         imgUrl: 1
       }
     )
-      .sort({ _id: 1 })
-      .limit(10 - prevData.length)
-    resFindOne.prevData = prevData
-    resFindOne.nextData = nextData
+      .sort({ createTime: -1 })
+      .limit(2)
+    // 猜你喜欢
+    const guessData = await ctx.model.Post.find(
+      {
+        _id: {
+          $nin: [
+            resFindOne._id,
+            prevData.length === 2 ? prevData[1]._id : resFindOne._id,
+            nextData.length === 2 ? nextData[1]._id : resFindOne._id
+          ]
+        },
+        classifyId: resFindOne.classifyId
+      },
+      {
+        _id: 1,
+        title: 1,
+        text: 1,
+        imgUrl: 1
+      }
+    )
+      .sort({ watch: -1 })
+      .limit(8)
+    resFindOne.prevData = prevData.filter((item, index) => index > 0)
+    resFindOne.nextData = nextData.filter((item, index) => index > 0)
+    resFindOne.guessData = guessData
     return resFindOne
   }
 }

@@ -16,7 +16,8 @@ module.exports = app => {
       classifyId: { type: String },
       classifyData: { type: Object },
       prevData: { type: Array },
-      nextData: { type: Array }
+      nextData: { type: Array },
+      guessData: { type: Array }
     },
     {
       versionKey: false
