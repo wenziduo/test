@@ -1,4 +1,4 @@
-import request from '../../utils/request'
+import request from '../../../utils/request'
 
 export const fetchClassify = async function(data) {
   return await request({

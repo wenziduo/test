@@ -10,8 +10,8 @@ import {
   Icon
 } from 'antd'
 import { fetchClassify, fetchPostAdd, fetchGetQiniuToken } from './service'
-import qiniuUpload from '../../utils/qiniuUpload'
-import { urlBase } from '../../utils/qiniuUpload'
+import qiniuUpload from '../../../utils/qiniuUpload'
+import { urlBase } from '../../../utils/qiniuUpload'
 const Option = Select.Option
 
 class ModalComponent extends React.Component {
@@ -92,7 +92,7 @@ class ModalComponent extends React.Component {
         sm: { span: 16 }
       }
     }
-    console.log('imgFile', this.props.form.getFieldValue('imgFile'))
+    // console.log('imgFile', this.props.form.getFieldValue('imgFile'))
     const fileList = this.props.form.getFieldValue('imgFile') || []
     return (
       <div style={{ textAlign: 'right', marginTop: 15 }}>

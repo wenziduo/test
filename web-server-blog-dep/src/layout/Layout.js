@@ -2,8 +2,7 @@ import React from 'react'
 import { Layout, Menu, Icon } from 'antd'
 import { withRouter } from 'react-router'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import PostCreate from '../pages/postCreate'
-import { routerPath } from '../utils/router'
+import { menuData, routeData } from './menu'
 import { Preview } from '../component'
 const { Header, Sider, Content } = Layout
 
@@ -24,6 +23,11 @@ class LayoutComponent extends React.Component {
 
   render() {
     const { pathname } = this.props.history.location
+    const openKey = (
+      menuData.find(item =>
+        item.children.some(item2 => item2.path === pathname)
+      ) || {}
+    ).path
     return (
       <div style={{ height: '100%', width: '100%' }}>
         <Preview
@@ -34,15 +38,32 @@ class LayoutComponent extends React.Component {
         <Layout>
           <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
             <div className="logo" />
-            <Menu theme="dark" mode="inline" selectedKeys={[pathname]}>
-              {routerPath.map(item => (
-                <Menu.Item
+            <Menu
+              theme="dark"
+              mode="inline"
+              selectedKeys={[pathname]}
+              defaultOpenKeys={[openKey]}
+            >
+              {menuData.map(item => (
+                <Menu.SubMenu
                   key={item.path}
-                  onClick={this.handleGoPath.bind(this, item)}
+                  title={
+                    <span>
+                      {item.Icon}
+                      {item.title}
+                    </span>
+                  }
                 >
-                  <Icon type="user" />
-                  <span>{item.title}</span>
-                </Menu.Item>
+                  {item.children.map(item2 => (
+                    <Menu.Item
+                      key={item2.path}
+                      onClick={this.handleGoPath.bind(this, item2)}
+                    >
+                      {item2.Icon}
+                      <span>{item2.title}</span>
+                    </Menu.Item>
+                  ))}
+                </Menu.SubMenu>
               ))}
             </Menu>
           </Sider>
@@ -64,7 +85,13 @@ class LayoutComponent extends React.Component {
               }}
             >
               <Switch>
-                <Route path="/postCreate" component={PostCreate} />
+                {routeData.map(item => (
+                  <Route
+                    path={item.path}
+                    component={item.component}
+                    key={item.path}
+                  />
+                ))}
               </Switch>
             </Content>
           </Layout>

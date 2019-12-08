@@ -24,6 +24,20 @@ export default class MyApp extends App {
       <Container>
         <Header {...pageProps} />
         <Component {...pageProps} />
+        <div
+          className="layout-footer"
+          style={{
+            textAlign: 'center',
+            width: '100%',
+            height: 50,
+            lineHeight: '50px',
+            fontSize: 13,
+            color: '#333',
+            backgroundColor: '#f8f9fa'
+          }}
+        >
+          <span>Copyright © 2017 - 2027 逗儿瓢个人博客</span>
+        </div>
       </Container>
     )
   }

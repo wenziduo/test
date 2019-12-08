@@ -49,7 +49,7 @@ class PostService extends Service {
   async detail(params) {
     const { ctx } = this
     console.log('params', params)
-    const resFindOne = await ctx.model.Post.findOneAndUpdate(
+    const oldResFindOne = await ctx.model.Post.findOneAndUpdate(
       {
         _id: params._id
       },
@@ -60,7 +60,7 @@ class PostService extends Service {
         new: true
       }
     )
-    // console.log('resFindOne.title', resFindOne.title)
+    const resFindOne = oldResFindOne.toJSON({ getters: true }) // console.log('resFindOne.title', resFindOne.title)
     const classifyFindOne = await ctx.model.Classify.findOne({
       _id: resFindOne.classifyId
     })

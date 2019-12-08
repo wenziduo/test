@@ -53,7 +53,7 @@ class Post extends React.Component {
         <MarkDown dataSouce={postDetail.content} />
         <div>
           {postDetail.prevData.length > 0 && (
-            <div>
+            <div style={{ marginTop: 20 }}>
               <span>上一篇：</span>
               <Link
                 href={{
@@ -61,12 +61,14 @@ class Post extends React.Component {
                   query: { id: postDetail.prevData[0]._id }
                 }}
               >
-                {postDetail.prevData[0].title}
+                <span style={{ color: '#09b597', cursor: 'pointer' }}>
+                  {postDetail.prevData[0].title}
+                </span>
               </Link>
             </div>
           )}
         </div>
-        <div>
+        <div style={{ marginTop: 20 }}>
           {postDetail.nextData.length > 0 && (
             <div>
               <span>下一篇：</span>
@@ -76,19 +78,27 @@ class Post extends React.Component {
                   query: { id: postDetail.nextData[0]._id }
                 }}
               >
-                {postDetail.nextData[0].title}
+                <span style={{ color: '#09b597', cursor: 'pointer' }}>
+                  {postDetail.nextData[0].title}
+                </span>
               </Link>
             </div>
           )}
         </div>
         {postDetail.guessData.length > 0 && (
-          <div>
-            <h3>猜你喜欢</h3>
-            <Row>
+          <div style={{ marginTop: 20 }}>
+            <h3 style={{ color: '#09b597', fontWeight: 700 }}>猜你喜欢</h3>
+            <hr />
+            <Row style={{ marginTop: 20, padding: '0 15px' }}>
               {postDetail.guessData.map(item => (
                 <Col xs={3} key={item._id}>
                   <div style={{ flex: 1, display: 'flex' }}>
-                    <Link href="/post/detail" query={{ id: item._id }}>
+                    <Link
+                      href={{
+                        pathname: '/post/detail',
+                        query: { id: item._id }
+                      }}
+                    >
                       <Image
                         src={item.imgUrl}
                         thumbnail
@@ -99,7 +109,12 @@ class Post extends React.Component {
                     </Link>
                     <div style={{ flexShrink: 1, paddingLeft: 8 }}>
                       <div>
-                        <Link href="/post/detail" query={{ id: item._id }}>
+                        <Link
+                          href={{
+                            pathname: '/post/detail',
+                            query: { id: item._id }
+                          }}
+                        >
                           <span
                             style={{
                               fontSize: 13,
