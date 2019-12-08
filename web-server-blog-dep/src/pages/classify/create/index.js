@@ -46,12 +46,13 @@ class Classify extends React.Component {
             新增
           </Button>
         </div>
-        <div>
+        <div style={{ marginTop: 15 }}>
           <Table
             dataSource={tableData}
-            columns={columns()}
-            size="small"
+            columns={columns.call(this)}
+            size="default"
             rowKey="_id"
+            pagination={false}
           />
         </div>
       </div>
