@@ -17,7 +17,7 @@ class MyContainer extends React.Component {
     const resClassifyList = await fetchClassifyList()
     const resPostList = await fetchPostList()
     this.setState({
-      classifyData: arrGroup(resClassifyList.data || [], 3),
+      classifyData: resClassifyList.data,
       newPosList: resPostList.data || []
     })
   }
@@ -84,41 +84,31 @@ class MyContainer extends React.Component {
             <ul className="layout-container-right-ul">
               {classifyData.map((item, index) => (
                 <li key={index}>
-                  <Row style={{ width: '100%', marginBottom: 5 }}>
-                    {item.map((item2, index2) => (
-                      <Col key={item2._id} sm={4}>
+                  <Link
+                    href={{
+                      pathname: '/post/list',
+                      query: { classifyId: item._id }
+                    }}
+                  >
+                    <a style={{ display: 'flex', alignItems: 'center' }}>
+                      <div className="layout-container-right-ul-li-round">
                         <div
-                        // style={index2 === 1 ? { margin: '0px 25px' } : null}
-                        >
-                          <Link
-                            href={{
-                              pathname: '/post/list',
-                              query: { classifyId: item2._id }
-                            }}
-                          >
-                            <a>
-                              <OverlayTrigger
-                                placement={'top'}
-                                overlay={<Tooltip>{item2.title}</Tooltip>}
-                              >
-                                <div className="layout-container-right-ul-li-round">
-                                  <div
-                                    className="layout-container-right-ul-li-round-img"
-                                    style={{
-                                      background: `url(${item2.imgUrl}) no-repeat center center`,
-                                      backgroundSize: '80px 80px'
-                                    }}
-                                  >
-                                    <span>{item2.title}</span>
-                                  </div>
-                                </div>
-                              </OverlayTrigger>
-                            </a>
-                          </Link>
-                        </div>
-                      </Col>
-                    ))}
-                  </Row>
+                          className="layout-container-right-ul-li-round-img"
+                          style={{
+                            background: `url(${item.imgUrl}) no-repeat center center`,
+                            backgroundSize: '40px 40px'
+                          }}
+                        ></div>
+                      </div>
+                      <strong
+                        style={{
+                          marginLeft: 10
+                        }}
+                      >
+                        {item.title}&nbsp;({item.count})
+                      </strong>
+                    </a>
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
 module.exports = app => {
-  const mongoose = app.mongoose;
-  const Schema = mongoose.Schema;
+  const mongoose = app.mongoose
+  const Schema = mongoose.Schema
 
   const ClassifySchema = new Schema(
     {
@@ -11,13 +11,13 @@ module.exports = app => {
       imgUrl: {
         type: String,
         default:
-          'http://img.taopic.com/uploads/allimg/130622/240373-13062210230694.jpg',
-      },
+          'http://img.taopic.com/uploads/allimg/130622/240373-13062210230694.jpg'
+      }
     },
     {
-      versionKey: false,
+      versionKey: false
     }
-  );
+  )
 
-  return mongoose.model('Classify', ClassifySchema);
-};
+  return mongoose.model('Classify', ClassifySchema)
+}

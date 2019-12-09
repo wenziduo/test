@@ -24,13 +24,13 @@ class PostService extends Service {
       ...body,
       createTime: new Date()
     })
-    const resCount = await ctx.model.Post.find({
-      classifyId: body.classifyId
-    }).count()
-    await ctx.service.classify.updateCount(
-      { classifyId: body.classifyId },
-      resCount
-    )
+    const resCount = await ctx.model.Post.find(
+      {
+        classifyId: body.classifyId
+      },
+      { _id: 1 }
+    ).count()
+    await ctx.service.classify.updateCount({ _id: body.classifyId }, resCount)
     if (resCreateTitle) {
       ctx.helper.success('创建成功')
     }

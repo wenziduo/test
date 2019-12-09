@@ -4,20 +4,24 @@ import MarkdownEditor from 'for-editor'
 import { Button, message, Modal, Table } from 'antd'
 import { columns } from './columns'
 import ModalForm from './modal'
-import { fetchClassify } from './service'
+import { fetchClassifyList, fetchClassifyDel } from './service'
 import './index.less'
+import { resolve } from 'dns'
 // const FormItem = Form.Item
 
 class Classify extends React.Component {
   state = {
-    tableData: []
+    tableData: [],
+    tableLoading: false
   }
   componentDidMount() {
     this.loadList()
   }
   loadList = async () => {
-    const resClassify = await fetchClassify()
+    this.setState({ tableLoading: true })
+    const resClassify = await fetchClassifyList()
     this.setState({
+      tableLoading: false,
       tableData: resClassify.data
     })
   }
@@ -32,8 +36,20 @@ class Classify extends React.Component {
       type: 'edit'
     })
   }
+  handleDel = record => {
+    Modal.confirm({
+      title: '操作提示',
+      content: <span style={{ color: 'orangered' }}>是否删除该类别？</span>,
+      onOk: async () => {
+        const resDel = await fetchClassifyDel({ _id: record._id })
+        if (resDel.success) {
+          this.loadList()
+        }
+      }
+    })
+  }
   render() {
-    const { tableData } = this.state
+    const { tableData, tableLoading } = this.state
     return (
       <div className="page page-postCreate">
         <ModalForm
@@ -50,6 +66,7 @@ class Classify extends React.Component {
           <Table
             dataSource={tableData}
             columns={columns.call(this)}
+            loading={tableLoading}
             size="default"
             rowKey="_id"
             pagination={false}

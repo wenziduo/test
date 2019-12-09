@@ -9,9 +9,14 @@ import {
   Upload,
   Icon
 } from 'antd'
-import { fetchClassify, fetchPostAdd, fetchGetQiniuToken } from './service'
-import qiniuUpload from '../../../utils/qiniuUpload'
-import { urlBase } from '../../../utils/qiniuUpload'
+import {
+  fetchClassifyAdd,
+  fetchClassifyEdit,
+  fetchGetQiniuToken
+} from './service'
+import qiniuUpload, { urlBase } from '../../../utils/qiniuUpload'
+// import { urlBase } from '../../../utils/qiniuUpload'
+import { fileTemplete } from '../../../utils'
 const Option = Select.Option
 
 const initState = {
@@ -27,7 +32,8 @@ class ModalComponent extends React.Component {
   }
   setData = data => {
     this.setState({
-      ...data
+      ...data,
+      visible: true
     })
   }
   handleCancel = () => {
@@ -42,24 +48,38 @@ class ModalComponent extends React.Component {
       async (error, values) => {
         if (error) return
         console.log('values', values)
-        const resToken = await fetchGetQiniuToken()
-        const resQiniu = await qiniuUpload(
-          values.imgFile[0].originFileObj,
-          resToken.data
-        )
+        const { type, record } = this.state
+        // 编辑的时候
+        let resQiniu
+        if (!values.imgFile[0].url) {
+          const resToken = await fetchGetQiniuToken()
+          resQiniu = await qiniuUpload(
+            values.imgFile[0].originFileObj,
+            resToken.data
+          )
+        }
         this.setState({ confirmLoading: true })
-        const res = await fetchPostAdd({
-          ...values,
-          content: this.props.stateProps.markdown,
-          text: this.props.stateProps.text,
-          imgUrl: urlBase + resQiniu.key,
-          imgFile: undefined
-        })
+        let res
+        if (type === 'add') {
+          res = await fetchClassifyAdd({
+            ...values,
+            imgUrl: resQiniu ? urlBase + resQiniu.key : values.imgFile[0].url,
+            imgFile: undefined
+          })
+        }
+        if (type === 'edit') {
+          res = await fetchClassifyEdit({
+            ...values,
+            _id: record._id,
+            imgUrl: resQiniu ? urlBase + resQiniu.key : values.imgFile[0].url,
+            imgFile: undefined
+          })
+        }
         this.setState({ confirmLoading: false })
         if (res.success) {
           notification.success({
             message: '操作提示',
-            description: '成功发布该文章！'
+            description: '操作成功！'
           })
           this.handleCancel()
         }
@@ -70,6 +90,8 @@ class ModalComponent extends React.Component {
     return params
   }
   handleUploadChange = ({ file, fileList }) => {
+    console.log('file', file)
+    console.log('fileList', fileList)
     file.status = 'success'
   }
   render() {
@@ -112,7 +134,7 @@ class ModalComponent extends React.Component {
                 }
                 return e && e.fileList
               },
-              initialValue: [],
+              initialValue: record.imgUrl ? [fileTemplete(record.imgUrl)] : [],
               rules: [{ required: true, message: '请上传图片!' }]
             })(
               <Upload
@@ -120,7 +142,7 @@ class ModalComponent extends React.Component {
                 listType="picture-card"
                 customRequest={this.handlecCustomRequest}
                 onPreview={e => {
-                  console.log('e.thumbUrl', e.thumbUrl)
+                  console.log('e.thumbUrl', e)
                   window.open(e.thumbUrl)
                 }}
                 onChange={this.handleUploadChange}

@@ -1,4 +1,4 @@
-import ClassifyCreate from '../pages/classify/create'
+import ClassifyOperate from '../pages/classify/operate'
 import PostCreate from '../pages/post/create'
 import { Icon } from 'antd'
 export const routerPath = [
@@ -7,9 +7,9 @@ export const routerPath = [
     path: '/classify',
     children: [
       {
-        title: '新增类别',
-        path: '/create',
-        component: ClassifyCreate
+        title: '类别操作',
+        path: '/operate',
+        component: ClassifyOperate
       }
     ]
   },
