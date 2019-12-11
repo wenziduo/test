@@ -1,9 +1,10 @@
 import React from 'react'
-import { Layout, Menu, Icon } from 'antd'
+import { Layout, Menu, Icon, Breadcrumb } from 'antd'
 import { withRouter } from 'react-router'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import { menuData, routeData } from './menu'
 import { Preview } from '../component'
+// import { routerData } from '../utils/router'
 const { Header, Sider, Content } = Layout
 
 class LayoutComponent extends React.Component {
@@ -20,6 +21,16 @@ class LayoutComponent extends React.Component {
   handleGoPath = record => {
     this.props.history.push({ pathname: record.path })
   }
+
+  // getBreadcrumb = (cloneData, path, arrayBreadcrumb) => {
+  //   const { pathname } = this.props.history.location
+  //   for (let i=0; i<cloneData.length;i++) {
+  //     const children = cloneData[i].children
+  //     if (cloneData[i].path === path) {
+  //       cloneData
+  //     }
+  //   }
+  // }
 
   render() {
     const { pathname } = this.props.history.location
@@ -75,10 +86,16 @@ class LayoutComponent extends React.Component {
                 onClick={this.toggle}
               />
             </Header>
+            <div style={{ padding: '0 15px' }}>
+              <Breadcrumb style={{ margin: '16px 0' }}>
+                <Breadcrumb.Item>{pathname}</Breadcrumb.Item>
+              </Breadcrumb>
+            </div>
             <Content
               style={{
-                margin: '24px 16px',
-                padding: 24,
+                margin: 15,
+                marginTop: 0,
+                padding: 15,
                 background: '#fff',
                 minHeight: 280,
                 overflowY: 'auto'

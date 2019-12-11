@@ -23,9 +23,10 @@ class ClassifyController extends Controller {
     const { ctx } = this
     const params = ctx.request.body
     const resDel = await ctx.service.classify.delete(params)
-    if (resDel.deletedCount) {
+    console.log('resDel.deletedCount', resDel)
+    if (resDel && resDel.deletedCount) {
       ctx.helper.success('成功删除')
-    } else {
+    } else if (resDel && !resDel.deletedCount) {
       ctx.helper.error('删除失败')
     }
   }

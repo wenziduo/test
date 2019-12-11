@@ -1,8 +1,8 @@
 import React from 'react'
 import { Icon } from 'antd'
-import { routerPath } from '../utils/router'
+import { routerData } from '../utils/router'
 
-export const menuData = routerPath.map(item => {
+export const menuData = routerData.map(item => {
   let fatherIcon
   switch (item.path) {
     case '/post/create':
@@ -34,7 +34,7 @@ export const menuData = routerPath.map(item => {
     })
   }
 })
-export const routeData = routerPath.reduce((total, curr) => {
+export const routeData = routerData.reduce((total, curr) => {
   curr.children.forEach(item => {
     item.path = `${curr.path}${item.path}`
   })

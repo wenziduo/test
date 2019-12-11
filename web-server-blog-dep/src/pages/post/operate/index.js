@@ -9,7 +9,7 @@ import './index.less'
 import { resolve } from 'dns'
 // const FormItem = Form.Item
 
-class Classify extends React.Component {
+class Operate extends React.Component {
   state = {
     tableData: [],
     tableLoading: false
@@ -23,17 +23,6 @@ class Classify extends React.Component {
     this.setState({
       tableLoading: false,
       tableData: resClassify.data
-    })
-  }
-  handleAdd = () => {
-    this.modalFormNode.setData({
-      type: 'add'
-    })
-  }
-  handleEdit = record => {
-    this.modalFormNode.setData({
-      record,
-      type: 'edit'
     })
   }
   handleDel = record => {
@@ -51,18 +40,7 @@ class Classify extends React.Component {
   render() {
     const { tableData, tableLoading } = this.state
     return (
-      <div className="page page-postCreate">
-        <ModalForm
-          wrappedComponentRef={node => {
-            this.modalFormNode = node
-          }}
-          onLoad={this.loadList}
-        />
-        <div>
-          <Button type="primary" onClick={this.handleAdd}>
-            新增
-          </Button>
-        </div>
+      <div className="page page-post-operate">
         <div style={{ marginTop: 15 }}>
           <Table
             dataSource={tableData}
@@ -78,4 +56,4 @@ class Classify extends React.Component {
   }
 }
 
-export default Classify
+export default Operate

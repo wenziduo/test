@@ -59,7 +59,6 @@ class ClassifyService extends Service {
     const resDel = await ctx.model.Classify.deleteOne({
       _id: params._id
     })
-    console.log('resDel', resDel)
     return resDel
   }
   async updateCount(params, count) {

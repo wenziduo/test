@@ -1,7 +1,7 @@
 import ClassifyOperate from '../pages/classify/operate'
 import PostCreate from '../pages/post/create'
 import { Icon } from 'antd'
-export const routerPath = [
+export const routerData = [
   {
     title: '分类',
     path: '/classify',

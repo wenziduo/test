@@ -7,7 +7,7 @@ module.exports = {
       success: true
     }
   },
-  error(message) {
+  async error(message) {
     this.ctx.body = {
       message,
       success: false
