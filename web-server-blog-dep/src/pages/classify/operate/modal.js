@@ -117,7 +117,12 @@ class ModalComponent extends React.Component {
         onOk={this.handleSubmit}
         width="500px"
       >
-        <Form onSubmit={this.handleSubmit}>
+        <Form
+          onSubmit={e => {
+            e.preventDefault()
+            this.handleSubmit()
+          }}
+        >
           <Form.Item {...formItemLayout} label="类别名称">
             {getFieldDecorator('title', {
               initialValue: record.title,
