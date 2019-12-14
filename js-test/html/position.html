@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>测试定位</title>
+<style type="text/css">
+    html{height:100%}
+    body{height:100%;margin:0px;padding:0px}
+    #container{height:200px; width:200px;}
+</style>
+<!-- <script type="text/javascript" src="/Js/JqueryEasyUI/jquery-1.8.0.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<!-- <script type="text/javascript" src="https://api.map.baidu.com/api"></script> -->
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=hUrs8K2OGZWup0wDqLwC5zhE3L7V30dO"></script>
+</script>
+</head>
+<body>
+<input id="province" value="">
+<input id="I_Area" value="">
+<script type="text/javascript">
+var geoc = new BMap.Geocoder();
+var native = new BMap.LocalCity();
+native.get(function(r) {
+	alert(r.name);
+	alert("lat:" + r.center.lat + " lng:" + r.center.lng);
+	geoc.getLocation(r.center,
+	function(rs) {
+		var addComp = rs.addressComponents;
+		$("#province").val(addComp.province);
+		if( addComp.province == addComp.city ){
+			$("#I_Area").val( addComp.district );
+		}else{
+			$("#I_Area").val( addComp.city );
+		}
+	});
+});
+
+</script>
+</body>
+</html>
