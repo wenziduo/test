@@ -36,7 +36,10 @@ class ClassifyService extends Service {
       request: { body }
     } = ctx
     const resFind = await ctx.model.Classify.findOne({
-      title: body.title
+      title: body.title,
+      _id: {
+        $ne: body._id
+      }
     })
     if (resFind) {
       ctx.helper.error('该类别名重名')
