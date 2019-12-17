@@ -56,5 +56,8 @@
   "minapp-vscode.disableAutoConfig": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "window.zoomLevel": 0,
-  "git.enableSmartCommit": true
+  "git.enableSmartCommit": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
