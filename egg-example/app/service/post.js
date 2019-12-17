@@ -11,13 +11,10 @@ class PostService extends Service {
       ctx.helper.error('标题重名，请更换')
       return
     }
-    console.log('body.classifyId', body.classifyId)
     const resFindClassify = await ctx.model.Classify.findOne({
       _id: body.classifyId
     })
-    console.log('body.classifyId', body.classifyId)
     if (!resFindClassify) {
-      ctx.helper.error('该类不存在')
       return
     }
     const resCreateTitle = await ctx.model.Post.create({
@@ -48,7 +45,6 @@ class PostService extends Service {
   }
   async detail(params) {
     const { ctx } = this
-    console.log('params', params)
     const oldResFindOne = await ctx.model.Post.findOneAndUpdate(
       {
         _id: params._id
@@ -85,7 +81,6 @@ class PostService extends Service {
     )
       .sort({ createTime: 1 })
       .limit(2)
-    console.log('prevData', prevData)
     const nextData = await ctx.model.Post.find(
       {
         createTime: { $lte: resFindOne.createTime },

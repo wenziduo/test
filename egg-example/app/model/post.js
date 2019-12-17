@@ -13,11 +13,7 @@ module.exports = app => {
       watch: { type: Number, default: 0 },
       author: { type: String, default: '蚊子' },
       createTime: { type: Date },
-      classifyId: { type: String },
-      classifyData: { type: Object }
-      // prevData: { type: Array },
-      // nextData: { type: Array },
-      // guessData: { type: Array }
+      classifyId: { type: Schema.Types.ObjectId }
     },
     {
       versionKey: false
