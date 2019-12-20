@@ -88,6 +88,7 @@ class ModalComponent extends React.Component {
     )
   }
   handlecCustomRequest = async params => {
+    console.log('params', params)
     return params
   }
   handleUploadChange = ({ file, fileList }) => {
@@ -150,7 +151,6 @@ class ModalComponent extends React.Component {
                   window.open(e.thumbUrl)
                 }}
                 onChange={this.handleUploadChange}
-                onRemove={this.handleRemove}
               >
                 {(this.props.form.getFieldValue('imgFile') || []).length ===
                   0 && <span>+</span>}
