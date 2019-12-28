@@ -30,11 +30,12 @@ module.exports = appInfo => {
     client: {
       url: 'mongodb://47.98.50.170/web-blog-dep',
       options: {
-        mongos: true,
-        autoIndex: false,
+        mongos: true
+        // autoIndex: false,
         // replicaSet: 'rs0',
-        readPreference: 'secondary',
-        w: 'majority'
+        // readPreference: 'secondary',
+        // w: 'majority',
+        // authSouce: 'admin'
       }
     }
   }
