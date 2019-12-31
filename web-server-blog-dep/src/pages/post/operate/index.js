@@ -1,12 +1,8 @@
 import React from 'react'
-// import MarkdownEditor from '@uiw/react-markdown-editor'
-import MarkdownEditor from 'for-editor'
-import { Button, message, Modal, Table } from 'antd'
+import { Modal, Table } from 'antd'
 import { columns } from './columns'
-import ModalForm from './modal'
 import { fetchClassifyList, fetchClassifyDel } from './service'
 import './index.less'
-import { resolve } from 'dns'
 // const FormItem = Form.Item
 
 class Operate extends React.Component {
